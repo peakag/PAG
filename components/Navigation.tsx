@@ -1,13 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, UserCircle, LogOut, Settings, LayoutDashboard } from 'lucide-react'
 import Image from 'next/image'
+import { useAuth } from './AuthProvider'
 
 export default function Navigation() {
+  const { user, logout } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const avatarRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,9 +21,22 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (avatarRef.current && !avatarRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [dropdownOpen])
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
-    // Prevent body scroll when menu is open
     if (!isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -42,19 +59,22 @@ export default function Navigation() {
   const handleNavClick = (item: any, e: React.MouseEvent) => {
     if (item.isAnchor) {
       e.preventDefault()
-      // If we're not on the home page, navigate there first
       if (window.location.pathname !== '/') {
         window.location.href = '/' + item.href
       } else {
-        // If we're already on home page, just scroll to section
         const element = document.querySelector(item.href)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' })
         }
       }
     }
-    // For non-anchor links (like About Us), let the default behavior handle it
   }
+
+  const handleLogout = async () => {
+    await logout();
+    setDropdownOpen(false);
+    window.location.href = '/';
+  };
 
   return (
     <>
@@ -118,19 +138,64 @@ export default function Navigation() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              {user && (
+                <a
+                  href="/dashboard"
+                  className="text-white/90 hover:text-[#4169E1] font-semibold text-sm tracking-[0.01em] transition-all duration-300 ease-in-out relative group px-3 py-2 rounded-md"
+                  style={{ fontWeight: 600 }}
+                >
+                  Dashboard
+                </a>
+              )}
             </div>
 
-            {/* Desktop CTA Button */}
+            {/* Desktop Auth Buttons/User */}
             <div className="hidden md:block">
-              <motion.a 
-                href="/login"
-                className="bg-blue-600 text-white px-6 py-2.5 rounded-md font-medium text-sm transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
-                style={{ fontWeight: 500, textDecoration: 'none' }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Client Portal
-              </motion.a>
+              {!user ? (
+                <motion.a 
+                  href="/login"
+                  className="bg-[#4169E1] text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                  style={{ fontWeight: 600, textDecoration: 'none' }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Client Login
+                </motion.a>
+              ) : (
+                <div className="relative inline-block">
+                  <button
+                    ref={avatarRef}
+                    onClick={() => setDropdownOpen((v) => !v)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-[#4169E1]/20 transition-colors border border-white/10 focus:outline-none"
+                  >
+                    <UserCircle className="text-white" size={28} />
+                  </button>
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute right-0 mt-2 w-56 bg-black border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg z-50 overflow-hidden"
+                      >
+                        <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                          <LayoutDashboard size={18} /> Dashboard
+                        </a>
+                        <a href="/account" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                          <Settings size={18} /> Account Settings
+                        </a>
+                        <button
+                          onClick={handleLogout}
+                          className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-400 hover:bg-red-500/10 transition"
+                        >
+                          <LogOut size={18} /> Sign Out
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -228,19 +293,65 @@ export default function Navigation() {
                     <ArrowRight size={20} className="text-white/50 group-hover:text-blue-400 group-hover:translate-x-1 transition-all duration-300" />
                   </a>
                 ))}
+                {user && (
+                  <a
+                    href="/dashboard"
+                    className="flex items-center justify-between w-full rounded-lg hover:bg-[#4169E1]/10 transition-all duration-300 text-left group mobile-nav-item mt-2"
+                  >
+                    <span className="text-white font-semibold text-base group-hover:text-[#4169E1] transition-colors duration-300">
+                      Dashboard
+                    </span>
+                  </a>
+                )}
               </div>
 
-              {/* Mobile CTA Button */}
+              {/* Mobile Auth/User */}
               <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
-                <motion.a 
-                  href="/login"
-                  className="w-full bg-blue-600 text-white px-6 py-4 rounded-md font-medium text-base transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
-                  style={{ fontWeight: 500, textDecoration: 'none' }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Client Portal
-                </motion.a>
+                {!user ? (
+                  <motion.a 
+                    href="/login"
+                    className="w-full bg-[#4169E1] text-white px-6 py-4 rounded-md font-semibold text-base transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                    style={{ fontWeight: 600, textDecoration: 'none' }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Client Login
+                  </motion.a>
+                ) : (
+                  <div className="relative w-full flex justify-end">
+                    <button
+                      ref={avatarRef}
+                      onClick={() => setDropdownOpen((v) => !v)}
+                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-[#4169E1]/20 transition-colors border border-white/10 focus:outline-none"
+                    >
+                      <UserCircle className="text-white" size={28} />
+                    </button>
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute right-0 mt-2 w-56 bg-black border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg z-50 overflow-hidden"
+                        >
+                          <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                            <LayoutDashboard size={18} /> Dashboard
+                          </a>
+                          <a href="/account" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                            <Settings size={18} /> Account Settings
+                          </a>
+                          <button
+                            onClick={handleLogout}
+                            className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-400 hover:bg-red-500/10 transition"
+                          >
+                            <LogOut size={18} /> Sign Out
+                          </button>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
               </div>
             </motion.div>
           </>
