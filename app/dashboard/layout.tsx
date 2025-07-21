@@ -37,7 +37,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       style={{ minHeight: '100vh' }}
     >
       <div className="flex items-center gap-3 px-6 py-6 border-b border-[rgba(255,255,255,0.08)]">
-        {/* <Image src="/pag-logo.png" alt="Peak Automation Group" width={36} height={36} /> */}
+        <Image src="/pag-logo.png" alt="Peak Automation Group" width={36} height={36} />
         {/* <span className="text-white text-lg font-semibold tracking-wide">Peak Automation Group</span> */}
       </div>
       <nav className="flex-1 flex flex-col gap-1 mt-4">
