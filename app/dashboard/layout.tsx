@@ -37,8 +37,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       style={{ minHeight: '100vh' }}
     >
       <div className="flex items-center gap-3 px-6 py-6 border-b border-[rgba(255,255,255,0.08)]">
-        <Image src="/pag-logo.png" alt="Peak Automation Group" width={36} height={36} />
-        <span className="text-white text-lg font-semibold tracking-wide">Peak Automation Group</span>
+        {/* <Image src="/pag-logo.png" alt="Peak Automation Group" width={36} height={36} /> */}
+        {/* <span className="text-white text-lg font-semibold tracking-wide">Peak Automation Group</span> */}
       </div>
       <nav className="flex-1 flex flex-col gap-1 mt-4">
         {navItems.map(item => {
@@ -110,7 +110,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       {/* Main Content */}
       <main className="flex-1 min-h-screen ml-0 md:ml-64 p-6 md:p-10 transition-all duration-300">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-2">
-          <h1 className="text-white text-2xl font-bold tracking-tight">{pageTitle}</h1>
+          {/* <h1 className="text-white text-2xl font-bold tracking-tight">{pageTitle}</h1> */}
           <div className="text-white/60 text-sm md:text-base">{user?.email}</div>
         </div>
         <div className="bg-transparent w-full h-full">
