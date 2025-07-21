@@ -1,0 +1,582 @@
+'use client'
+
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import { Target, Users, Zap, Linkedin, ArrowLeft } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+export default function AboutUs() {
+  return (
+    <main className="min-h-screen bg-black">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section 
+        className="bg-black relative overflow-hidden"
+        style={{ padding: '120px 0 80px 0' }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at top, rgba(65, 105, 225, 0.1) 0%, transparent 70%)'
+          }}
+        />
+        <div className="container-max relative z-10">
+          {/* Back to Home Button */}
+          <motion.a
+            href="/"
+            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
+            whileHover={{ x: -4 }}
+            transition={{ duration: 0.2 }}
+            style={{ textDecoration: 'none', display: 'inline-block' }}
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </motion.a>
+          
+                    <div className="text-center">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              style={{
+                fontSize: '12px',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: '#4169E1',
+                fontWeight: 600,
+                marginBottom: '24px'
+              }}
+            >
+              ABOUT US
+            </motion.div>
+
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              style={{
+                fontSize: '48px',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                maxWidth: '800px',
+                margin: '0 auto 24px auto',
+                lineHeight: '1.1'
+              }}
+            >
+              The Team Behind Your Retention Revolution
+            </motion.h1>
+
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{
+                fontSize: '20px',
+                color: 'rgba(255, 255, 255, 0.6)',
+                maxWidth: '600px',
+                margin: '0 auto 60px auto',
+                lineHeight: '1.6'
+              }}
+            >
+              We're on a mission to save every gym from losing another member to preventable churn.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section 
+        className="bg-black"
+        style={{ padding: '80px 0' }}
+      >
+        <div className="container-max">
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '36px',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                marginBottom: '32px'
+              }}
+            >
+              Born from Frustration, Built for Results
+            </motion.h2>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '18px',
+                lineHeight: '1.7',
+                color: 'rgba(255, 255, 255, 0.7)'
+              }}
+            >
+              <p style={{ marginBottom: '24px' }}>
+                Peak Automation Group started when we noticed something shocking: gyms were losing $240,000 annually to member churn, yet had no idea who was about to quit until it was too late.
+              </p>
+              
+              <p style={{ marginBottom: '24px' }}>
+                We watched gym owners pour their hearts into creating amazing fitness experiences, only to see members silently slip away. The worst part? Most of these losses were completely preventable.
+              </p>
+              
+              <p style={{ marginBottom: '24px' }}>
+                That's when we decided to combine cutting-edge AI technology with deep fitness industry knowledge to create the first truly intelligent member retention system. One that works 24/7, catches at-risk members before they leave, and automatically brings them back.
+              </p>
+              
+              <p>
+                Today, we're proud to help gyms across Atlanta and beyond transform their retention rates from 50% to 85%+, turning what was once their biggest weakness into their greatest competitive advantage.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Values Section */}
+      <section 
+        className="bg-black"
+        style={{ padding: '60px 0' }}
+      >
+        <div className="container-max">
+          <div 
+            style={{
+              background: 'rgba(65, 105, 225, 0.05)',
+              border: '1px solid rgba(65, 105, 225, 0.1)',
+              borderRadius: '16px',
+              padding: '60px',
+              margin: '60px 0'
+            }}
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '32px',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                marginBottom: '24px',
+                textAlign: 'center'
+              }}
+            >
+              Our Mission
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '20px',
+                color: '#FFFFFF',
+                fontWeight: 500,
+                marginBottom: '48px',
+                textAlign: 'center',
+                lineHeight: '1.5'
+              }}
+            >
+              To empower every gym owner with AI technology that makes member retention automatic, predictable, and profitable — so they can focus on what they do best: changing lives through fitness.
+            </motion.p>
+
+            {/* Values Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                  <Target size={32} color="#4169E1" />
+                </div>
+                <h3
+                  style={{
+                    fontSize: '20px',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    marginBottom: '12px'
+                  }}
+                >
+                  Results Obsessed
+                </h3>
+                <p
+                  style={{
+                    fontSize: '16px',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    lineHeight: '1.6'
+                  }}
+                >
+                  We measure our success by your retained members and protected revenue. If you don't see results, we haven't done our job.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                  <Users size={32} color="#4169E1" />
+                </div>
+                <h3
+                  style={{
+                    fontSize: '20px',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    marginBottom: '12px'
+                  }}
+                >
+                  Member First
+                </h3>
+                <p
+                  style={{
+                    fontSize: '16px',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    lineHeight: '1.6'
+                  }}
+                >
+                  Every automation, every message, every intervention is designed to help members achieve their fitness goals.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                  <Zap size={32} color="#4169E1" />
+                </div>
+                <h3
+                  style={{
+                    fontSize: '20px',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    marginBottom: '12px'
+                  }}
+                >
+                  Effortlessly Powerful
+                </h3>
+                <p
+                  style={{
+                    fontSize: '16px',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    lineHeight: '1.6'
+                  }}
+                >
+                  Complex AI technology made simple. Set it up once, then let it work while you focus on growing your business.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section 
+        className="bg-black"
+        style={{ padding: '80px 0' }}
+      >
+        <div className="container-max">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            style={{
+              fontSize: '36px',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              textAlign: 'center',
+              marginBottom: '60px'
+            }}
+          >
+            Meet Our Co-Founders
+          </motion.h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Kevin Bite */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center"
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '40px'
+              }}
+            >
+              {/* Image */}
+              <div className="mb-6">
+                <div
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: '12px',
+                    border: '2px solid rgba(65, 105, 225, 0.3)',
+                    background: 'rgba(65, 105, 225, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    fontSize: '16px'
+                  }}
+                >
+                  Professional Headshot
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3
+                  style={{
+                    fontSize: '24px',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    marginBottom: '8px'
+                  }}
+                >
+                  Kevin Bite
+                </h3>
+                
+                <p
+                  style={{
+                    fontSize: '16px',
+                    color: '#4169E1',
+                    fontWeight: 500,
+                    marginBottom: '24px'
+                  }}
+                >
+                  Co-Founder & CEO
+                </p>
+
+                <div
+                  style={{
+                    fontSize: '16px',
+                    lineHeight: '1.7',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    marginBottom: '24px'
+                  }}
+                >
+                  <p style={{ marginBottom: '16px' }}>
+                    Kevin co-founded Peak Automation Group after seeing too many gym owners struggle with the same preventable problem: member churn. With a background in both technology and fitness, he understood that the solution wasn't working harder — it was working smarter.
+                  </p>
+                  
+                  <p style={{ marginBottom: '16px', fontStyle: 'italic' }}>
+                    "Every gym owner I met was passionate about helping people get fit, but they were drowning in manual tasks trying to keep members engaged. I knew AI could change that completely. Our platform lets gym owners do what they love while technology handles the retention."
+                  </p>
+                  
+                  <p>
+                    Under Kevin's leadership, Peak Automation Group has helped dozens of gyms save thousands of members and millions in revenue — all through the power of intelligent automation.
+                  </p>
+                </div>
+
+                <motion.a
+                  href="#linkedin"
+                  whileHover={{ color: '#4169E1' }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <Linkedin size={20} />
+                  <span>Connect on LinkedIn</span>
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* Alessandro Fumo */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center"
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '40px'
+              }}
+            >
+              {/* Image */}
+              <div className="mb-6">
+                <div
+                  style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: '12px',
+                    border: '2px solid rgba(65, 105, 225, 0.3)',
+                    background: 'rgba(65, 105, 225, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    fontSize: '16px'
+                  }}
+                >
+                  Professional Headshot
+                </div>
+              </div>
+
+              {/* Content */}
+              <div>
+                <h3
+                  style={{
+                    fontSize: '24px',
+                    color: '#FFFFFF',
+                    fontWeight: 600,
+                    marginBottom: '8px'
+                  }}
+                >
+                  Alessandro Fumo
+                </h3>
+                
+                <p
+                  style={{
+                    fontSize: '16px',
+                    color: '#4169E1',
+                    fontWeight: 500,
+                    marginBottom: '24px'
+                  }}
+                >
+                  Co-Founder & CFO
+                </p>
+
+                <div
+                  style={{
+                    fontSize: '16px',
+                    lineHeight: '1.7',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    marginBottom: '24px'
+                  }}
+                >
+                  <p style={{ marginBottom: '16px' }}>
+                    Alessandro brings deep financial expertise to Peak Automation Group, having spent years analyzing business metrics and optimizing revenue streams. His background in accounting and financial modeling ensures our platform delivers measurable ROI for every gym partner.
+                  </p>
+                  
+                  <p style={{ marginBottom: '16px', fontStyle: 'italic' }}>
+                    "Gym owners were losing money on preventable churn, but they couldn't see the full financial impact. I wanted to build a system that not only saves members but also provides clear financial metrics that prove the value of retention efforts."
+                  </p>
+                  
+                  <p>
+                    As CFO, Alessandro oversees our financial operations and ensures every feature we build translates to measurable revenue growth for gym owners, from detailed ROI calculations to automated financial reporting.
+                  </p>
+                </div>
+
+                <motion.a
+                  href="#linkedin"
+                  whileHover={{ color: '#4169E1' }}
+                  transition={{ duration: 0.2 }}
+                  style={{
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}
+                >
+                  <Linkedin size={20} />
+                  <span>Connect on LinkedIn</span>
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* CTA Section */}
+      <section 
+        className="bg-black"
+        style={{ padding: '80px 0' }}
+      >
+        <div className="container-max">
+          <div className="text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '36px',
+                color: '#FFFFFF',
+                fontWeight: 600,
+                marginBottom: '16px'
+              }}
+            >
+              Ready to Transform Your Retention?
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '18px',
+                color: 'rgba(255, 255, 255, 0.6)',
+                marginBottom: '32px',
+                maxWidth: '600px',
+                margin: '0 auto 32px auto',
+                lineHeight: '1.6'
+              }}
+            >
+              Join the growing community of gym owners who never worry about churn again.
+            </motion.p>
+
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 0 30px rgba(65, 105, 225, 0.4)'
+              }}
+              style={{
+                background: '#4169E1',
+                color: '#FFFFFF',
+                padding: '16px 32px',
+                fontSize: '16px',
+                fontWeight: 600,
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              Start Your Transformation
+            </motion.button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  )
+} 
