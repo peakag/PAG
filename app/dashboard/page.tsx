@@ -1,3 +1,5 @@
+"use client";
+
 import { useAuth } from "../../components/AuthProvider";
 import { Target, Users, DollarSign, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
