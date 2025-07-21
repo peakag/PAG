@@ -13,7 +13,7 @@ async function getCurrentMetrics(profileId: string) {
     .eq("profile_id", profileId)
     .order("date", { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
   if (error) throw error;
   return data;
 }
