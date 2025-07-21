@@ -18,14 +18,12 @@ export type Database = {
         Row: {
           additional_notes: string | null
           created_at: string | null
-          current_members: number | null
           email: string
           first_name: string
           gym_name: string
           gym_size: string
           id: string
           last_name: string
-          monthly_revenue: number | null
           phone: string | null
           preferred_date: string | null
           preferred_time: string | null
@@ -34,14 +32,12 @@ export type Database = {
         Insert: {
           additional_notes?: string | null
           created_at?: string | null
-          current_members?: number | null
           email: string
           first_name: string
           gym_name: string
           gym_size: string
           id?: string
           last_name: string
-          monthly_revenue?: number | null
           phone?: string | null
           preferred_date?: string | null
           preferred_time?: string | null
@@ -50,20 +46,127 @@ export type Database = {
         Update: {
           additional_notes?: string | null
           created_at?: string | null
-          current_members?: number | null
           email?: string
           first_name?: string
           gym_name?: string
           gym_size?: string
           id?: string
           last_name?: string
-          monthly_revenue?: number | null
           phone?: string | null
           preferred_date?: string | null
           preferred_time?: string | null
           updated_at?: string | null
         }
         Relationships: []
+      }
+      gym_metrics: {
+        Row: {
+          created_at: string | null
+          date: string
+          id: string
+          members_saved: number
+          profile_id: string | null
+          retention_rate: number
+          revenue_saved: number
+          total_members: number
+        }
+        Insert: {
+          created_at?: string | null
+          date: string
+          id?: string
+          members_saved: number
+          profile_id?: string | null
+          retention_rate: number
+          revenue_saved: number
+          total_members: number
+        }
+        Update: {
+          created_at?: string | null
+          date?: string
+          id?: string
+          members_saved?: number
+          profile_id?: string | null
+          retention_rate?: number
+          revenue_saved?: number
+          total_members?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gym_metrics_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          gym_name: string
+          id: string
+          phone: string | null
+          plan_type: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          gym_name: string
+          id: string
+          phone?: string | null
+          plan_type: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          gym_name?: string
+          id?: string
+          phone?: string | null
+          plan_type?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      saved_members: {
+        Row: {
+          action_taken: string
+          created_at: string | null
+          id: string
+          member_name: string
+          profile_id: string | null
+          risk_level: string
+          saved_date: string
+        }
+        Insert: {
+          action_taken: string
+          created_at?: string | null
+          id?: string
+          member_name: string
+          profile_id?: string | null
+          risk_level: string
+          saved_date: string
+        }
+        Update: {
+          action_taken?: string
+          created_at?: string | null
+          id?: string
+          member_name?: string
+          profile_id?: string | null
+          risk_level?: string
+          saved_date?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_members_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
