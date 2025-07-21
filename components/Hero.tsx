@@ -255,7 +255,6 @@ function DashboardPreview() {
     <motion.div
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
       style={{
         background: 'linear-gradient(180deg, #0F0F0F 0%, #0A0A0A 100%)',
         border: '1px solid rgba(255, 255, 255, 0.08)',
