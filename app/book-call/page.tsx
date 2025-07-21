@@ -15,8 +15,6 @@ export default function BookCall() {
     phone: '',
     gymName: '',
     gymSize: '',
-    currentMembers: '',
-    monthlyRevenue: '',
     preferredDate: '',
     preferredTime: '',
     additionalNotes: ''
@@ -48,14 +46,6 @@ export default function BookCall() {
       newErrors.phone = 'Please enter a valid phone number'
     }
 
-    // Number validation
-    if (formData.currentMembers && (isNaN(Number(formData.currentMembers)) || Number(formData.currentMembers) < 0)) {
-      newErrors.currentMembers = 'Please enter a valid number of members'
-    }
-    if (formData.monthlyRevenue && (isNaN(Number(formData.monthlyRevenue)) || Number(formData.monthlyRevenue) < 0)) {
-      newErrors.monthlyRevenue = 'Please enter a valid monthly revenue'
-    }
-
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -85,8 +75,6 @@ export default function BookCall() {
         phone: formData.phone.trim() || null,
         gym_name: formData.gymName.trim(),
         gym_size: formData.gymSize,
-        current_members: formData.currentMembers ? parseInt(formData.currentMembers) : null,
-        monthly_revenue: formData.monthlyRevenue ? parseFloat(formData.monthlyRevenue) : null,
         preferred_date: formData.preferredDate,
         preferred_time: formData.preferredTime,
         additional_notes: formData.additionalNotes.trim() || null
@@ -339,51 +327,6 @@ export default function BookCall() {
                         <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
                           <AlertCircle size={14} />
                           {errors.gymSize}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Additional Gym Details */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-white mb-2">
-                        Current Members
-                      </label>
-                      <input
-                        type="number"
-                        value={formData.currentMembers}
-                        onChange={(e) => handleInputChange('currentMembers', e.target.value)}
-                        className={`w-full px-4 py-3 bg-black/50 border rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-200 ${
-                          errors.currentMembers ? 'border-red-500' : 'border-gray-700'
-                        }`}
-                        placeholder="e.g., 250"
-                      />
-                      {errors.currentMembers && (
-                        <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                          <AlertCircle size={14} />
-                          {errors.currentMembers}
-                        </p>
-                      )}
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-white mb-2">
-                        Monthly Revenue
-                      </label>
-                      <input
-                        type="number"
-                        value={formData.monthlyRevenue}
-                        onChange={(e) => handleInputChange('monthlyRevenue', e.target.value)}
-                        className={`w-full px-4 py-3 bg-black/50 border rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors duration-200 ${
-                          errors.monthlyRevenue ? 'border-red-500' : 'border-gray-700'
-                        }`}
-                        placeholder="e.g., 25000"
-                      />
-                      {errors.monthlyRevenue && (
-                        <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
-                          <AlertCircle size={14} />
-                          {errors.monthlyRevenue}
                         </p>
                       )}
                     </div>
