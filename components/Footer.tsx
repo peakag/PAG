@@ -128,7 +128,6 @@ export default function Footer() {
                       color: 'rgba(255, 255, 255, 0.5)',
                       lineHeight: '2.5',
                       textDecoration: 'none',
-                      display: 'block',
                       minHeight: '44px',
                       display: 'flex',
                       alignItems: 'center'
@@ -171,7 +170,6 @@ export default function Footer() {
                       color: 'rgba(255, 255, 255, 0.5)',
                       lineHeight: '2.5',
                       textDecoration: 'none',
-                      display: 'block',
                       minHeight: '44px',
                       display: 'flex',
                       alignItems: 'center'
@@ -214,7 +212,6 @@ export default function Footer() {
                       color: 'rgba(255, 255, 255, 0.5)',
                       lineHeight: '2.5',
                       textDecoration: 'none',
-                      display: 'block',
                       minHeight: '44px',
                       display: 'flex',
                       alignItems: 'center'
@@ -257,7 +254,6 @@ export default function Footer() {
                       color: 'rgba(255, 255, 255, 0.5)',
                       lineHeight: '2.5',
                       textDecoration: 'none',
-                      display: 'block',
                       minHeight: '44px',
                       display: 'flex',
                       alignItems: 'center'
