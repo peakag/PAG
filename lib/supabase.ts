@@ -1,11 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
-import type { Database } from './supabase-types'
+import { createBrowserClient } from '@supabase/ssr';
+import type { Database } from './supabase-types';
 
-const supabaseUrl = 'https://swhylftkrsypvmcfteik.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN3aHlsZnRrcnN5cHZtY2Z0ZWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwNzAzODgsImV4cCI6MjA2ODY0NjM4OH0.ZbEzHugQYLWrkLBZVqttCjD11OpRNKqWih14fsbPKEM'
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
+export const supabase = createBrowserClient<Database>(supabaseUrl, supabaseAnonKey);
 
 // TypeScript types for our booking form data
-export type BookingSubmission = Database['public']['Tables']['booking_submissions']['Insert']
-export type BookingSubmissionRow = Database['public']['Tables']['booking_submissions']['Row'] 
+export type BookingSubmission = Database['public']['Tables']['booking_submissions']['Insert'];
+export type BookingSubmissionRow = Database['public']['Tables']['booking_submissions']['Row']; 
