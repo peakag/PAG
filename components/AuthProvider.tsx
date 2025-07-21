@@ -20,10 +20,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const session = supabase.auth.getSession().then(({ data }) => {
       setUser(data.session?.user ?? null);
       setLoading(false);
+      console.log('AuthProvider: session on mount', data.session);
     });
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       setLoading(false);
+      console.log('AuthProvider: session on auth state change', session);
     });
     return () => {
       listener.subscription.unsubscribe();
@@ -34,6 +36,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
+    const currentSession = await supabase.auth.getSession();
+    console.log('AuthProvider: session after login', currentSession.data.session);
     return { error: error?.message || null };
   };
 
