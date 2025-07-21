@@ -1,43 +1,106 @@
 "use client";
-
 import { useAuth } from "../../components/AuthProvider";
 import { Target, Users, DollarSign, ArrowUpRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import useSWR from "swr";
+import { supabase } from "../../lib/supabase";
 
-const MOCK_METRICS = {
-  retentionRate: 92.4,
-  retentionChange: 2.1, // +2.1% vs last month
-  membersSaved: 37,
-  membersSavedChange: 4.5, // +4.5% vs last month
-  revenueProtected: 12400,
-  revenueChange: 3.2, // +3.2% vs last month
-};
+// Fetching functions
+async function getCurrentMetrics(profileId: string) {
+  const { data, error } = await supabase
+    .from("gym_metrics")
+    .select("*")
+    .eq("profile_id", profileId)
+    .order("date", { ascending: false })
+    .limit(1)
+    .single();
+  if (error) throw error;
+  return data;
+}
 
-const MOCK_ACTIVITY = [
-  { name: "Jane Smith", risk: "High", action: "Automated Outreach", date: "2024-07-21" },
-  { name: "John Doe", risk: "Medium", action: "Manual Call", date: "2024-07-20" },
-  { name: "Emily Johnson", risk: "Low", action: "Email Reminder", date: "2024-07-19" },
-  { name: "Michael Brown", risk: "High", action: "Automated Outreach", date: "2024-07-18" },
-  { name: "Sarah Lee", risk: "Medium", action: "Manual Call", date: "2024-07-17" },
-  { name: "Chris Green", risk: "Low", action: "Email Reminder", date: "2024-07-16" },
-  { name: "Jessica White", risk: "High", action: "Automated Outreach", date: "2024-07-15" },
-  { name: "David Black", risk: "Medium", action: "Manual Call", date: "2024-07-14" },
-  { name: "Ashley Blue", risk: "Low", action: "Email Reminder", date: "2024-07-13" },
-  { name: "Brian Red", risk: "High", action: "Automated Outreach", date: "2024-07-12" },
-  // TODO: Connect to Supabase for real data
-];
+async function getRecentSaves(profileId: string) {
+  const { data, error } = await supabase
+    .from("saved_members")
+    .select("*")
+    .eq("profile_id", profileId)
+    .order("saved_date", { ascending: false })
+    .limit(10);
+  if (error) throw error;
+  return data;
+}
+
+async function getMetricsTrend(profileId: string) {
+  const since = new Date();
+  since.setDate(since.getDate() - 30);
+  const { data, error } = await supabase
+    .from("gym_metrics")
+    .select("date, retention_rate, members_saved, revenue_saved")
+    .eq("profile_id", profileId)
+    .gte("date", since.toISOString().slice(0, 10))
+    .order("date", { ascending: true });
+  if (error) throw error;
+  return data;
+}
 
 export default function DashboardPage() {
   const { user } = useAuth();
   const [now, setNow] = useState(new Date());
+  const [profileId, setProfileId] = useState<string | null>(null);
+
+  // Get profileId from user (assume user.id is uuid)
+  useEffect(() => {
+    if (user?.id) setProfileId(user.id);
+  }, [user]);
 
   useEffect(() => {
     const interval = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
 
-  // TODO: Replace with real gym name from user profile
+  // SWR hooks for data fetching
+  const {
+    data: metrics,
+    error: metricsError,
+    isLoading: metricsLoading,
+    mutate: mutateMetrics
+  } = useSWR(profileId ? ["currentMetrics", profileId] : null, () => getCurrentMetrics(profileId!), { revalidateOnFocus: true });
+
+  const {
+    data: recentSaves,
+    error: savesError,
+    isLoading: savesLoading,
+    mutate: mutateSaves
+  } = useSWR(profileId ? ["recentSaves", profileId] : null, () => getRecentSaves(profileId!), { revalidateOnFocus: true });
+
+  const {
+    data: trend,
+    error: trendError,
+    isLoading: trendLoading,
+    mutate: mutateTrend
+  } = useSWR(profileId ? ["metricsTrend", profileId] : null, () => getMetricsTrend(profileId!), { revalidateOnFocus: true });
+
+  // Real-time subscriptions
+  useEffect(() => {
+    if (!profileId) return;
+    const metricsSub = supabase
+      .channel('realtime:metrics')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'gym_metrics', filter: `profile_id=eq.${profileId}` }, () => mutateMetrics())
+      .subscribe();
+    const savesSub = supabase
+      .channel('realtime:saves')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'saved_members', filter: `profile_id=eq.${profileId}` }, () => mutateSaves())
+      .subscribe();
+    return () => {
+      supabase.removeChannel(metricsSub);
+      supabase.removeChannel(savesSub);
+    };
+  }, [profileId, mutateMetrics, mutateSaves]);
+
+  // TODO: Replace with real gym name from user profile (fetch from profiles table)
   const gymName = "Peak Gym";
+
+  // Loading skeletons
+  const Skeleton = ({ className = "" }) => <div className={`animate-pulse bg-white/10 rounded ${className}`} />;
 
   return (
     <div className="flex flex-col gap-10">
@@ -54,28 +117,34 @@ export default function DashboardPage() {
         {/* Retention Rate */}
         <MetricCard
           icon={<Target className="text-[#4169E1]" size={32} />}
-          value={`${MOCK_METRICS.retentionRate}%`}
+          value={metricsLoading ? <Skeleton className="h-8 w-20" /> : metrics ? `${metrics.retention_rate}%` : "--"}
           label="Retention Rate"
-          change={`+${MOCK_METRICS.retentionChange}% vs last month`}
-          positive
+          change={trendLoading ? <Skeleton className="h-4 w-16" /> : trend && trend.length > 1 ? `${((metrics?.retention_rate ?? 0) - (trend[0]?.retention_rate ?? 0)).toFixed(1)}% vs 30d ago` : "No trend data"}
+          positive={metrics && trend && trend.length > 1 ? metrics.retention_rate >= trend[0].retention_rate : true}
         />
         {/* Members Saved */}
         <MetricCard
           icon={<Users className="text-[#4169E1]" size={32} />}
-          value={MOCK_METRICS.membersSaved}
+          value={metricsLoading ? <Skeleton className="h-8 w-20" /> : metrics ? metrics.members_saved : "--"}
           label="Members Saved This Month"
-          change={`+${MOCK_METRICS.membersSavedChange}% vs last month`}
-          positive
+          change={trendLoading ? <Skeleton className="h-4 w-16" /> : trend && trend.length > 1 ? `${((metrics?.members_saved ?? 0) - (trend[0]?.members_saved ?? 0))} vs 30d ago` : "No trend data"}
+          positive={metrics && trend && trend.length > 1 ? metrics.members_saved >= trend[0].members_saved : true}
         />
         {/* Revenue Protected */}
         <MetricCard
           icon={<DollarSign className="text-[#4169E1]" size={32} />}
-          value={`$${MOCK_METRICS.revenueProtected.toLocaleString()}`}
+          value={metricsLoading ? <Skeleton className="h-8 w-24" /> : metrics ? `$${metrics.revenue_saved?.toLocaleString()}` : "--"}
           label="Revenue Protected"
-          change={`+${MOCK_METRICS.revenueChange}% vs last month`}
-          positive
+          change={trendLoading ? <Skeleton className="h-4 w-16" /> : trend && trend.length > 1 ? `$${((metrics?.revenue_saved ?? 0) - (trend[0]?.revenue_saved ?? 0)).toLocaleString()} vs 30d ago` : "No trend data"}
+          positive={metrics && trend && trend.length > 1 ? metrics.revenue_saved >= trend[0].revenue_saved : true}
         />
       </section>
+      {(metricsError || savesError || trendError) && (
+        <div className="bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg p-4 mt-2">
+          <div className="font-semibold mb-1">Error loading dashboard data</div>
+          <div className="text-sm">{metricsError?.message || savesError?.message || trendError?.message}</div>
+        </div>
+      )}
 
       {/* Recent Activity Section */}
       <section>
@@ -93,18 +162,33 @@ export default function DashboardPage() {
               </tr>
             </thead>
             <tbody>
-              {MOCK_ACTIVITY.map((row, i) => (
-                <tr
-                  key={i}
-                  className="hover:bg-[#4169E1]/10 cursor-pointer transition"
-                  onClick={() => {/* TODO: Show member details modal */}}
-                >
-                  <td className="px-6 py-4 font-medium">{row.name}</td>
-                  <td className="px-6 py-4">{row.risk}</td>
-                  <td className="px-6 py-4">{row.action}</td>
-                  <td className="px-6 py-4">{row.date}</td>
+              {savesLoading ? (
+                Array.from({ length: 5 }).map((_, i) => (
+                  <tr key={i}>
+                    <td className="px-6 py-4"><Skeleton className="h-4 w-24" /></td>
+                    <td className="px-6 py-4"><Skeleton className="h-4 w-16" /></td>
+                    <td className="px-6 py-4"><Skeleton className="h-4 w-20" /></td>
+                    <td className="px-6 py-4"><Skeleton className="h-4 w-20" /></td>
+                  </tr>
+                ))
+              ) : recentSaves && recentSaves.length > 0 ? (
+                recentSaves.map((row: any, i: number) => (
+                  <tr
+                    key={i}
+                    className="hover:bg-[#4169E1]/10 cursor-pointer transition"
+                    onClick={() => {/* TODO: Show member details modal */}}
+                  >
+                    <td className="px-6 py-4 font-medium">{row.member_name}</td>
+                    <td className="px-6 py-4">{row.risk_level}</td>
+                    <td className="px-6 py-4">{row.action_taken}</td>
+                    <td className="px-6 py-4">{new Date(row.saved_date).toLocaleDateString()}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} className="px-6 py-8 text-center text-white/60">No recent activity yet.</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -120,7 +204,7 @@ export default function DashboardPage() {
   );
 }
 
-function MetricCard({ icon, value, label, change, positive }: { icon: React.ReactNode, value: React.ReactNode, label: string, change: string, positive?: boolean }) {
+function MetricCard({ icon, value, label, change, positive }: { icon: React.ReactNode, value: React.ReactNode, label: string, change: React.ReactNode, positive?: boolean }) {
   return (
     <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.08)] rounded-xl p-6 flex flex-col items-start gap-2 shadow-sm transition hover:shadow-lg hover:border-[#4169E1]">
       <div className="mb-2">{icon}</div>
