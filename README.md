@@ -1,3 +1,4 @@
+// Test change: verifying commit history is workingg
 # Peak Automation Group Website
 
 A high-converting B2B SaaS website for Peak Automation Group, built with Next.js 14 and inspired by GitBook's clean, technical design aesthetic.
