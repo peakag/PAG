@@ -6,7 +6,7 @@ import { Star, TrendingUp, Users, Shield } from 'lucide-react'
 const socialProofItems = [
   {
     icon: Star,
-    text: "Trusted by 20+ Atlanta gyms",
+    text: "Trusted by 20+ top gyms",
     color: "text-yellow-400"
   },
   {

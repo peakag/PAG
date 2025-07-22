@@ -771,7 +771,7 @@ export default function TermsOfService() {
                 <div style={{ marginBottom: '24px' }}>
                   <p style={{ marginBottom: '8px' }}><strong>Peak Automation Group</strong></p>
                   <p style={{ marginBottom: '8px' }}>Email: legal@peakautomationgroup.com</p>
-                  <p style={{ marginBottom: '8px' }}>Address: 225 Tidwell Dr. Alpharetta, Georgia 30004</p>
+                  <p style={{ marginBottom: '8px' }}>Address: 225 Tidwell Dr. Alpharetta, GA 30004</p>
                 </div>
 
                 <h2
@@ -908,7 +908,7 @@ export default function TermsOfService() {
                   fontStyle: 'italic',
                   textAlign: 'center'
                 }}>
-                  <strong>By using Peak Automation Group's Service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. These Terms are entered into in Alpharetta, Georgia, and you consent to the exclusive jurisdiction of Georgia courts for any disputes arising from these Terms or your use of the Service.</strong>
+                  <strong>By using Peak Automation Group's Service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. These Terms are entered into in Alpharetta, GA, and you consent to the exclusive jurisdiction of Georgia courts for any disputes arising from these Terms or your use of the Service.</strong>
                 </p>
               </div>
             </div>

@@ -22,8 +22,7 @@ export const metadata: Metadata = {
     'gym member retention software',
     'AI gym retention',
     'stop gym member churn',
-    'gym software Atlanta',
-    'fitness retention system Georgia',
+    'fitness retention system',
     'gym retention',
     'member churn',
     'fitness automation',
@@ -130,8 +129,6 @@ export default function RootLayout({
                 "foundingDate": "2024",
                 "address": {
                   "@type": "PostalAddress",
-                  "addressLocality": "Atlanta",
-                  "addressRegion": "GA",
                   "addressCountry": "US"
                 },
                 "contactPoint": {

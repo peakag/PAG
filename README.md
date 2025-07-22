@@ -207,7 +207,6 @@ The website is set up for:
 - Real metrics and results
 - Security badges
 - Money-back guarantee
-- Local business focus (Atlanta)
 
 ## 🚀 Deployment
 

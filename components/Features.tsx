@@ -53,7 +53,7 @@ const features = [
     icon: Target,
     title: "Intelligent Member Tracking",
     subtitle: "Find Every At-Risk Member",
-    description: "Our AI gym retention system monitors every check-in, payment, and interaction. Unlike traditional gym software, Atlanta fitness businesses using our platform catch disengagement on day 3, not month 3. No more invisible member losses."
+    description: "Our AI gym retention system monitors every check-in, payment, and interaction. Unlike traditional gym software, you catch disengagement on day 3, not month 3. No more invisible member losses."
   },
   {
     icon: Magnet,

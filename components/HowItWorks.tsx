@@ -114,7 +114,7 @@ export default function HowItWorks() {
               lineHeight: '1.6'
             }}
           >
-            Our AI gym retention software integrates seamlessly with your existing systems and starts protecting your member base immediately. Atlanta fitness businesses see results within 30 days.
+            Our AI gym retention software integrates seamlessly with your existing systems and starts protecting your member base immediately. Most gyms see results within 30 days.
           </motion.p>
         </div>
 

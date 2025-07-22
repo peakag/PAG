@@ -77,7 +77,7 @@ export default function ExitIntent() {
                     Wait! Get Our Free Gym Retention Checklist
                   </h3>
                   <p className="text-text-secondary">
-                    Discover the 7 proven strategies that helped 20+ Atlanta gyms reduce member churn by 30% in 90 days.
+                    Discover the 7 proven strategies that helped 20+ gyms reduce member churn by 30% in 90 days.
                   </p>
                 </div>
 

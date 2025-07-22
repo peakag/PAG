@@ -18,8 +18,6 @@ export default function AboutUs() {
     "foundingDate": "2024",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Atlanta",
-      "addressRegion": "GA",
       "addressCountry": "US"
     },
     "contactPoint": {
@@ -194,7 +192,7 @@ export default function AboutUs() {
               </p>
               
               <p>
-                Today, we're proud to help gyms across Atlanta and beyond transform their retention rates from 50% to 85%+, turning what was once their biggest weakness into their greatest competitive advantage.
+                Today, we're proud to help gyms across the country transform their retention rates from 50% to 85%+, turning what was once their biggest weakness into their greatest competitive advantage.
               </p>
             </motion.div>
           </div>

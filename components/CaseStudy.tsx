@@ -130,7 +130,7 @@ export default function CaseStudy() {
             viewport={{ once: true }}
             className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            See how gym owners across Atlanta are transforming their retention rates and boosting revenue with our AI-powered platform.
+            See how gym owners are transforming their retention rates and boosting revenue with our AI-powered platform.
           </motion.p>
         </div>
 
