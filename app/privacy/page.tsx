@@ -2,12 +2,6 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
 export default function PrivacyPolicy() {
-  const currentDate = new Date().toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  })
-
   return (
     <main className="min-h-screen bg-black">
       <Navigation />
@@ -39,7 +33,7 @@ export default function PrivacyPolicy() {
                   marginBottom: '8px'
                 }}
               >
-                <strong>Effective Date:</strong> {currentDate}
+                <strong>Effective Date:</strong> July 21, 2025
               </div>
               
               <div
@@ -48,7 +42,7 @@ export default function PrivacyPolicy() {
                   color: 'rgba(255, 255, 255, 0.6)'
                 }}
               >
-                <strong>Last Updated:</strong> {currentDate}
+                <strong>Last Updated:</strong> July 21, 2025
               </div>
             </div>
 
