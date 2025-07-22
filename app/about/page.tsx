@@ -609,7 +609,8 @@ export default function AboutUs() {
               Join the growing community of gym owners who never worry about churn again.
             </motion.p>
 
-            <motion.button
+            <motion.a
+              href="/book-call"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -627,11 +628,13 @@ export default function AboutUs() {
                 border: 'none',
                 borderRadius: '8px',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                textDecoration: 'none',
+                display: 'inline-block'
               }}
             >
               Start Your Transformation
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </section>
