@@ -1,0 +1,32 @@
+{
+  "name": "Peak Automation Group",
+  "short_name": "PAG",
+  "description": "AI-powered retention system for gyms to reduce member churn by 30% in 90 days",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3B82F6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/pag-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pag-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "health"],
+  "lang": "en-US",
+  "dir": "ltr"
+} 

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ArrowLeft, MessageCircle, Clock, Shield, Users, DollarSign, Zap } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Head from 'next/head'
 
 interface FAQItem {
   question: string
@@ -151,8 +152,41 @@ export default function FAQ() {
     ? faqData 
     : faqData.filter(faq => faq.category === selectedCategory)
 
+  // FAQ Structured Data
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  }
+
   return (
     <main className="min-h-screen bg-black">
+      <Head>
+        <title>Frequently Asked Questions - Peak Automation Group</title>
+        <meta name="description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
+        <meta property="og:title" content="Frequently Asked Questions - Peak Automation Group" />
+        <meta property="og:description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peakautomationgroup.com/faq" />
+        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <meta name="twitter:title" content="Frequently Asked Questions - Peak Automation Group" />
+        <meta name="twitter:description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData)
+          }}
+        />
+      </Head>
       <Navigation />
       
       {/* FAQ Page Content */}

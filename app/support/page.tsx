@@ -4,10 +4,24 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Mail, Clock, MessageCircle, Phone, MapPin, CheckCircle } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Head from 'next/head'
 
 export default function Support() {
   return (
     <main className="min-h-screen bg-black">
+      <Head>
+        <title>Support - Peak Automation Group</title>
+        <meta name="description" content="Get help and support for Peak Automation Group. 24/7 system monitoring, dedicated account management, and comprehensive support for gym retention systems." />
+        <meta property="og:title" content="Support - Peak Automation Group" />
+        <meta property="og:description" content="Get help and support for Peak Automation Group. 24/7 system monitoring, dedicated account management, and comprehensive support for gym retention systems." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peakautomationgroup.com/support" />
+        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <meta name="twitter:title" content="Support - Peak Automation Group" />
+        <meta name="twitter:description" content="Get help and support for Peak Automation Group. 24/7 system monitoring, dedicated account management, and comprehensive support for gym retention systems." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
+      </Head>
       <Navigation />
       
       {/* Support Page Content */}

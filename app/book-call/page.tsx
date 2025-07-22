@@ -6,8 +6,32 @@ import { Calendar, Clock, Phone, Mail, User, Building, ArrowLeft, AlertCircle, C
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { supabase, BookingSubmission } from '@/lib/supabase'
+import Head from 'next/head'
 
 export default function BookCall() {
+  // Book Call page structured data
+  const bookCallStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Peak Automation Group Consultation",
+    "description": "Book a free consultation to learn how our AI-powered retention system can reduce your gym's member churn by 30% in 90 days",
+    "provider": {
+      "@type": "Organization",
+      "name": "Peak Automation Group",
+      "url": "https://peakautomationgroup.com"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "serviceType": "Gym Retention Consultation",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free consultation call"
+    }
+  }
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -100,6 +124,25 @@ export default function BookCall() {
 
   return (
     <main className="min-h-screen bg-black">
+      <Head>
+        <title>Book a Strategy Call - Peak Automation Group</title>
+        <meta name="description" content="Schedule your free 30-minute strategy call to learn how Peak Automation Group can reduce your gym's member churn by 30% in 90 days." />
+        <meta property="og:title" content="Book a Strategy Call - Peak Automation Group" />
+        <meta property="og:description" content="Schedule your free 30-minute strategy call to learn how Peak Automation Group can reduce your gym's member churn by 30% in 90 days." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peakautomationgroup.com/book-call" />
+        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <meta name="twitter:title" content="Book a Strategy Call - Peak Automation Group" />
+        <meta name="twitter:description" content="Schedule your free 30-minute strategy call to learn how Peak Automation Group can reduce your gym's member churn by 30% in 90 days." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(bookCallStructuredData)
+          }}
+        />
+      </Head>
       <Navigation />
       
       {/* Booking Page Content */}

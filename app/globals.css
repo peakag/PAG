@@ -333,3 +333,45 @@ select:focus {
     color: black !important;
   }
 } 
+
+/* Core Web Vitals Optimizations */
+@layer base {
+  /* Font loading optimization */
+  .font-inter {
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
+  
+  /* Image loading optimization */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Reduce layout shift for images */
+  .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus indicators for accessibility */
+  *:focus {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+} 

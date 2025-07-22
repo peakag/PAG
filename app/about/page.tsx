@@ -4,10 +4,70 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Target, Users, Zap, Linkedin, ArrowLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 
 export default function AboutUs() {
+  // About page structured data
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Peak Automation Group",
+    "description": "AI-powered retention system for gyms to reduce member churn by 30% in 90 days",
+    "url": "https://peakautomationgroup.com",
+    "logo": "https://peakautomationgroup.com/pag-logo.png",
+    "foundingDate": "2024",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Atlanta",
+      "addressRegion": "GA",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/peak-automation-group"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Gym Retention Solutions",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI-Powered Member Retention System",
+            "description": "Reduce gym member churn by 30% in 90 days"
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <main className="min-h-screen bg-black">
+      <Head>
+        <title>About Us - Peak Automation Group</title>
+        <meta name="description" content="Meet the team behind Peak Automation Group. We're on a mission to save every gym from losing another member to preventable churn." />
+        <meta property="og:title" content="About Us - Peak Automation Group" />
+        <meta property="og:description" content="Meet the team behind Peak Automation Group. We're on a mission to save every gym from losing another member to preventable churn." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://peakautomationgroup.com/about" />
+        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <meta name="twitter:title" content="About Us - Peak Automation Group" />
+        <meta name="twitter:description" content="Meet the team behind Peak Automation Group. We're on a mission to save every gym from losing another member to preventable churn." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(aboutStructuredData)
+          }}
+        />
+      </Head>
       <Navigation />
       
       {/* Hero Section */}
