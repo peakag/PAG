@@ -9,26 +9,23 @@ export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen bg-black">
       <Navigation />
-      {/* Back to Home Button */}
-      <div className="max-w-4xl mx-auto px-4">
-        <motion.a
-          href="/"
-          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8 mt-8"
-          whileHover={{ x: -4 }}
-          transition={{ duration: 0.2 }}
-          style={{ textDecoration: 'none', display: 'inline-block' }}
-        >
-          <ArrowLeft size={20} />
-          <span>Back to Home</span>
-        </motion.a>
-      </div>
-      
       {/* Privacy Policy Content */}
       <section 
         className="bg-black relative overflow-hidden"
         style={{ padding: '120px 0 100px 0' }}
       >
         <div className="container-max relative z-10">
+          {/* Back to Home Button */}
+          <motion.a
+            href="/"
+            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
+            whileHover={{ x: -4 }}
+            transition={{ duration: 0.2 }}
+            style={{ textDecoration: 'none', display: 'inline-block' }}
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </motion.a>
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16">
