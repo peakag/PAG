@@ -138,68 +138,6 @@ export default function Support() {
                   <Mail size={16} />
                 </motion.a>
               </motion.div>
-
-              {/* Phone Support */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '16px',
-                  padding: 'clamp(2rem, 5vw, 3rem)',
-                  backdropFilter: 'blur(10px)'
-                }}
-              >
-                <div
-                  style={{
-                    width: '64px',
-                    height: '64px',
-                    background: 'rgba(16, 185, 129, 0.1)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '24px'
-                  }}
-                >
-                  <Phone size={32} className="text-green-400" />
-                </div>
-                
-                <h3
-                  style={{
-                    fontSize: '24px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px'
-                  }}
-                >
-                  Phone Support
-                </h3>
-                
-                <p
-                  style={{
-                    fontSize: '16px',
-                    color: 'rgba(255, 255, 255, 0.7)',
-                    lineHeight: '1.6',
-                    marginBottom: '24px'
-                  }}
-                >
-                  Speak directly with our support team for urgent issues or complex questions. 
-                  Available during business hours for immediate assistance.
-                </p>
-                
-                <motion.a
-                  href="tel:+1-555-123-4567"
-                  className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors duration-200 font-medium"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  (555) 123-4567
-                  <Phone size={16} />
-                </motion.a>
-              </motion.div>
             </div>
 
             {/* Business Hours */}
