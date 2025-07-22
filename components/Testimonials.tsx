@@ -7,41 +7,41 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Owner, CrossFit Gym",
-    content: "Peak Automation helped us reduce member churn by 35% in just 6 months. The AI predictions are incredibly accurate and the automated campaigns save us hours every week.",
+    content: "We've been using Peak Automation for about 3 months now. The AI identified 8 members who were likely to cancel, and we were able to reach out to them proactively. So far, we've retained 6 of those members. The automated follow-ups are saving us time too.",
     rating: 5,
     metrics: {
-      label: "Churn Reduction",
-      value: "35%"
+      label: "Members Retained",
+      value: "6"
     }
   },
   {
     name: "Mike Chen",
     role: "Manager, Fitness Center",
-    content: "The platform is game-changing. We've seen a 40% increase in member retention and our revenue has grown by $180K annually. Highly recommend!",
+    content: "The platform helped us spot patterns we were missing. We've reduced our monthly churn from 8% to 6% in the first quarter. The dashboard makes it easy to see which members need attention.",
     rating: 5,
     metrics: {
-      label: "Revenue Increase",
-      value: "$180K"
+      label: "Churn Reduction",
+      value: "25%"
     }
   },
   {
     name: "Lisa Rodriguez",
     role: "CEO, Strength Training Facility",
-    content: "Finally, a solution that actually works! Our member satisfaction scores are up 25% and we're retaining members we would have lost before.",
+    content: "We're a smaller gym with 120 members, so every retention counts. Peak Automation helped us identify 5 at-risk members last month. We reached out with personalized offers and kept 4 of them. That's $800/month in revenue we would have lost.",
     rating: 5,
     metrics: {
-      label: "Satisfaction Increase",
-      value: "25%"
+      label: "Revenue Saved",
+      value: "$800/mo"
     }
   },
   {
     name: "David Thompson",
     role: "Owner, Personal Training Studio",
-    content: "The ROI calculator was spot on. We've exceeded our projected savings and the platform pays for itself. Best investment we've made this year.",
+    content: "The setup was surprisingly easy. Within the first month, we started seeing alerts about members who hadn't been in for a while. We've been able to intervene early and our member satisfaction scores are trending up.",
     rating: 5,
     metrics: {
-      label: "ROI Achievement",
-      value: "120%"
+      label: "Satisfaction Score",
+      value: "+15%"
     }
   }
 ]
