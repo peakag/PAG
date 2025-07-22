@@ -7,6 +7,9 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { supabase, BookingSubmission } from '@/lib/supabase'
 import Head from 'next/head'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import { parseISO, isValid } from 'date-fns'
 
 export default function BookCall() {
   // Book Call page structured data
@@ -382,15 +385,16 @@ export default function BookCall() {
                         <Calendar size={16} className="inline mr-2" />
                         Preferred Date *
                       </label>
-                      <input
-                        type="date"
+                      <DatePicker
+                        selected={formData.preferredDate ? parseISO(formData.preferredDate) : null}
+                        onChange={date => handleInputChange('preferredDate', date && isValid(date) ? date.toISOString().split('T')[0] : '')}
+                        minDate={new Date()}
+                        dateFormat="yyyy-MM-dd"
+                        className={`w-full px-4 py-3 bg-black/50 border rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors duration-200 ${errors.preferredDate ? 'border-red-500' : 'border-gray-700'}`}
+                        placeholderText="Select a date"
                         required
-                        value={formData.preferredDate}
-                        onChange={(e) => handleInputChange('preferredDate', e.target.value)}
-                        min={new Date().toISOString().split('T')[0]}
-                        className={`w-full px-4 py-3 bg-black/50 border rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors duration-200 ${
-                          errors.preferredDate ? 'border-red-500' : 'border-gray-700'
-                        }`}
+                        autoComplete="off"
+                        showPopperArrow={false}
                       />
                       {errors.preferredDate && (
                         <p className="text-red-400 text-sm mt-1 flex items-center gap-1">
