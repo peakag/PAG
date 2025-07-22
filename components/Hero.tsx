@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import { ArrowRight, Play, BarChart3 } from 'lucide-react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 // Animated Number Component
@@ -550,6 +550,17 @@ function DashboardPreview() {
 }
 
 export default function Hero() {
+  // Mobile detection (safe, client-only)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  // Reduced motion detection
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <section 
       id="hero" 
@@ -591,12 +602,12 @@ export default function Hero() {
       <div className="container-max relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
           {/* Left Side - Text Content */}
-          <div className="text-left">
+          <div className={`text-left ${isMobile ? 'mt-20' : ''}`}> {/* Lower on mobile */}
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6) }}
               style={{
                 background: 'rgba(65, 105, 225, 0.1)',
                 border: '1px solid rgba(65, 105, 225, 0.2)',
@@ -615,9 +626,9 @@ export default function Hero() {
 
             {/* Main Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: isMobile ? 15 : 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.4 : 0.8), delay: 0.2 }}
               className="h1"
               style={{
                 marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
@@ -636,9 +647,9 @@ export default function Hero() {
 
             {/* Subheadline */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.4 }}
               className="body-text"
               style={{
                 color: 'rgba(255, 255, 255, 0.7)',
@@ -650,9 +661,9 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.6 }}
               className="flex flex-col sm:flex-row space-responsive mb-16"
             >
               <motion.a
@@ -701,9 +712,9 @@ export default function Hero() {
 
             {/* Statistics */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.8 }}
               className="grid grid-cols-3 space-responsive"
               style={{ opacity: 0.7 }}
             >
