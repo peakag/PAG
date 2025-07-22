@@ -39,7 +39,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="flex items-center gap-3 px-6 py-6 border-b border-[rgba(255,255,255,0.08)]">
         <Image 
           src="/pag-logo.png" 
-          alt="Peak Automation Group" 
+          alt="Peak Automation Group - AI Gym Member Retention Software" 
           width={36} 
           height={36}
           priority={true}

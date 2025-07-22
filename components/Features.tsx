@@ -45,39 +45,39 @@ function FloatingParticle({ delay = 0, duration = 20, size = 4, opacity = 0.02 }
 const features = [
   {
     icon: AlertTriangle,
-    title: "The Early Warning System",
-    subtitle: "Your 21-Day Crystal Ball",
-    description: "Forget finding out when they cancel. Know 3 weeks before they even decide. Our AI tracks 47 behavioral signals — from missed classes to app opens — and alerts you the moment someone starts slipping. Sarah missed spin class twice? We're already on it."
+    title: "AI-Powered Early Warning System",
+    subtitle: "Predict Member Churn 21 Days Early",
+    description: "Our gym member retention software tracks 47 behavioral signals using advanced AI algorithms. From missed classes to app engagement patterns, we identify at-risk members before they decide to cancel. Stop gym member churn before it starts."
   },
   {
     icon: Target,
-    title: "The Ghost Hunter",
-    subtitle: "Finds Every MIA Member",
-    description: "That member who \"just stopped coming\"? We catch them on day 3, not month 3. Our AI monitors every check-in, spots patterns you'd never see, and triggers saves before they become statistics. No more invisible losses."
+    title: "Intelligent Member Tracking",
+    subtitle: "Find Every At-Risk Member",
+    description: "Our AI gym retention system monitors every check-in, payment, and interaction. Unlike traditional gym software, Atlanta fitness businesses using our platform catch disengagement on day 3, not month 3. No more invisible member losses."
   },
   {
     icon: Magnet,
-    title: "The Win-Back Machine",
-    subtitle: "Brings Them Back (Automatically)",
-    description: "Stop crafting desperate \"we miss you\" emails. Our AI sends the perfect message at the perfect time — whether it's a workout reminder, a coach check-in, or a limited-time offer. Each member gets what actually works for them. You don't lift a finger."
+    title: "Automated Retention Campaigns",
+    subtitle: "Bring Members Back Automatically",
+    description: "Stop crafting generic retention emails. Our fitness retention system sends personalized messages at the perfect time — whether it's a workout reminder, coach check-in, or limited-time offer. Each member gets what actually works for them."
   },
   {
     icon: Shield,
-    title: "The Revenue Protector",
-    subtitle: "Never Lose Another Payment",
-    description: "Expired cards killed $2,400 of your revenue last month. Our AI catches them 14 days early, sends smart reminders, and updates payment info automatically. Your recurring revenue stays recurring. Period."
+    title: "Payment Failure Prevention",
+    subtitle: "Protect Your Revenue Stream",
+    description: "Expired cards and failed payments kill gym revenue. Our gym member retention software catches payment issues 14 days early, sends smart reminders, and updates payment info automatically. Keep your recurring revenue flowing."
   },
   {
     icon: BarChart3,
-    title: "The Success Scorecard",
-    subtitle: "Know Everything. In Real-Time.",
-    description: "Stop guessing what works. See who's at risk, who's saved, and exactly how much money you're keeping. Every retention win tracked. Every dollar saved counted. ROI proven daily. Numbers don't lie."
+    title: "Real-Time Analytics Dashboard",
+    subtitle: "Track Retention Success Daily",
+    description: "Stop guessing what works. Our comprehensive dashboard shows who's at risk, who's been saved, and exactly how much money you're keeping. Every retention win tracked. Every dollar saved counted. ROI proven daily."
   },
   {
     icon: TrendingUp,
-    title: "The Profit Maximizer",
+    title: "Revenue Maximization Engine",
     subtitle: "Turn Saves Into Upsells",
-    description: "Members you save are 3x more likely to upgrade. Our AI identifies perfect moments to suggest personal training, premium memberships, or add-ons. Save them today. Upsell them tomorrow. Watch revenue soar."
+    description: "Members you save are 3x more likely to upgrade. Our AI gym retention software identifies perfect moments to suggest personal training, premium memberships, or add-ons. Save them today, upsell them tomorrow, watch revenue soar."
   }
 ]
 
@@ -100,67 +100,38 @@ export default function Features() {
             opacity={0.015 + Math.random() * 0.02}
           />
         ))}
-        
-        {/* Subtle Grid Pattern */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `
-              linear-gradient(rgba(255, 255, 255, 0.005) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.005) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
       </div>
 
       <div className="container-max relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-6"
-            style={{
-              fontSize: '12px',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: '#4169E1',
-              fontWeight: 600
-            }}
-          >
-            THE PEAK SYSTEM
-          </motion.div>
-          
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="h2"
+            transition={{ duration: 0.6 }}
             style={{
-              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+              lineHeight: '1.2'
             }}
           >
-            Catch Them Before They Cancel
+            AI Gym Retention Software Features
           </motion.h2>
-          
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="body-text"
+            transition={{ duration: 0.6, delay: 0.1 }}
             style={{
-              color: 'rgba(255, 255, 255, 0.5)',
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
+              color: 'rgba(255, 255, 255, 0.7)',
               maxWidth: '600px',
-              margin: '0 auto'
+              margin: '0 auto',
+              lineHeight: '1.6'
             }}
           >
-                            Our AI agents work 24/7 to save every at-risk member. No manual work. No missed warnings. Just pure retention on autopilot.
+            Our comprehensive gym member retention software combines AI technology with proven strategies to stop member churn before it impacts your Atlanta fitness business.
           </motion.p>
         </div>
 
@@ -253,6 +224,152 @@ export default function Features() {
             )
           })}
         </div>
+      </div>
+
+      {/* Keyword-Rich Section */}
+      <div className="container-max mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          style={{
+            background: 'rgba(255, 255, 255, 0.02)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '16px',
+            padding: 'clamp(2rem, 5vw, 3rem)',
+            backdropFilter: 'blur(10px)'
+          }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3
+                style={{
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                  color: '#FFFFFF',
+                  fontWeight: 600,
+                  marginBottom: '1rem',
+                  lineHeight: '1.3'
+                }}
+              >
+                Atlanta's Premier Gym Software for Member Retention
+              </h3>
+              <p
+                style={{
+                  fontSize: '1.1rem',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  lineHeight: '1.6',
+                  marginBottom: '1.5rem'
+                }}
+              >
+                As Georgia's leading fitness retention system provider, we understand the unique challenges Atlanta gym owners face. Our AI gym retention software is specifically designed for the competitive fitness market in the Southeast.
+              </p>
+              <p
+                style={{
+                  fontSize: '1.1rem',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  lineHeight: '1.6',
+                  marginBottom: '2rem'
+                }}
+              >
+                Whether you're running a CrossFit box in Buckhead, a yoga studio in Midtown, or a traditional gym in Marietta, our gym member retention software adapts to your specific needs and member demographics.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="/about"
+                  style={{
+                    background: 'linear-gradient(135deg, #4169E1, #7B9EFF)',
+                    color: '#FFFFFF',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(65, 105, 225, 0.3)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
+                >
+                  Learn About Our Team
+                </a>
+                <a
+                  href="/book-call"
+                  style={{
+                    border: '1px solid rgba(65, 105, 225, 0.3)',
+                    color: '#4169E1',
+                    padding: '12px 24px',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(65, 105, 225, 0.1)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent'
+                  }}
+                >
+                  Schedule Free Demo
+                </a>
+              </div>
+            </div>
+            <div>
+              <h4
+                style={{
+                  fontSize: '1.25rem',
+                  color: '#FFFFFF',
+                  fontWeight: 600,
+                  marginBottom: '1rem'
+                }}
+              >
+                Why Atlanta Gym Owners Choose Our Retention Software:
+              </h4>
+              <ul
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0
+                }}
+              >
+                {[
+                  'Local Atlanta support and implementation',
+                  'Understanding of Georgia fitness market dynamics',
+                  'Integration with popular Southeast gym software',
+                  'Proven results with Atlanta-area gyms',
+                  'Compliance with Georgia business regulations'
+                ].map((item, index) => (
+                  <li
+                    key={index}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      marginBottom: '0.75rem',
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      fontSize: '1rem'
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: '#10B981',
+                        marginRight: '0.75rem',
+                        fontSize: '1.25rem'
+                      }}
+                    >
+                      ✓
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -8,9 +8,9 @@ import { Check, Download, Calendar } from 'lucide-react'
 const phases = [
   {
     number: "01",
-    title: "Seamless Integration",
+    title: "Seamless Gym Software Integration",
     timeline: "Week 1",
-    description: "Our platform integrates directly with Mindbody, Glofox, and 15+ major gym management systems. One-click authorization syncs your member data, attendance history, and payment records. Your data remains secure with enterprise-grade encryption throughout the process.",
+    description: "Our gym member retention software integrates directly with Mindbody, Glofox, and 15+ major gym management systems. One-click authorization syncs your member data, attendance history, and payment records. Your data remains secure with enterprise-grade encryption throughout the process.",
     outcomes: [
       "Complete data synchronization",
       "Historical pattern analysis begins",
@@ -19,9 +19,9 @@ const phases = [
   },
   {
     number: "02",
-    title: "Intelligent Analysis",
+    title: "AI-Powered Member Analysis",
     timeline: "Week 2",
-    description: "Our machine learning algorithms analyze thousands of data points to understand your unique member behaviors. The system identifies patterns, risk indicators, and optimal intervention timing specific to your gym's member base.",
+    description: "Our machine learning algorithms analyze thousands of data points to understand your unique member behaviors. The AI gym retention system identifies patterns, risk indicators, and optimal intervention timing specific to your gym's member base.",
     outcomes: [
       "Predictive models calibrated to your gym",
       "Risk scoring for every member",
@@ -30,9 +30,9 @@ const phases = [
   },
   {
     number: "03",
-    title: "Automated Engagement",
+    title: "Automated Retention Campaigns",
     timeline: "Week 3",
-    description: "Your personalized retention system goes live. At-risk members receive perfectly timed interventions — from friendly check-ins to special offers. Every message is personalized based on member history and preferences.",
+    description: "Your personalized fitness retention system goes live. At-risk members receive perfectly timed interventions — from friendly check-ins to special offers. Every message is personalized based on member history and preferences.",
     outcomes: [
       "Automated campaigns activated",
       "First at-risk members engaged",
@@ -41,9 +41,9 @@ const phases = [
   },
   {
     number: "04",
-    title: "Continuous Optimization",
+    title: "Continuous Optimization & Results",
     timeline: "Week 4 & Beyond",
-    description: "Monitor your retention improvements through comprehensive dashboards. Our AI continuously learns from results, optimizing message timing, content, and channel selection for increasingly better outcomes.",
+    description: "Monitor your retention improvements through comprehensive dashboards. Our AI continuously learns from results, optimizing message timing, content, and channel selection for increasingly better outcomes. Stop gym member churn before it impacts your revenue.",
     outcomes: [
       "30% average churn reduction",
       "ROI tracking and reporting",
@@ -82,7 +82,7 @@ export default function HowItWorks() {
               fontWeight: 600
             }}
           >
-            IMPLEMENTATION PROCESS
+            HOW OUR GYM MEMBER RETENTION SOFTWARE WORKS
           </motion.div>
           
           <motion.h2
@@ -90,12 +90,15 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="h2"
             style={{
-              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              color: '#FFFFFF',
+              fontWeight: 600,
+              marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+              lineHeight: '1.2'
             }}
           >
-            From Setup to Success in 30 Days
+            Stop Gym Member Churn in 4 Simple Steps
           </motion.h2>
           
           <motion.p
@@ -103,14 +106,15 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="body-text"
             style={{
-              color: 'rgba(255, 255, 255, 0.5)',
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
+              color: 'rgba(255, 255, 255, 0.7)',
               maxWidth: '600px',
-              margin: '0 auto'
+              margin: '0 auto',
+              lineHeight: '1.6'
             }}
           >
-            A proven four-phase implementation that integrates seamlessly with your existing operations. No disruption. No downtime. Just results.
+            Our AI gym retention software integrates seamlessly with your existing systems and starts protecting your member base immediately. Atlanta fitness businesses see results within 30 days.
           </motion.p>
         </div>
 

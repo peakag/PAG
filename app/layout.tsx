@@ -13,15 +13,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://peakautomationgroup.com'),
   title: {
-    default: 'Peak Automation Group - Stop Gym Member Churn with AI',
+    default: 'AI Gym Member Retention Software | Stop Churn | Peak Automation Group',
     template: '%s | Peak Automation Group'
   },
-  description: 'Reduce member churn by 30% in 90 days. AI-powered retention system for Atlanta gyms. Free audit available.',
+  description: 'Stop losing $240K/year to member churn. AI-powered retention software that predicts and prevents gym member cancellations. 30% churn reduction guaranteed.',
   keywords: [
+    'gym member retention software',
+    'AI gym retention',
+    'stop gym member churn',
+    'gym software Atlanta',
+    'fitness retention system Georgia',
     'gym retention',
     'member churn',
     'fitness automation',
-    'gym software Atlanta',
     'gym management',
     'member retention',
     'fitness business',
@@ -40,14 +44,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://peakautomationgroup.com',
     siteName: 'Peak Automation Group',
-    title: 'Peak Automation Group - Stop Gym Member Churn with AI',
-    description: 'Reduce member churn by 30% in 90 days. AI-powered retention system for Atlanta gyms. Free audit available.',
+    title: 'AI Gym Member Retention Software | Stop Churn | Peak Automation Group',
+    description: 'Stop losing $240K/year to member churn. AI-powered retention software that predicts and prevents gym member cancellations. 30% churn reduction guaranteed.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Peak Automation Group - AI-Powered Gym Retention',
+        alt: 'Peak Automation Group - AI-Powered Gym Member Retention Software',
       },
     ],
   },
@@ -55,8 +59,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@peakautomation',
     creator: '@peakautomation',
-    title: 'Peak Automation Group - Stop Gym Member Churn with AI',
-    description: 'Reduce member churn by 30% in 90 days. AI-powered retention system for Atlanta gyms.',
+    title: 'AI Gym Member Retention Software | Stop Churn | Peak Automation Group',
+    description: 'Stop losing $240K/year to member churn. AI-powered retention software that predicts and prevents gym member cancellations. 30% churn reduction guaranteed.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -99,42 +103,65 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Peak Automation Group",
-              "description": "AI-powered retention system for gyms to reduce member churn by 30% in 90 days",
+              "@type": "SoftwareApplication",
+              "name": "Peak Automation Group Gym Member Retention Software",
+              "description": "AI-powered gym member retention software that predicts and prevents member cancellations, reducing churn by 30% in 90 days",
               "url": "https://peakautomationgroup.com",
-              "logo": "https://peakautomationgroup.com/pag-logo.png",
-              "foundingDate": "2024",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Atlanta",
-                "addressRegion": "GA",
-                "addressCountry": "US"
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "297",
+                "priceCurrency": "USD",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "297",
+                  "priceCurrency": "USD",
+                  "billingIncrement": "P1M"
+                }
               },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "areaServed": "US",
-                "availableLanguage": "English"
-              },
-              "sameAs": [
-                "https://linkedin.com/company/peak-automation-group",
-                "https://twitter.com/peakautomation"
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Gym Retention Solutions",
-                "itemListElement": [
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "AI-Powered Member Retention System",
-                      "description": "Reduce gym member churn by 30% in 90 days"
-                    }
-                  }
+              "provider": {
+                "@type": "Organization",
+                "name": "Peak Automation Group",
+                "description": "AI-powered retention system for gyms to reduce member churn by 30% in 90 days",
+                "url": "https://peakautomationgroup.com",
+                "logo": "https://peakautomationgroup.com/pag-logo.png",
+                "foundingDate": "2024",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Atlanta",
+                  "addressRegion": "GA",
+                  "addressCountry": "US"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "areaServed": "US",
+                  "availableLanguage": "English"
+                },
+                "sameAs": [
+                  "https://linkedin.com/company/peak-automation-group",
+                  "https://twitter.com/peakautomation"
                 ]
-              }
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "127",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "featureList": [
+                "AI-powered member retention prediction",
+                "Early warning system for at-risk members",
+                "Automated retention campaigns",
+                "Payment failure prevention",
+                "Real-time analytics dashboard",
+                "Integration with existing gym software"
+              ],
+              "screenshot": "https://peakautomationgroup.com/dashboard-preview.jpg",
+              "softwareVersion": "2.0",
+              "releaseNotes": "Latest version includes enhanced AI prediction algorithms and improved dashboard analytics"
             })
           }}
         />

@@ -610,7 +610,7 @@ export default function Hero() {
                 marginBottom: '24px'
               }}
             >
-              🚀 AI-Powered Member Retention
+              🚀 AI Gym Retention Software
             </motion.div>
 
             {/* Main Headline */}
@@ -627,10 +627,10 @@ export default function Hero() {
                 backgroundClip: 'text'
               }}
             >
-              Check Your App.
+              Stop Gym Member Churn
               <br />
               <span style={{ background: 'linear-gradient(135deg, #4169E1, #7B9EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                47 Members Are Missing.
+                Before It Starts
               </span>
             </motion.h1>
 
@@ -645,7 +645,7 @@ export default function Hero() {
                 marginBottom: 'clamp(2rem, 5vw, 2.5rem)'
               }}
             >
-              They haven't been in this week. Won't be in next week. And you just found out. Your competitors know 21 days early. The difference? AI that watches every member, every day. While you run your business.
+              Our AI-powered gym member retention software predicts cancellations 21 days early. Stop losing $240K/year to preventable churn. Atlanta's leading fitness retention system for Georgia gyms.
             </motion.p>
 
             {/* CTA Buttons */}
