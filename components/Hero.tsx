@@ -570,12 +570,15 @@ export default function Hero() {
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Gradient Orbs */}
-        <GradientOrb size={400} color1="#4169E1" color2="#7B9EFF" x="20%" y="30%" delay={0} />
-        <GradientOrb size={300} color1="#7B9EFF" color2="#4169E1" x="80%" y="70%" delay={5} />
-        <GradientOrb size={250} color1="#4169E1" color2="#10B981" x="60%" y="20%" delay={10} />
-        
+        {!isMobile && (
+          <>
+            <GradientOrb size={400} color1="#4169E1" color2="#7B9EFF" x="20%" y="30%" delay={0} />
+            <GradientOrb size={300} color1="#7B9EFF" color2="#4169E1" x="80%" y="70%" delay={5} />
+            <GradientOrb size={250} color1="#4169E1" color2="#10B981" x="60%" y="20%" delay={10} />
+          </>
+        )}
         {/* Floating Particles */}
-        {Array.from({ length: 20 }).map((_, i) => (
+        {!isMobile && Array.from({ length: 20 }).map((_, i) => (
           <FloatingParticle
             key={i}
             delay={i * 0.5}
@@ -584,7 +587,6 @@ export default function Hero() {
             opacity={0.02 + Math.random() * 0.03}
           />
         ))}
-        
         {/* AI Circuit Board Pattern */}
         <CircuitBoardPattern />
       </div>
@@ -605,8 +607,8 @@ export default function Hero() {
           <div className={`text-left ${isMobile ? 'mt-20' : ''}`}> {/* Lower on mobile */}
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
+              animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6) }}
               style={{
                 background: 'rgba(65, 105, 225, 0.1)',
@@ -626,8 +628,8 @@ export default function Hero() {
 
             {/* Main Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: isMobile ? 15 : 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 30 }) }}
+              animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.4 : 0.8), delay: 0.2 }}
               className="h1"
               style={{
@@ -647,8 +649,8 @@ export default function Hero() {
 
             {/* Subheadline */}
             <motion.p
-              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
+              animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.4 }}
               className="body-text"
               style={{
@@ -661,8 +663,8 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
+              animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.6 }}
               className="flex flex-col sm:flex-row space-responsive mb-16"
             >
@@ -712,8 +714,8 @@ export default function Hero() {
 
             {/* Statistics */}
             <motion.div
-              initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
+              animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.8 }}
               className="grid grid-cols-3 space-responsive"
               style={{ opacity: 0.7 }}
