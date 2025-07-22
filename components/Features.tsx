@@ -131,7 +131,7 @@ export default function Features() {
               lineHeight: '1.6'
             }}
           >
-            Our comprehensive gym member retention software combines AI technology with proven strategies to stop member churn before it impacts your Atlanta fitness business.
+            Our comprehensive gym member retention software combines AI technology with proven strategies to stop member churn before it impacts your business.
           </motion.p>
         </div>
 
