@@ -610,7 +610,7 @@ export default function Hero() {
                 marginBottom: '24px'
               }}
             >
-              🚀 AI-Powered Member Retention
+              🚀 AI Gym Retention Software
             </motion.div>
 
             {/* Main Headline */}
