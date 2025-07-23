@@ -688,28 +688,6 @@ export default function Hero() {
                 See Your Lost Revenue
                 <ArrowRight size={20} />
               </motion.a>
-
-              <motion.a
-                href="/book-call"
-                className="btn-secondary"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  cursor: 'pointer',
-                  textDecoration: 'none'
-                }}
-                whileHover={{
-                  borderColor: 'rgba(255, 255, 255, 0.4)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  transform: 'translateY(-2px)'
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Play size={20} />
-                Watch Demo
-              </motion.a>
             </motion.div>
 
             {/* Statistics */}
