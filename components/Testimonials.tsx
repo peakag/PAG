@@ -97,7 +97,7 @@ export default function Testimonials() {
               margin: '0 auto'
             }}
           >
-            Real results from real gym owners who transformed their member retention with Peak Automation.
+            Real results from real gym owners who transformed their member retention with PAG.
           </motion.p>
         </div>
 
