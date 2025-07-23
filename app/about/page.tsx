@@ -416,15 +416,15 @@ export default function AboutUs() {
                   }}
                 >
                   <p style={{ marginBottom: '16px' }}>
-                    Kevin co-founded Peak Automation Group after seeing too many gym owners struggle with the same preventable problem: member churn. With a background in both technology and fitness, he understood that the solution wasn't working harder — it was working smarter.
+                    Kevin co-founded Peak Automation Group after a conversation with a gym owner friend who was losing 20 members a month but had no idea why. With experience building automation systems and a passion for fitness, Kevin realized the retention problem wasn't about effort — it was about timing and data.
                   </p>
                   
                   <p style={{ marginBottom: '16px', fontStyle: 'italic' }}>
-                    "Every gym owner I met was passionate about helping people get fit, but they were drowning in manual tasks trying to keep members engaged. I knew AI could change that completely. Our platform lets gym owners do what they love while technology handles the retention."
+                    "I kept hearing the same story: gym owners spending their weekends calling no-shows and sending 'we miss you' emails that never worked. Meanwhile, the data showing who was about to quit was right there in their systems — they just couldn't see it. That's when I knew AI could solve this. We built Peak to handle all the retention work automatically, so gym owners can focus on what they actually signed up for: changing lives through fitness."
                   </p>
                   
                   <p>
-                    Under Kevin's leadership, Peak Automation Group has helped dozens of gyms save thousands of members and millions in revenue — all through the power of intelligent automation.
+                    Today, Kevin leads product development and ensures every feature solves a real problem gym owners face daily.
                   </p>
                 </div>
 
@@ -493,15 +493,15 @@ export default function AboutUs() {
                   }}
                 >
                   <p style={{ marginBottom: '16px' }}>
-                    Alessandro brings deep financial expertise to Peak Automation Group, having spent years analyzing business metrics and optimizing revenue streams. His background in accounting and financial modeling ensures our platform delivers measurable ROI for every gym partner.
+                    Alessandro joined Peak Automation Group after spending years in financial analysis watching businesses leak revenue through preventable inefficiencies. When Kevin showed him that gyms were losing $240K annually to member churn, he saw an opportunity to apply financial discipline to fitness retention.
                   </p>
                   
                   <p style={{ marginBottom: '16px', fontStyle: 'italic' }}>
-                    "Gym owners were losing money on preventable churn, but they couldn't see the full financial impact. I wanted to build a system that not only saves members but also provides clear financial metrics that prove the value of retention efforts."
+                    "The numbers were insane. Gyms track every dollar spent on equipment but had no idea they were losing $1,800 per canceled member. I became obsessed with building a platform that shows exactly where money is walking out the door and how to stop it. Now our clients can see their retention ROI in real-time — down to the penny. That transparency changes everything."
                   </p>
                   
                   <p>
-                    As CFO, Alessandro oversees our financial operations and ensures every feature we build translates to measurable revenue growth for gym owners, from detailed ROI calculations to automated financial reporting.
+                    As Co-Founder, Alessandro ensures Peak's platform delivers undeniable financial results, from ROI tracking to predictive revenue modeling that helps gyms plan with confidence.
                   </p>
                 </div>
 
