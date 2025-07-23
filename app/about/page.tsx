@@ -383,26 +383,6 @@ export default function AboutUs() {
                 padding: '40px'
               }}
             >
-              {/* Image */}
-              <div className="mb-6">
-                <div
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '12px',
-                    border: '2px solid rgba(65, 105, 225, 0.3)',
-                    background: 'rgba(65, 105, 225, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'rgba(255, 255, 255, 0.4)',
-                    fontSize: '16px'
-                  }}
-                >
-                  Professional Headshot
-                </div>
-              </div>
-
               {/* Content */}
               <div>
                 <h3
@@ -480,26 +460,6 @@ export default function AboutUs() {
                 padding: '40px'
               }}
             >
-              {/* Image */}
-              <div className="mb-6">
-                <div
-                  style={{
-                    width: '150px',
-                    height: '150px',
-                    borderRadius: '12px',
-                    border: '2px solid rgba(65, 105, 225, 0.3)',
-                    background: 'rgba(65, 105, 225, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'rgba(255, 255, 255, 0.4)',
-                    fontSize: '16px'
-                  }}
-                >
-                  Professional Headshot
-                </div>
-              </div>
-
               {/* Content */}
               <div>
                 <h3
