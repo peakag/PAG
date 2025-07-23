@@ -424,7 +424,7 @@ export default function AboutUs() {
                     marginBottom: '24px'
                   }}
                 >
-                  Co-Founder & CEO
+                  Co-Founder
                 </p>
 
                 <div
@@ -521,7 +521,7 @@ export default function AboutUs() {
                     marginBottom: '24px'
                   }}
                 >
-                  Co-Founder & CFO
+                  Co-Founder
                 </p>
 
                 <div
