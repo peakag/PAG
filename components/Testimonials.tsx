@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Owner, CrossFit Gym",
-    content: "We've been using Peak Automation for about 3 months now. The AI identified 8 members who were likely to cancel, and we were able to reach out to them proactively. So far, we've retained 6 of those members. The automated follow-ups are saving us time too.",
+    content: "I never realized how much we were missing until we started with PAG. Suddenly, the little things that used to slip through the cracks just... stopped slipping. Our members feel more connected, and I finally feel like I'm ahead of the game instead of always catching up.",
     rating: 5,
     metrics: {
       label: "Members Retained",
@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: "Mike Chen",
     role: "Manager, Fitness Center",
-    content: "The platform helped us spot patterns we were missing. We've reduced our monthly churn from 8% to 6% in the first quarter. The dashboard makes it easy to see which members need attention.",
+    content: "Working with Kevin and Alessandro changed the way we run our gym. We started seeing patterns in our business that we never noticed before, and fixing them was easier than I expected. Our team is less stressed, and our members are sticking around longer.",
     rating: 5,
     metrics: {
       label: "Churn Reduction",
@@ -27,7 +27,7 @@ const testimonials = [
   {
     name: "Lisa Rodriguez",
     role: "CEO, Strength Training Facility",
-    content: "We're a smaller gym with 120 members, so every retention counts. Peak Automation helped us identify 5 at-risk members last month. We reached out with personalized offers and kept 4 of them. That's $800/month in revenue we would have lost.",
+    content: "I used to spend hours every week worrying about cancellations. Now, I get a heads-up before problems even start. It's like having an extra set of eyes on my business, and it's freed me up to focus on my members.",
     rating: 5,
     metrics: {
       label: "Revenue Saved",
@@ -37,7 +37,7 @@ const testimonials = [
   {
     name: "David Thompson",
     role: "Owner, Personal Training Studio",
-    content: "The setup was surprisingly easy. Within the first month, we started seeing alerts about members who hadn't been in for a while. We've been able to intervene early and our member satisfaction scores are trending up.",
+    content: "I thought we were doing everything right, but PAG showed us a few blind spots that made a huge difference. Our members are happier, and I feel like I have a real partner in growing my business.",
     rating: 5,
     metrics: {
       label: "Satisfaction Score",
@@ -185,37 +185,6 @@ export default function Testimonials() {
                     {testimonial.role}
                   </p>
                 </div>
-
-                {/* Metrics Badge */}
-                <motion.div
-                  style={{
-                    background: 'rgba(65, 105, 225, 0.1)',
-                    border: '1px solid rgba(65, 105, 225, 0.2)',
-                    borderRadius: '8px',
-                    padding: '8px 12px',
-                    textAlign: 'center'
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div
-                    style={{
-                      fontSize: '14px',
-                      color: '#4169E1',
-                      fontWeight: 600
-                    }}
-                  >
-                    {testimonial.metrics.value}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '12px',
-                      color: 'rgba(255, 255, 255, 0.4)'
-                    }}
-                  >
-                    {testimonial.metrics.label}
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           ))}

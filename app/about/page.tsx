@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import { Target, Users, Zap, Linkedin, ArrowLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
+import Image from 'next/image'
 
 export default function AboutUs() {
   // About page structured data
@@ -383,6 +384,30 @@ export default function AboutUs() {
                 padding: '40px'
               }}
             >
+              {/* Headshot */}
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{
+                  width: '200px',
+                  height: '200px',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  border: '3px solid rgba(65, 105, 225, 0.3)'
+                }}>
+                  <Image
+                    src="/kevin-PAG.jpg"
+                    alt="Kevin Bite - Co-Founder of Peak Automation Group"
+                    width={200}
+                    height={200}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                    priority
+                  />
+                </div>
+              </div>
+              
               {/* Content */}
               <div>
                 <h3
@@ -428,21 +453,6 @@ export default function AboutUs() {
                   </p>
                 </div>
 
-                <motion.a
-                  href="#linkedin"
-                  whileHover={{ color: '#4169E1' }}
-                  transition={{ duration: 0.2 }}
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.4)',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}
-                >
-                  <Linkedin size={20} />
-                  <span>Connect on LinkedIn</span>
-                </motion.a>
               </div>
             </motion.div>
 
@@ -460,6 +470,30 @@ export default function AboutUs() {
                 padding: '40px'
               }}
             >
+                             {/* Headshot */}
+               <div style={{ marginBottom: '24px' }}>
+                 <div style={{
+                   width: '200px',
+                   height: '200px',
+                   borderRadius: '50%',
+                   overflow: 'hidden',
+                   border: '3px solid rgba(65, 105, 225, 0.3)'
+                 }}>
+                   <Image
+                     src="/alex-PAG.jpg"
+                     alt="Alessandro Fumo - Co-Founder of Peak Automation Group"
+                     width={200}
+                     height={200}
+                     style={{
+                       width: '100%',
+                       height: '100%',
+                       objectFit: 'cover'
+                     }}
+                     priority
+                   />
+                 </div>
+               </div>
+              
               {/* Content */}
               <div>
                 <h3
@@ -505,21 +539,6 @@ export default function AboutUs() {
                   </p>
                 </div>
 
-                <motion.a
-                  href="#linkedin"
-                  whileHover={{ color: '#4169E1' }}
-                  transition={{ duration: 0.2 }}
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.4)',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}
-                >
-                  <Linkedin size={20} />
-                  <span>Connect on LinkedIn</span>
-                </motion.a>
               </div>
             </motion.div>
           </div>
