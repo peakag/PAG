@@ -27,7 +27,7 @@ export default function ProblemSolution() {
     setIsMounted(true)
   }, [])
 
-  const createParticles = (count, type) => {
+  const createParticles = (count: number, type: 'problem' | 'solution'): JSX.Element[] => {
     return Array.from({ length: count }, (_, i) => (
       <div
         key={i}
