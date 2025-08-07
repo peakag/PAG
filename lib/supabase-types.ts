@@ -130,6 +130,39 @@ export type Database = {
         }
         Relationships: []
       }
+      newsletter_subscriptions: {
+        Row: {
+          id: string
+          email: string
+          subscribed_at: string
+          source: string
+          is_active: boolean
+          unsubscribe_token: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          email: string
+          subscribed_at?: string
+          source?: string
+          is_active?: boolean
+          unsubscribe_token?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          email?: string
+          subscribed_at?: string
+          source?: string
+          is_active?: boolean
+          unsubscribe_token?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       saved_members: {
         Row: {
           action_taken: string
