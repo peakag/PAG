@@ -574,7 +574,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
       style={{ 
         background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
         position: 'relative',
@@ -599,9 +599,9 @@ export default function Hero() {
 
       {/* Content */}
       <div className="container-max relative z-10">
-        <div className="flex flex-col items-center justify-center min-h-screen text-center">
+        <div className="flex flex-col items-center justify-center text-center px-4 py-24 md:py-32">
           {/* Hero Text Content */}
-          <div className={`${isMobile ? 'mt-20' : ''}`}>
+          <div>
             {/* Star Rating */}
             <motion.div
               initial={{ opacity: 0, ...(isMobile ? {} : { y: 15 }) }}
@@ -631,9 +631,9 @@ export default function Hero() {
               style={{
                 position: 'relative',
                 zIndex: 2,
-                fontSize: isMobile ? 'clamp(24px, 8vw, 32px)' : '48px',
+                fontSize: 'clamp(26px, 7vw, 48px)',
                 lineHeight: 1.1,
-                maxWidth: '900px',
+                maxWidth: 'min(900px, 92vw)',
                 overflowWrap: 'anywhere',
                 wordBreak: 'break-word',
                 paddingLeft: isMobile ? 16 : 0,
@@ -649,11 +649,11 @@ export default function Hero() {
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.3 }}
               style={{
-                fontSize: isMobile ? '15px' : '20px',
+                fontSize: 'clamp(15px, 4.2vw, 20px)',
                 lineHeight: 1.6,
                 color: '#4A5568',
                 marginBottom: '32px',
-                maxWidth: '700px',
+                maxWidth: 'min(700px, 90vw)',
                 textAlign: 'center',
                 margin: '0 auto',
                 overflowWrap: 'anywhere',
@@ -707,7 +707,7 @@ export default function Hero() {
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.7 }}
               className="text-center"
-              style={{ marginTop: '100px', marginBottom: '24px' }}
+              style={{ marginTop: isMobile ? '40px' : '100px', marginBottom: '24px' }}
             >
               <p
                 style={{
