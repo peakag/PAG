@@ -64,8 +64,20 @@ export default function TrustMarquee() {
           }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 80s linear infinite;
         }
+        
+        /* Ensure animation works on mobile */
+        @media (max-width: 768px) {
+          .animate-marquee {
+            animation: marquee 80s linear infinite;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            -webkit-animation: marquee 80s linear infinite;
+          }
+        }
+        
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee {
             animation: none;
