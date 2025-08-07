@@ -618,7 +618,7 @@ export default function Hero() {
                   />
                 ))}
                 <span style={{ fontSize: isMobile ? '14px' : '16px', color: '#4A5568', fontWeight: 500 }}>
-                  5.0&nbsp;from&nbsp;38&nbsp;reviews
+                  5.0 from 38 reviews
                 </span>
               </div>
             </motion.div>
@@ -631,9 +631,13 @@ export default function Hero() {
               style={{
                 position: 'relative',
                 zIndex: 2,
-                fontSize: isMobile ? '32px' : '48px',
+                fontSize: isMobile ? 'clamp(24px, 8vw, 32px)' : '48px',
                 lineHeight: 1.1,
-                maxWidth: '900px'
+                maxWidth: '900px',
+                overflowWrap: 'anywhere',
+                wordBreak: 'break-word',
+                paddingLeft: isMobile ? 16 : 0,
+                paddingRight: isMobile ? 16 : 0
               }}
             >
               Your Manual Systems Are Killing Your Gym's Growth
@@ -645,13 +649,17 @@ export default function Hero() {
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.3 }}
               style={{
-                fontSize: isMobile ? '16px' : '20px',
+                fontSize: isMobile ? '15px' : '20px',
                 lineHeight: 1.6,
                 color: '#4A5568',
                 marginBottom: '32px',
                 maxWidth: '700px',
                 textAlign: 'center',
-                margin: '0 auto'
+                margin: '0 auto',
+                overflowWrap: 'anywhere',
+                wordBreak: 'break-word',
+                paddingLeft: isMobile ? 16 : 0,
+                paddingRight: isMobile ? 16 : 0
               }}
             >
               We implement intelligent automation systems that handle your follow-ups, fill your classes, and run your operations—so you can do what you love: transform lives.
