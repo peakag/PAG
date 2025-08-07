@@ -36,7 +36,7 @@ export default function TrustMarquee() {
       <div className="fade-right pointer-events-none absolute right-0 top-0 h-full rounded-r-full" style={{ width: '120px' }} />
 
       <div className="overflow-hidden rounded-full">
-        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+        <div className="flex items-center gap-16 animate-marquee whitespace-nowrap" style={{ willChange: 'transform', minWidth: 'max-content' }}>
           {list.map((name, idx) => (
             <span
               key={`${name}-${idx}`}
@@ -57,14 +57,19 @@ export default function TrustMarquee() {
       <style jsx>{`
         @keyframes marquee {
           0% {
-            transform: translateX(0%);
+            transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translate3d(-50%, 0, 0);
           }
         }
         .animate-marquee {
           animation: marquee 40s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-marquee {
+            animation: none;
+          }
         }
         .fade-left {
           background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0) 100%);
