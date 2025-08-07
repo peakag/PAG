@@ -1,340 +1,250 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Check, Download, Calendar } from 'lucide-react'
+import { Search, Settings, Users, TrendingUp, ArrowRight } from 'lucide-react'
 
-const phases = [
+const steps = [
   {
     number: "01",
-    title: "Seamless Gym Software Integration",
-    timeline: "Week 1",
-    description: "Our gym member retention software integrates directly with Mindbody, Glofox, and 15+ major gym management systems. One-click authorization syncs your member data, attendance history, and payment records. Your data remains secure with enterprise-grade encryption throughout the process.",
-    outcomes: [
-      "Complete data synchronization",
-      "Historical pattern analysis begins",
-      "Zero manual data entry required"
-    ]
+    title: "Discovery Audit",
+    timeline: "Day 1-3",
+    description: "We analyze your current operations, identify bottlenecks, and map out which systems will have the biggest impact on your bottom line.",
+    icon: Search
   },
   {
     number: "02",
-    title: "AI-Powered Member Analysis",
-    timeline: "Week 2",
-    description: "Our machine learning algorithms analyze thousands of data points to understand your unique member behaviors. The AI gym retention system identifies patterns, risk indicators, and optimal intervention timing specific to your gym's member base.",
-    outcomes: [
-      "Predictive models calibrated to your gym",
-      "Risk scoring for every member",
-      "Customized retention strategies developed"
-    ]
+    title: "Custom Configuration",
+    timeline: "Day 4-14",
+    description: "We configure and connect the right automation tools to your existing software. No disruption, no learning curve for your team.",
+    icon: Settings
   },
   {
     number: "03",
-    title: "Automated Retention Campaigns",
-    timeline: "Week 3",
-    description: "Your personalized fitness retention system goes live. At-risk members receive perfectly timed interventions — from friendly check-ins to special offers. Every message is personalized based on member history and preferences.",
-    outcomes: [
-      "Automated campaigns activated",
-      "First at-risk members engaged",
-      "Real-time response tracking begins"
-    ]
+    title: "Team Training",
+    timeline: "Day 15-21",
+    description: "Your staff learns to monitor the systems through simple dashboards. Most processes run automatically without any input needed.",
+    icon: Users
   },
   {
     number: "04",
-    title: "Continuous Optimization & Results",
-    timeline: "Week 4 & Beyond",
-    description: "Monitor your retention improvements through comprehensive dashboards. Our AI continuously learns from results, optimizing message timing, content, and channel selection for increasingly better outcomes. Stop gym member churn before it impacts your revenue.",
-    outcomes: [
-      "30% average churn reduction",
-      "ROI tracking and reporting",
-      "Ongoing strategy refinement"
-    ]
+    title: "Optimization & Scale",
+    timeline: "Day 22+",
+    description: "We continuously optimize based on data and add new automations as your gym grows. You see ROI within the first month.",
+    icon: TrendingUp
   }
 ]
 
 export default function HowItWorks() {
-  const containerRef = useRef(null)
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" })
-
   return (
     <section 
       id="how-it-works" 
-      className="bg-black relative overflow-hidden"
       style={{ 
-        padding: '100px 0',
-        background: 'linear-gradient(180deg, rgba(65, 105, 225, 0.05) 0%, transparent 100px)'
+        background: 'linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%)',
+        paddingTop: 'clamp(60px, 8vw, 80px)',
+        paddingBottom: 'clamp(60px, 8vw, 80px)'
       }}
     >
-      <div className="container-max relative z-10">
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.div
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-6"
-            style={{
-              fontSize: '12px',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: '#4169E1',
-              fontWeight: 600
-            }}
-          >
-            HOW OUR GYM MEMBER RETENTION SOFTWARE WORKS
-          </motion.div>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
             style={{
               fontSize: 'clamp(2rem, 5vw, 3rem)',
-              color: '#FFFFFF',
+              color: '#1A1A1A',
               fontWeight: 600,
-              marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+              marginBottom: '16px',
               lineHeight: '1.2'
             }}
           >
-            Stop Gym Member Churn in 4 Simple Steps
+            From Overwhelmed to Automated in 30 Days
           </motion.h2>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             style={{
               fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
-              color: 'rgba(255, 255, 255, 0.7)',
-              maxWidth: '600px',
+              color: '#4A5568',
+              maxWidth: '700px',
               margin: '0 auto',
               lineHeight: '1.6'
             }}
           >
-            Our AI gym retention software integrates seamlessly with your existing systems and starts protecting your member base immediately. Most gyms see results within 30 days.
+            Our proven implementation process ensures zero disruption to your operations
           </motion.p>
         </div>
 
-        {/* Timeline Container */}
-        <div ref={containerRef} className="relative max-w-6xl mx-auto">
-          {/* Timeline Line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 transform -translate-x-1/2">
-            <motion.div
-              className="w-full bg-white/10"
-              style={{ height: '100%' }}
-              initial={{ scaleY: 0 }}
-              animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </div>
+        {/* Steps Container */}
+        <div className="relative">
+          {/* Connecting Line for Desktop */}
+          <div 
+            className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gray-200"
+            style={{ 
+              marginLeft: '12.5%',
+              marginRight: '12.5%',
+              width: '75%'
+            }}
+          />
 
-          {/* Phases */}
-          <div className="space-y-16 lg:space-y-24">
-            {phases.map((phase, index) => {
-              const isEven = index % 2 === 0
-              const stepRef = useRef(null)
-              const stepInView = useInView(stepRef, { once: true, margin: "-50px" })
-
+          {/* Steps Grid */}
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+              gap: '32px',
+              marginBottom: '48px'
+            }}
+          >
+            {steps.map((step, index) => {
+              const IconComponent = step.icon
+              
               return (
                 <motion.div
-                  key={phase.number}
-                  ref={stepRef}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={stepInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className={`relative flex items-center ${
-                    isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  } flex-col lg:gap-16`}
+                  key={step.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="relative"
                 >
-                  {/* Timeline Dot */}
-                  <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-black border-2 border-blue-600 rounded-full z-10" />
-
-                  {/* Phase Card */}
-                  <div className={`w-full lg:w-1/2 ${isEven ? 'lg:pr-8' : 'lg:pl-8'}`}>
-                    <motion.div
+                  
+                  {/* Step Card */}
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      borderRadius: '12px',
+                      padding: '32px 24px',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                      textAlign: 'center',
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      position: 'relative'
+                    }}
+                  >
+                    {/* Icon */}
+                    <div
                       style={{
-                        background: 'rgba(255, 255, 255, 0.02)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        borderRadius: '16px',
-                        padding: '32px',
-                        maxWidth: '500px',
-                        transition: 'all 0.3s ease'
-                      }}
-                      whileHover={{
-                        background: 'rgba(255, 255, 255, 0.04)',
-                        borderColor: 'rgba(65, 105, 225, 0.2)',
-                        transform: 'translateY(-4px)',
-                        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+                        width: '48px',
+                        height: '48px',
+                        background: '#F0F7FF',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '0 auto 16px auto'
                       }}
                     >
-                      {/* Phase Number */}
-                      <div
-                        style={{
-                          fontSize: '14px',
-                          color: '#4169E1',
-                          background: 'rgba(65, 105, 225, 0.1)',
-                          padding: '4px 12px',
-                          borderRadius: '16px',
-                          display: 'inline-block',
-                          marginBottom: '16px'
-                        }}
-                      >
-                        {phase.number}
-                      </div>
+                      <IconComponent size={24} style={{ color: '#3F92FA' }} />
+                    </div>
 
-                      {/* Phase Title */}
-                      <h3
-                        style={{
-                          fontSize: '24px',
-                          color: '#FFFFFF',
-                          fontWeight: 600,
-                          marginBottom: '8px'
-                        }}
-                      >
-                        {phase.title}
-                      </h3>
+                    {/* Step Number */}
+                    <div
+                      style={{
+                        fontSize: '48px',
+                        color: '#3F92FA',
+                        fontWeight: 700,
+                        marginBottom: '16px',
+                        lineHeight: '1'
+                      }}
+                    >
+                      {step.number}
+                    </div>
 
-                      {/* Timeline */}
-                      <div
-                        style={{
-                          fontSize: '14px',
-                          color: '#4169E1',
-                          fontWeight: 600,
-                          marginBottom: '16px'
-                        }}
-                      >
-                        {phase.timeline}
-                      </div>
+                    {/* Title */}
+                    <h3
+                      style={{
+                        fontSize: '24px',
+                        color: '#1A1A1A',
+                        fontWeight: 600,
+                        marginBottom: '8px'
+                      }}
+                    >
+                      {step.title}
+                    </h3>
 
-                      {/* Phase Description */}
-                      <p
-                        style={{
-                          fontSize: '16px',
-                          color: 'rgba(255, 255, 255, 0.6)',
-                          lineHeight: '1.6',
-                          marginBottom: '20px'
-                        }}
-                      >
-                        {phase.description}
-                      </p>
+                    {/* Timeline */}
+                    <div
+                      style={{
+                        fontSize: '14px',
+                        color: '#1840BA',
+                        fontWeight: 500,
+                        marginBottom: '16px'
+                      }}
+                    >
+                      {step.timeline}
+                    </div>
 
-                      {/* Key Outcomes */}
-                      <div>
-                        <h4
-                          style={{
-                            fontSize: '14px',
-                            color: '#FFFFFF',
-                            fontWeight: 600,
-                            marginBottom: '12px',
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.05em'
-                          }}
-                        >
-                          Key Outcomes:
-                        </h4>
-                        <ul className="space-y-2">
-                          {phase.outcomes.map((outcome, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <Check size={16} style={{ color: '#10B981', marginTop: '2px', flexShrink: 0 }} />
-                              <span style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.7)' }}>
-                                {outcome}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </motion.div>
+                    {/* Description */}
+                    <p
+                      style={{
+                        fontSize: '16px',
+                        color: '#4A5568',
+                        lineHeight: 1.6,
+                        flex: 1
+                      }}
+                    >
+                      {step.description}
+                    </p>
                   </div>
-
-                  {/* Mobile Timeline Dot */}
-                  <div className="lg:hidden w-4 h-4 bg-black border-2 border-blue-600 rounded-full my-4" />
                 </motion.div>
               )
             })}
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center"
+          style={{ marginTop: '48px' }}
         >
-          <div
+          <p
             style={{
-              background: 'rgba(255, 255, 255, 0.02)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '16px',
-              padding: '48px',
-              maxWidth: '700px',
-              margin: '0 auto'
+              fontSize: '18px',
+              color: '#1A1A1A',
+              marginBottom: '24px',
+              fontWeight: 500
             }}
           >
-            <h3
-              style={{
-                fontSize: '32px',
-                color: '#FFFFFF',
-                fontWeight: 600,
-                marginBottom: '16px'
-              }}
-            >
-              Ready to Transform Your Retention?
-            </h3>
-            <p
-              style={{
-                fontSize: '18px',
-                color: 'rgba(255, 255, 255, 0.5)',
-                marginBottom: '32px'
-              }}
-            >
-              Join leading gyms that have already automated their member retention and secured predictable revenue growth.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <motion.button
-                style={{
-                  background: '#4169E1',
-                  color: '#FFFFFF',
-                  fontSize: '16px',
-                  padding: '16px 32px',
-                  borderRadius: '8px',
-                  border: 'none',
-                  fontWeight: 600,
-                  boxShadow: '0 4px 20px rgba(65, 105, 225, 0.4)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  justifyContent: 'center'
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 8px 30px rgba(65, 105, 225, 0.6)'
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Calendar size={20} />
-                Schedule Implementation Call
-              </motion.button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-white/60">
-              <div className="flex items-center gap-2">
-                <Check size={16} style={{ color: '#10B981' }} />
-                <span>No IT resources required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check size={16} style={{ color: '#10B981' }} />
-                <span>Works with your current systems</span>
-              </div>
-            </div>
-          </div>
+            Most gyms see results within the first week
+          </p>
+          <motion.a
+            href="/book-call"
+            style={{
+              background: '#1840BA',
+              color: 'white',
+              padding: '16px 32px',
+              borderRadius: '8px',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.2s ease',
+              cursor: 'pointer',
+              boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+              animation: 'pulse-glow 2s ease-in-out infinite alternate'
+            }}
+            whileHover={{
+              backgroundColor: '#0F2B70',
+              transform: 'translateY(-1px)',
+              boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Start Your Automation Journey
+            <ArrowRight size={16} />
+          </motion.a>
         </motion.div>
       </div>
     </section>

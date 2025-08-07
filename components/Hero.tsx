@@ -1,9 +1,11 @@
 'use client'
 
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
-import { ArrowRight, Play, BarChart3 } from 'lucide-react'
+import { ArrowRight, Play, BarChart3, Star } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import ParticlesBackground from './ParticlesBackground'
+import TrustMarquee from './TrustMarquee'
 
 // Animated Number Component
 function AnimatedNumber({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) {
@@ -544,6 +546,14 @@ function DashboardPreview() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.5; }
         }
+        @keyframes pulse-glow {
+          0% { 
+            box-shadow: 0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1);
+          }
+          100% { 
+            box-shadow: 0 0 25px rgba(24, 64, 186, 0.6), 0 0 50px rgba(24, 64, 186, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
+          }
+        }
       `}</style>
     </motion.div>
   )
@@ -565,216 +575,148 @@ export default function Hero() {
     <section 
       id="hero" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: '#000000' }}
+      style={{ 
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
+        position: 'relative',
+        zIndex: 1
+      }}
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Gradient Orbs */}
-        {!isMobile && (
-          <>
-            <GradientOrb size={400} color1="#4169E1" color2="#7B9EFF" x="20%" y="30%" delay={0} />
-            <GradientOrb size={300} color1="#7B9EFF" color2="#4169E1" x="80%" y="70%" delay={5} />
-            <GradientOrb size={250} color1="#4169E1" color2="#10B981" x="60%" y="20%" delay={10} />
-          </>
-        )}
-        {/* Floating Particles */}
-        {!isMobile && Array.from({ length: 20 }).map((_, i) => (
-          <FloatingParticle
-            key={i}
-            delay={i * 0.5}
-            duration={15 + Math.random() * 10}
-            size={2 + Math.random() * 6}
-            opacity={0.02 + Math.random() * 0.03}
-          />
-        ))}
-        {/* AI Circuit Board Pattern */}
-        <CircuitBoardPattern />
-      </div>
-
-      {/* Radial Gradient Overlay */}
-      <div
+      {/* Particles Background */}
+      <div 
+        className="absolute inset-0 z-0" 
         style={{
           position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(circle at center, rgba(65, 105, 225, 0.1) 0%, transparent 70%)'
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          zIndex: 0
         }}
-      />
+      >
+        <ParticlesBackground />
+      </div>
 
       {/* Content */}
       <div className="container-max relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen">
-          {/* Left Side - Text Content */}
-          <div className={`text-left ${isMobile ? 'mt-20' : ''}`}> {/* Lower on mobile */}
-            {/* Badge */}
+        <div className="flex flex-col items-center justify-center min-h-screen text-center">
+          {/* Hero Text Content */}
+          <div className={`${isMobile ? 'mt-20' : ''}`}>
+            {/* Star Rating */}
             <motion.div
-              initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
+              initial={{ opacity: 0, ...(isMobile ? {} : { y: 15 }) }}
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6) }}
-              style={{
-                background: 'rgba(65, 105, 225, 0.1)',
-                border: '1px solid rgba(65, 105, 225, 0.2)',
-                padding: '8px 16px',
-                borderRadius: '20px',
-                fontSize: '12px',
-                color: '#4169E1',
-                fontWeight: 500,
-                letterSpacing: '0.05em',
-                display: 'inline-block',
-                marginBottom: '24px'
-              }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.5), delay: 0.05 }}
+              style={{ marginTop: '12px', marginBottom: '16px' }}
             >
-              🚀 AI Gym Retention Software
+              <div className="flex items-center justify-center gap-2">
+                {Array.from({ length: 5 }).map((_, idx) => (
+                  <Star
+                    key={idx}
+                    size={20}
+                    style={{ color: '#FBBF24', fill: '#FBBF24' }}
+                  />
+                ))}
+                <span style={{ fontSize: isMobile ? '14px' : '16px', color: '#4A5568', fontWeight: 500 }}>
+                  5.0&nbsp;from&nbsp;38&nbsp;reviews
+                </span>
+              </div>
             </motion.div>
-
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, ...(isMobile ? {} : { y: 30 }) }}
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.4 : 0.8), delay: 0.2 }}
-              className="h1"
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.4 : 0.8), delay: 0.1 }}
+              className="mx-auto mb-6 font-bold text-center text-gray-900"
               style={{
-                marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
-                background: 'linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                position: 'relative',
+                zIndex: 2,
+                fontSize: isMobile ? '32px' : '48px',
+                lineHeight: 1.1,
+                maxWidth: '900px'
               }}
             >
-              Check Your App.
-              <br />
-              <span style={{ background: 'linear-gradient(135deg, #4169E1, #7B9EFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                47 Members Are Missing.
-              </span>
+              Your Manual Systems Are Killing Your Gym's Growth
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.4 }}
-              className="body-text"
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.3 }}
               style={{
-                color: 'rgba(255, 255, 255, 0.7)',
-                marginBottom: 'clamp(2rem, 5vw, 2.5rem)'
+                fontSize: isMobile ? '16px' : '20px',
+                lineHeight: 1.6,
+                color: '#4A5568',
+                marginBottom: '32px',
+                maxWidth: '700px',
+                textAlign: 'center',
+                margin: '0 auto'
               }}
             >
-              They haven't been in this week. Won't be in next week. And you just found out. Your competitors know 21 days early. The difference? AI that watches every member, every day. While you run your business.
+              We implement intelligent automation systems that handle your follow-ups, fill your classes, and run your operations—so you can do what you love: transform lives.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.6 }}
-              className="flex flex-col sm:flex-row space-responsive mb-16"
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.5 }}
+              className="flex items-center justify-center mb-6" style={{ marginTop: '24px' }}
             >
               <motion.a
                 href="/book-call"
-                className="btn-primary"
                 style={{
-                  display: 'flex',
+                  background: '#1840BA',
+                  color: 'white',
+                  padding: '16px 32px',
+                  borderRadius: '8px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
+                  transition: 'all 0.2s ease',
                   cursor: 'pointer',
-                  textDecoration: 'none'
+                  boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+                  animation: 'pulse-glow 2s ease-in-out infinite alternate'
                 }}
                 whileHover={{
-                  boxShadow: '0 8px 30px rgba(65, 105, 225, 0.5)',
-                  transform: 'translateY(-2px)'
+                  backgroundColor: '#0F2B70',
+                  transform: 'translateY(-1px)',
+                  boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
                 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
               >
-                See Your Lost Revenue
-                <ArrowRight size={20} />
+                Book a Strategy Call
+                <ArrowRight size={16} />
               </motion.a>
             </motion.div>
 
-            {/* Statistics */}
+            {/* Trust Indicators */}
             <motion.div
               initial={{ opacity: 0, ...(isMobile ? {} : { y: 20 }) }}
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.8 }}
-              className="grid grid-cols-3 space-responsive"
-              style={{ opacity: 0.7 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.7 }}
+              className="text-center"
+              style={{ marginTop: '100px', marginBottom: '24px' }}
             >
-              <div className="text-center">
-                <div
-                  style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                    fontWeight: 700,
-                    color: '#FFFFFF',
-                    marginBottom: 'clamp(0.25rem, 1vw, 0.5rem)',
-                    lineHeight: '1.2'
-                  }}
-                >
-                  <AnimatedNumber value={30} suffix="%" />
-                </div>
-                <div
-                  style={{
-                    fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    lineHeight: '1.4',
-                    fontWeight: 400
-                  }}
-                >
-                  Average Churn Reduction
-                </div>
-              </div>
-
-              <div className="text-center">
-                <div
-                  style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                    fontWeight: 700,
-                    color: '#FFFFFF',
-                    marginBottom: 'clamp(0.25rem, 1vw, 0.5rem)',
-                    lineHeight: '1.2'
-                  }}
-                >
-                  <AnimatedNumber value={126000} prefix="$" />
-                </div>
-                <div
-                  style={{
-                    fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    lineHeight: '1.4',
-                    fontWeight: 400
-                  }}
-                >
-                  Annual Revenue Increase
-                </div>
-              </div>
-
-              <div className="text-center">
-                <div
-                  style={{
-                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                    fontWeight: 700,
-                    color: '#FFFFFF',
-                    marginBottom: 'clamp(0.25rem, 1vw, 0.5rem)',
-                    lineHeight: '1.2'
-                  }}
-                >
-                  <AnimatedNumber value={500} suffix="+" />
-                </div>
-                <div
-                  style={{
-                    fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    lineHeight: '1.4',
-                    fontWeight: 400
-                  }}
-                >
-                  Members Retained
-                </div>
-              </div>
+              <p
+                style={{
+                  fontSize: '14px',
+                  color: '#6B7280',
+                  margin: 0,
+                  fontWeight: 400
+                }}
+              >
+                Trusted by fitness studios and multi-location gyms nationwide
+              </p>
             </motion.div>
-          </div>
 
-          {/* Right Side - Dashboard Preview */}
-          <div className="flex justify-center lg:justify-end items-center">
-            <DashboardPreview />
+            {/* Scrolling Trust Marquee */}
+            <div style={{ marginTop: '40px', marginBottom: '60px' }}>
+              <TrustMarquee />
+            </div>
           </div>
         </div>
       </div>

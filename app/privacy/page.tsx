@@ -1,555 +1,422 @@
 "use client";
 
+import React from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ArrowLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function PrivacyPolicy() {
+  const getCurrentDate = () => {
+    return 'August 5, 2025';
+  };
+
   return (
-    <main className="min-h-screen bg-black">
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       <Navigation />
       {/* Privacy Policy Content */}
       <section 
-        className="bg-black relative overflow-hidden"
-        style={{ padding: '120px 0 100px 0' }}
+        style={{ 
+          background: 'linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%)',
+          padding: '120px 0 80px 0' 
+        }}
       >
-        <div className="container-max relative z-10">
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
           {/* Back to Home Button */}
           <motion.a
             href="/"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
+            className="inline-flex items-center gap-2 transition-colors duration-200 mb-8"
             whileHover={{ x: -4 }}
             transition={{ duration: 0.2 }}
-            style={{ textDecoration: 'none', display: 'inline-block' }}
+            style={{ 
+              textDecoration: 'none', 
+              display: 'inline-block',
+              color: '#1840BA',
+              fontWeight: 500
+            }}
           >
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </motion.a>
-          <div className="max-w-4xl mx-auto">
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             {/* Header */}
             <div className="text-center mb-16">
-              <h1
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
                 style={{
                   fontSize: '48px',
-                  color: '#FFFFFF',
-                  fontWeight: 600,
-                  marginBottom: '16px'
+                  color: '#1A1A1A',
+                  fontWeight: 700,
+                  marginBottom: '16px',
+                  lineHeight: '1.1'
                 }}
               >
                 Privacy Policy
-              </h1>
+              </motion.h1>
               
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 style={{
-                  fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.6)',
+                  fontSize: '18px',
+                  color: '#6B7280',
                   marginBottom: '8px'
                 }}
               >
-                <strong>Effective Date:</strong> July 21, 2025
-              </div>
+                <strong>Effective Date:</strong> {getCurrentDate()}
+              </motion.div>
               
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 style={{
                   fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.6)'
+                  color: '#6B7280'
                 }}
               >
-                <strong>Last Updated:</strong> July 21, 2025
-              </div>
+                Peak Automation Group LLC
+              </motion.div>
             </div>
 
             {/* Content */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '16px',
+                background: '#FFFFFF',
+                border: '1px solid #E5E7EB',
+                borderRadius: '12px',
                 padding: '48px',
-                backdropFilter: 'blur(10px)'
+                boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
               }}
             >
               <div
                 style={{
                   fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  lineHeight: '1.7'
+                  color: '#4A5568',
+                  lineHeight: '1.6'
                 }}
               >
-                <h2
-                  style={{
-                    fontSize: '32px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '24px',
-                    marginTop: '0'
-                  }}
-                >
+                {/* Section 1 - Introduction */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '0'
+                }}>
                   Introduction
                 </h2>
                 
-                <p style={{ marginBottom: '24px' }}>
-                  Peak Automation Group ("we," "our," or "us") is committed to protecting the privacy and security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered member retention platform and services.
+                <p style={{ marginBottom: '32px' }}>
+                  Peak Automation Group LLC ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website (peakautomationgroup.com) and use our automation services for gym and fitness businesses.
                 </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 2 - Information We Collect */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   Information We Collect
                 </h2>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Information You Provide Directly
+                <h3 style={{
+                  fontSize: '18px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  marginTop: '24px'
+                }}>
+                  Personal Information:
                 </h3>
                 <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>Account Information:</strong> Name, email address, phone number, business name, and billing information</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Gym Data:</strong> Member information, attendance records, payment histories, and engagement metrics</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Communications:</strong> Information you provide when contacting our support team or sales representatives</li>
+                  <li style={{ marginBottom: '8px' }}>Name and contact information (email, phone number)</li>
+                  <li style={{ marginBottom: '8px' }}>Business information (gym name, location, size)</li>
+                  <li style={{ marginBottom: '8px' }}>Payment and billing information</li>
+                  <li style={{ marginBottom: '8px' }}>Communication preferences</li>
+                  <li style={{ marginBottom: '8px' }}>Usage data and analytics</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Information Collected Automatically
+                <h3 style={{
+                  fontSize: '18px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '12px',
+                  marginTop: '24px'
+                }}>
+                  Gym Operations Data (when providing services):
                 </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>Usage Data:</strong> How you interact with our platform, features used, and performance metrics</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Technical Data:</strong> IP address, browser type, device information, and operating system</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Cookies:</strong> We use cookies to enhance your experience and analyze platform usage</li>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Member statistics (anonymized)</li>
+                  <li style={{ marginBottom: '8px' }}>Operational metrics for automation setup</li>
+                  <li style={{ marginBottom: '8px' }}>Integration data from connected platforms</li>
+                  <li style={{ marginBottom: '8px' }}>Performance metrics for ROI tracking</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Information From Integrated Systems
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>Third-Party Platforms:</strong> Data synced from your gym management systems (Mindbody, Glofox, etc.)</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Analytics Data:</strong> Aggregated performance metrics and behavioral patterns</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 3 - How We Use Your Information */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   How We Use Your Information
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
+                <p style={{ marginBottom: '12px' }}>
                   We use collected information to:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Provide and maintain our AI retention services</li>
-                  <li style={{ marginBottom: '8px' }}>Analyze member behavior patterns and predict churn risk</li>
-                  <li style={{ marginBottom: '8px' }}>Send automated engagement campaigns on your behalf</li>
-                  <li style={{ marginBottom: '8px' }}>Generate analytics reports and insights</li>
-                  <li style={{ marginBottom: '8px' }}>Improve our platform and develop new features</li>
-                  <li style={{ marginBottom: '8px' }}>Communicate with you about your account and services</li>
-                  <li style={{ marginBottom: '8px' }}>Ensure platform security and prevent fraud</li>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Provide and manage automation services</li>
+                  <li style={{ marginBottom: '8px' }}>Configure and optimize your automation systems</li>
+                  <li style={{ marginBottom: '8px' }}>Process payments and maintain accounts</li>
+                  <li style={{ marginBottom: '8px' }}>Send service updates and important notices</li>
+                  <li style={{ marginBottom: '8px' }}>Provide customer support</li>
+                  <li style={{ marginBottom: '8px' }}>Generate anonymized analytics and insights</li>
+                  <li style={{ marginBottom: '8px' }}>Improve our services and develop new features</li>
                   <li style={{ marginBottom: '8px' }}>Comply with legal obligations</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Data Sharing and Disclosure
+                {/* Section 4 - Data Sharing */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  How We Share Your Information
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  We do not sell, rent, or trade your personal information. We may share information only in these circumstances:
+                <p style={{ marginBottom: '12px' }}>
+                  We may share your information with:
                 </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Service Providers
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  We work with trusted third-party services for:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Cloud hosting and data storage (Google Cloud Platform)</li>
-                  <li style={{ marginBottom: '8px' }}>Payment processing (Stripe)</li>
-                  <li style={{ marginBottom: '8px' }}>Communication services (for automated messaging)</li>
-                  <li style={{ marginBottom: '8px' }}>Analytics and monitoring</li>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Third-party automation tools we configure for you (Make.com, Zapier, etc.)</li>
+                  <li style={{ marginBottom: '8px' }}>Payment processors for billing</li>
+                  <li style={{ marginBottom: '8px' }}>Analytics providers for service improvement</li>
+                  <li style={{ marginBottom: '8px' }}>Professional advisors and legal authorities when required</li>
+                  <li style={{ marginBottom: '8px' }}>Business partners with your explicit consent</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Legal Requirements
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  We may disclose information when required by law, court order, or government request.
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  We NEVER:
                 </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Sell your personal information</li>
+                  <li style={{ marginBottom: '8px' }}>Share your gym's operational data with competitors</li>
+                  <li style={{ marginBottom: '8px' }}>Use your data for purposes unrelated to our services</li>
+                </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Business Transfers
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  In the event of a merger, acquisition, or sale of assets, information may be transferred to the acquiring entity.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  With Consent
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  Any other sharing of data will only occur with your explicit consent.
-                </p>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 5 - Data Security */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   Data Security
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  We use appropriate safeguards to protect your information, including:
+                <p style={{ marginBottom: '12px' }}>
+                  We implement industry-standard security measures including:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
                   <li style={{ marginBottom: '8px' }}>SSL encryption for data transmission</li>
-                  <li style={{ marginBottom: '8px' }}>Encrypted storage for sensitive data</li>
-                  <li style={{ marginBottom: '8px' }}>Limited access through authentication protocols</li>
-                  <li style={{ marginBottom: '8px' }}>Regular internal reviews and employee data protection training</li>
+                  <li style={{ marginBottom: '8px' }}>Secure cloud storage with encryption at rest</li>
+                  <li style={{ marginBottom: '8px' }}>Regular security audits and updates</li>
+                  <li style={{ marginBottom: '8px' }}>Limited access controls for staff</li>
+                  <li style={{ marginBottom: '8px' }}>Secure API connections with integrated platforms</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 6 - Your Rights */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  Your Rights and Choices
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  You have the right to:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Access your personal information</li>
+                  <li style={{ marginBottom: '8px' }}>Correct inaccurate data</li>
+                  <li style={{ marginBottom: '8px' }}>Request deletion of your data</li>
+                  <li style={{ marginBottom: '8px' }}>Opt-out of marketing communications</li>
+                  <li style={{ marginBottom: '8px' }}>Export your data in a portable format</li>
+                  <li style={{ marginBottom: '8px' }}>Restrict processing of your information</li>
+                </ul>
+
+                {/* Section 7 - Cookies */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  Cookies and Tracking
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  We use cookies and similar technologies to:
+                </p>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Maintain session state</li>
+                  <li style={{ marginBottom: '8px' }}>Remember your preferences</li>
+                  <li style={{ marginBottom: '8px' }}>Analyze website usage</li>
+                  <li style={{ marginBottom: '8px' }}>Improve user experience</li>
+                </ul>
+                <p style={{ marginBottom: '32px' }}>
+                  You can control cookies through your browser settings.
+                </p>
+
+                {/* Section 8 - Third-Party Services */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  Third-Party Services
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Our automation services integrate with various third-party platforms. Each platform has its own privacy policy:
+                </p>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Your gym management software</li>
+                  <li style={{ marginBottom: '8px' }}>Payment processors</li>
+                  <li style={{ marginBottom: '8px' }}>Communication platforms</li>
+                  <li style={{ marginBottom: '8px' }}>Analytics tools</li>
+                </ul>
+                <p style={{ marginBottom: '32px' }}>
+                  We recommend reviewing their privacy policies.
+                </p>
+
+                {/* Section 9 - Data Retention */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   Data Retention
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  We retain your personal information as long as needed to fulfill the services or as required by law.
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Account and gym data: Duration of service + 3 years</li>
-                  <li style={{ marginBottom: '8px' }}>Communication and usage data: Up to 3 years</li>
-                  <li style={{ marginBottom: '8px' }}>Users may request deletion at any time, subject to legal retention requirements</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Your Privacy Rights (Nationwide)
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  As a U.S. resident, you may:
+                <p style={{ marginBottom: '12px' }}>
+                  We retain your information for as long as necessary to:
                 </p>
                 <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Request access to your personal data</li>
-                  <li style={{ marginBottom: '8px' }}>Request corrections or updates</li>
-                  <li style={{ marginBottom: '8px' }}>Request deletion of your information</li>
-                  <li style={{ marginBottom: '8px' }}>Request to limit use of your information for marketing</li>
-                  <li style={{ marginBottom: '8px' }}>Opt out of promotional communications</li>
+                  <li style={{ marginBottom: '8px' }}>Provide our services</li>
+                  <li style={{ marginBottom: '8px' }}>Comply with legal obligations</li>
+                  <li style={{ marginBottom: '8px' }}>Resolve disputes</li>
+                  <li style={{ marginBottom: '8px' }}>Enforce agreements</li>
                 </ul>
-                
-                <p style={{ marginBottom: '24px' }}>
-                  To exercise your rights, contact: <strong>privacy@peakautomationgroup.com</strong>
+                <p style={{ marginBottom: '32px' }}>
+                  Account data is retained for 3 years after service termination unless deletion is requested.
                 </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  California Privacy Rights
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  California residents have additional rights under the CCPA:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Right to know what personal information we collect</li>
-                  <li style={{ marginBottom: '8px' }}>Right to know if we sell or share personal information (we do not)</li>
-                  <li style={{ marginBottom: '8px' }}>Right to opt-out of sale (not applicable as we don't sell data)</li>
-                  <li style={{ marginBottom: '8px' }}>Right to non-discrimination for exercising privacy rights</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Georgia Consumer Privacy
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  Currently, Georgia does not have a comprehensive privacy law like California. However, we voluntarily extend similar protections, including:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Transparency in data use</li>
-                  <li style={{ marginBottom: '8px' }}>No sale of personal data</li>
-                  <li style={{ marginBottom: '8px' }}>Respect for deletion and access requests</li>
-                  <li style={{ marginBottom: '8px' }}>Reasonable data security measures</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Federal Compliance
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  This policy also aligns with U.S. federal regulations such as:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>CAN-SPAM Act (for marketing emails)</li>
-                  <li style={{ marginBottom: '8px' }}>Children's Online Privacy Protection Act (COPPA)</li>
-                  <li style={{ marginBottom: '8px' }}>Federal Trade Commission (FTC) consumer privacy guidelines</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  International Users
-                </h2>
-                
-                <p style={{ marginBottom: '24px' }}>
-                  If you access our services from outside the U.S., your data may be transferred to and processed in the United States. We implement appropriate safeguards for such international transfers.
-                </p>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 10 - Children's Privacy */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   Children's Privacy
                 </h2>
                 
-                <p style={{ marginBottom: '24px' }}>
-                  Our services are not intended for individuals under 18. We do not knowingly collect information from children. If we discover such data, we will promptly delete it.
+                <p style={{ marginBottom: '32px' }}>
+                  Our services are not directed to individuals under 18. We do not knowingly collect information from children.
                 </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Third-Party Links
+                {/* Section 11 - Updates */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  Updates to This Policy
                 </h2>
                 
-                <p style={{ marginBottom: '24px' }}>
-                  Our platform may contain links to third-party websites. We are not responsible for their privacy practices. Please review their policies separately.
+                <p style={{ marginBottom: '32px' }}>
+                  We may update this Privacy Policy periodically. We will notify you of material changes via email or website notice.
                 </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Changes to This Policy
+                {/* Section 12 - Contact */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  Contact Us
                 </h2>
                 
-                <p style={{ marginBottom: '24px' }}>
-                  We may update this policy periodically. We will notify you of material changes via email or platform notification. Continued use after changes constitutes acceptance.
-                </p>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Contact Information
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  For questions, concerns, or requests regarding this Privacy Policy:
-                </p>
-                
-                <div style={{ marginBottom: '24px' }}>
-                  <p style={{ marginBottom: '8px' }}><strong>Peak Automation Group</strong></p>
+                <div style={{ marginBottom: '32px' }}>
+                  <p style={{ marginBottom: '8px' }}><strong>Peak Automation Group LLC</strong></p>
+                  <p style={{ marginBottom: '8px' }}>3390 Peachtree Road NE, Suite 320</p>
+                  <p style={{ marginBottom: '8px' }}>Atlanta, GA, 30326, USA</p>
                   <p style={{ marginBottom: '8px' }}>Email: privacy@peakautomationgroup.com</p>
-                  <p style={{ marginBottom: '8px' }}>Address: 225 Tidwell Dr. Alpharetta, Georgia 30004</p>
+                  <p style={{ marginBottom: '8px' }}>Website: peakautomationgroup.com</p>
                 </div>
+                <p style={{ marginBottom: '32px' }}>
+                  For privacy concerns or data requests, please contact us at the above email.
+                </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Compliance
+                {/* California Residents */}
+                <h2 style={{
+                  fontSize: '24px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  California Residents
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  This policy is designed to comply with:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>General Data Protection Regulation (GDPR)</li>
-                  <li style={{ marginBottom: '8px' }}>California Consumer Privacy Act (CCPA)</li>
-                  <li style={{ marginBottom: '8px' }}>Georgia Personal Identity Protection Act</li>
-                  <li style={{ marginBottom: '8px' }}>Other applicable federal and state data protection laws</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  Cookie Policy
-                </h2>
-                
-                <p style={{ marginBottom: '16px' }}>
-                  We use cookies to enhance functionality and understand usage:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}><strong>Essential Cookies:</strong> Enable platform operations</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Analytics Cookies:</strong> Help improve the platform</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Preference Cookies:</strong> Remember user settings</li>
-                  <li style={{ marginBottom: '8px' }}><strong>Marketing Cookies:</strong> Measure advertising performance</li>
-                </ul>
-                
-                <p style={{ marginBottom: '24px' }}>
-                  You can adjust cookie preferences via your browser settings.
+                <p style={{ marginBottom: '32px' }}>
+                  California residents may have additional rights under the CCPA. Contact us for more information.
                 </p>
 
-                <hr 
-                  style={{ 
-                    border: 'none', 
-                    borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
-                    margin: '40px 0' 
-                  }} 
-                />
+                <hr style={{ 
+                  border: 'none', 
+                  borderTop: '1px solid #E5E7EB', 
+                  margin: '40px 0' 
+                }} />
 
                 <p style={{ 
                   fontSize: '14px', 
-                  color: 'rgba(255, 255, 255, 0.6)', 
+                  color: '#6B7280', 
                   fontStyle: 'italic',
                   textAlign: 'center'
                 }}>
-                  <strong>By using our platform, you acknowledge that you have read and understood this Privacy Policy.</strong>
+                  <strong>By using our services, you acknowledge that you have read and understood this Privacy Policy.</strong>
                 </p>
               </div>
-            </div>
+          </motion.div>
           </div>
         </div>
       </section>

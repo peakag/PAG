@@ -1,83 +1,58 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { 
-  AlertTriangle, 
-  Target, 
-  Magnet, 
-  Shield, 
-  BarChart3, 
-  TrendingUp 
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
-// Floating Particle Component
-function FloatingParticle({ delay = 0, duration = 20, size = 4, opacity = 0.02 }: { 
-  delay?: number, 
-  duration?: number, 
-  size?: number, 
-  opacity?: number 
-}) {
-  return (
-    <motion.div
-      style={{
-        position: 'absolute',
-        width: size,
-        height: size,
-        background: '#4169E1',
-        borderRadius: '50%',
-        opacity: opacity
-      }}
-      animate={{
-        y: [-20, -100, -20],
-        x: [0, 30, 0],
-        opacity: [opacity, opacity * 2, opacity]
-      }}
-      transition={{
-        duration: duration,
-        repeat: Infinity,
-        delay: delay,
-        ease: "easeInOut"
-      }}
-    />
-  )
-}
-
-const features = [
+const automationSystems = [
   {
-    icon: AlertTriangle,
-    title: "AI-Powered Early Warning System",
-    subtitle: "Predict Member Churn 21 Days Early",
-    description: "Our gym member retention software tracks 47 behavioral signals using advanced AI algorithms. From missed classes to app engagement patterns, we identify at-risk members before they decide to cancel. Stop gym member churn before it starts."
+    title: "Smart Lead Follow-Up",
+    description: "Never miss another trial signup. Automated sequences nurture leads until they convert.",
+    keyBenefit: "Convert more trials to members"
   },
   {
-    icon: Target,
-    title: "Intelligent Member Tracking",
-    subtitle: "Find Every At-Risk Member",
-    description: "Our AI gym retention system monitors every check-in, payment, and interaction. Unlike traditional gym software, you catch disengagement on day 3, not month 3. No more invisible member losses."
+    title: "Member Retention Radar",
+    description: "Spot at-risk members before they even think about canceling.",
+    keyBenefit: "Reduce churn predictively"
   },
   {
-    icon: Magnet,
-    title: "Automated Retention Campaigns",
-    subtitle: "Bring Members Back Automatically",
-    description: "Stop crafting generic retention emails. Our fitness retention system sends personalized messages at the perfect time — whether it's a workout reminder, coach check-in, or limited-time offer. Each member gets what actually works for them."
+    title: "Payment Recovery System",
+    description: "Failed payments get resolved automatically with smart retry logic.",
+    keyBenefit: "Recover lost revenue instantly"
   },
   {
-    icon: Shield,
-    title: "Payment Failure Prevention",
-    subtitle: "Protect Your Revenue Stream",
-    description: "Expired cards and failed payments kill gym revenue. Our gym member retention software catches payment issues 14 days early, sends smart reminders, and updates payment info automatically. Keep your recurring revenue flowing."
+    title: "Operations Dashboard",
+    description: "All your metrics in one place. No more spreadsheet juggling.",
+    keyBenefit: "Make data-driven decisions"
   },
   {
-    icon: BarChart3,
-    title: "Real-Time Analytics Dashboard",
-    subtitle: "Track Retention Success Daily",
-    description: "Stop guessing what works. Our comprehensive dashboard shows who's at risk, who's been saved, and exactly how much money you're keeping. Every retention win tracked. Every dollar saved counted. ROI proven daily."
+    title: "Smart Class Optimizer",
+    description: "Fill classes based on member preferences and historical patterns.",
+    keyBenefit: "Maximize class attendance"
   },
   {
-    icon: TrendingUp,
-    title: "Revenue Maximization Engine",
-    subtitle: "Turn Saves Into Upsells",
-    description: "Members you save are 3x more likely to upgrade. Our AI gym retention software identifies perfect moments to suggest personal training, premium memberships, or add-ons. Save them today, upsell them tomorrow, watch revenue soar."
+    title: "Equipment Maintenance Tracker",
+    description: "Prevent breakdowns with automated maintenance scheduling.",
+    keyBenefit: "Zero equipment downtime"
+  },
+  {
+    title: "Personalized Member Messaging",
+    description: "Send the right message at the right time to every member.",
+    keyBenefit: "Scale personal touch"
+  },
+  {
+    title: "Revenue Intelligence",
+    description: "Identify upsell opportunities and optimize pricing automatically.",
+    keyBenefit: "Increase per-member value"
+  },
+  {
+    title: "Staff Workflow Automation",
+    description: "Eliminate repetitive tasks so your team can focus on members.",
+    keyBenefit: "Boost team productivity"
+  },
+  {
+    title: "Competitive Analytics",
+    description: "Track your performance against market benchmarks.",
+    keyBenefit: "Stay ahead of competition"
   }
 ]
 
@@ -85,24 +60,13 @@ export default function Features() {
   return (
     <section 
       id="features" 
-      className="bg-black relative overflow-hidden"
-      style={{ padding: '100px 0' }}
+      style={{ 
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)',
+        paddingTop: 'clamp(60px, 8vw, 80px)',
+        paddingBottom: 'clamp(60px, 8vw, 80px)'
+      }}
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        {/* Floating Particles */}
-        {Array.from({ length: 12 }).map((_, i) => (
-          <FloatingParticle
-            key={i}
-            delay={i * 0.8}
-            duration={20 + Math.random() * 15}
-            size={2 + Math.random() * 4}
-            opacity={0.015 + Math.random() * 0.02}
-          />
-        ))}
-      </div>
-
-      <div className="container-max relative z-10">
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.h2
@@ -111,13 +75,13 @@ export default function Features() {
             transition={{ duration: 0.6 }}
             style={{
               fontSize: 'clamp(2rem, 5vw, 3rem)',
-              color: '#FFFFFF',
+              color: '#1A1A1A',
               fontWeight: 600,
-              marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
+              marginBottom: '16px',
               lineHeight: '1.2'
             }}
           >
-            AI Gym Retention Software Features
+            10 Systems That Run Your Gym on Autopilot
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -125,105 +89,133 @@ export default function Features() {
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{
               fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
-              color: 'rgba(255, 255, 255, 0.7)',
-              maxWidth: '600px',
+              color: '#4A5568',
+              maxWidth: '700px',
               margin: '0 auto',
               lineHeight: '1.6'
             }}
           >
-            Our comprehensive gym member retention software combines AI technology with proven strategies to stop member churn before it impacts your business.
+            Each system integrates with your existing software and starts working in days, not months
           </motion.p>
         </div>
 
-        {/* Features Grid */}
-        <div className="responsive-grid-3">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+        {/* Automation Systems Grid */}
+        <div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))',
+            gap: '24px',
+            marginBottom: '48px'
+          }}
+        >
+          {automationSystems.map((system, index) => (
+            <motion.div
+              key={system.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              style={{
+                background: '#FFFFFF',
+                border: '1px solid #E5E7EB',
+                borderRadius: '12px',
+                padding: '24px',
+                transition: 'all 0.3s ease',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+              whileHover={{
+                boxShadow: '0 4px 12px rgba(24, 64, 186, 0.1)',
+                transform: 'translateY(-2px)'
+              }}
+            >
+              {/* Title */}
+              <h3
                 style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  backdropFilter: 'blur(10px)',
-                  transition: 'all 0.3s ease',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}
-                whileHover={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  borderColor: 'rgba(65, 105, 225, 0.2)',
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '8px'
                 }}
               >
-                {/* Icon */}
-                <div
-                  style={{
-                    width: '48px',
-                    height: '48px',
-                    background: 'rgba(65, 105, 225, 0.1)',
-                    borderRadius: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '24px',
-                    flexShrink: 0
-                  }}
-                >
-                  <IconComponent size={24} style={{ color: '#4169E1' }} />
-                </div>
+                {system.title}
+              </h3>
 
-                {/* Title */}
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '8px',
-                    flexShrink: 0
-                  }}
-                >
-                  {feature.title}
-                </h3>
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: '16px',
+                  color: '#4A5568',
+                  lineHeight: 1.5,
+                  marginBottom: '12px',
+                  flex: 1
+                }}
+              >
+                {system.description}
+              </p>
 
-                {/* Subtitle */}
-                <h4
-                  style={{
-                    fontSize: '14px',
-                    color: '#4169E1',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    flexShrink: 0,
-                    letterSpacing: '0.02em'
-                  }}
-                >
-                  {feature.subtitle}
-                </h4>
-
-                {/* Description */}
-                <p
-                  style={{
-                    fontSize: '16px',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    lineHeight: '1.6',
-                    flex: 1
-                  }}
-                >
-                  {feature.description}
-                </p>
-              </motion.div>
-            )
-          })}
+              {/* Key Benefit */}
+              <div
+                style={{
+                  fontSize: '14px',
+                  color: '#1840BA',
+                  fontWeight: 500
+                }}
+              >
+                {system.keyBenefit}
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-center"
+          style={{ marginTop: '48px' }}
+        >
+          <p
+            style={{
+              fontSize: '18px',
+              color: '#1A1A1A',
+              marginBottom: '24px',
+              fontWeight: 500
+            }}
+          >
+            Ready to automate your gym operations?
+          </p>
+          <motion.a
+            href="/solutions"
+            style={{
+              background: '#1840BA',
+              color: 'white',
+              padding: '16px 32px',
+              borderRadius: '8px',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.2s ease',
+              cursor: 'pointer',
+              boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+              animation: 'pulse-glow 2s ease-in-out infinite alternate'
+            }}
+            whileHover={{
+              backgroundColor: '#0F2B70',
+              transform: 'translateY(-1px)',
+              boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Learn More
+            <ArrowRight size={16} />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )

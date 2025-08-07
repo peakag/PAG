@@ -50,10 +50,9 @@ export default function Navigation() {
   }
 
   const navItems = [
-    { name: 'Features', href: '#features', isAnchor: true },
-    { name: 'Our Process', href: '#how-it-works', isAnchor: true },
-    { name: 'ROI Calculator', href: '#roi-calculator', isAnchor: true },
-    { name: 'About Us', href: '/about', isAnchor: false }
+    { name: 'Our Systems', href: '/solutions', isAnchor: false },
+    { name: 'Results', href: '/testimonials', isAnchor: false },
+    { name: 'About', href: '/about', isAnchor: false }
   ]
 
   const handleNavClick = (item: any, e: React.MouseEvent) => {
@@ -80,14 +79,11 @@ export default function Navigation() {
     <>
       {/* Desktop Navigation */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-black/95 backdrop-blur-[20px] shadow-[0_4px_30px_rgba(0,0,0,0.3)]' 
-            : 'bg-black/80 backdrop-blur-[20px]'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300"
         style={{
           height: '72px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+          borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.04)'
         }}
       >
         <div className="container-max h-full">
@@ -112,12 +108,13 @@ export default function Navigation() {
                 className="transition-opacity duration-300 group-hover:opacity-80"
               />
               <span 
-                className="ml-3 text-white font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-80"
+                className="ml-3 text-black font-semibold tracking-tight transition-opacity duration-300 group-hover:opacity-80"
                 style={{
                   fontSize: '13px',
                   fontWeight: 600,
                   letterSpacing: '-0.01em',
-                  lineHeight: '32px'
+                  lineHeight: '32px',
+                  fontFamily: 'system-ui, Inter, sans-serif'
                 }}
               >
                 Peak Automation Group
@@ -131,18 +128,26 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(item, e)}
-                  className="text-white/70 hover:text-white font-medium text-sm tracking-[0.01em] transition-all duration-300 ease-in-out relative group"
-                  style={{ fontWeight: 500 }}
+                  className="text-[#1A1A1A] hover:text-[#3F92FA] font-medium transition-all duration-200 ease-in-out relative group"
+                  style={{ 
+                    fontFamily: 'system-ui, Inter, sans-serif',
+                    fontWeight: 500,
+                    fontSize: '16px'
+                  }}
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3F92FA] transition-all duration-200 group-hover:w-full"></span>
                 </a>
               ))}
               {user && (
                 <a
                   href="/dashboard"
-                  className="text-white/90 hover:text-[#4169E1] font-semibold text-sm tracking-[0.01em] transition-all duration-300 ease-in-out relative group px-3 py-2 rounded-md"
-                  style={{ fontWeight: 600 }}
+                  className="text-[#1A1A1A] hover:text-[#3F92FA] font-medium transition-all duration-200 ease-in-out relative group px-3 py-2 rounded-md"
+                  style={{ 
+                    fontFamily: 'system-ui, Inter, sans-serif',
+                    fontWeight: 500,
+                    fontSize: '16px'
+                  }}
                 >
                   Dashboard
                 </a>
@@ -153,22 +158,37 @@ export default function Navigation() {
             <div className="hidden md:block">
               {!user ? (
                 <motion.a 
-                  href="/login"
-                  className="bg-[#4169E1] text-white px-6 py-2.5 rounded-md font-semibold text-sm transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
-                  style={{ fontWeight: 600, textDecoration: 'none' }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  href="/book-call"
+                  style={{ 
+                    background: '#1840BA',
+                    color: 'white',
+                    padding: '10px 24px',
+                    borderRadius: '8px',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    fontSize: '16px',
+                    transition: 'all 0.2s ease',
+                    cursor: 'pointer',
+                    boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+                    animation: 'pulse-glow 2s ease-in-out infinite alternate'
+                  }}
+                  whileHover={{
+                    backgroundColor: '#0F2B70',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+                  }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Client Login
+                  Start Here
                 </motion.a>
               ) : (
                 <div className="relative inline-block">
                   <button
                     ref={avatarRef}
                     onClick={() => setDropdownOpen((v) => !v)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-[#4169E1]/20 transition-colors border border-white/10 focus:outline-none"
+                    className="flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors border border-gray-200 focus:outline-none"
                   >
-                    <UserCircle className="text-white" size={28} />
+                    <UserCircle className="text-gray-600" size={28} />
                   </button>
                   <AnimatePresence>
                     {dropdownOpen && (
@@ -177,17 +197,17 @@ export default function Navigation() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute right-0 mt-2 w-56 bg-black border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg z-50 overflow-hidden"
+                        className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden"
                       >
-                        <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                        <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">
                           <LayoutDashboard size={18} /> Dashboard
                         </a>
-                        <a href="/account" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                        <a href="/account" className="flex items-center gap-2 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">
                           <Settings size={18} /> Account Settings
                         </a>
                         <button
                           onClick={handleLogout}
-                          className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-400 hover:bg-red-500/10 transition"
+                          className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-600 hover:bg-red-50 transition"
                         >
                           <LogOut size={18} /> Sign Out
                         </button>
@@ -201,13 +221,14 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 mobile-tap-target"
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20 mobile-tap-target"
               aria-label="Toggle mobile menu"
+              style={{ minHeight: '48px' }}
             >
               <div className="flex flex-col space-y-1">
-                <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
-                <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+                <div className={`w-6 h-0.5 bg-[#1840BA] transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+                <div className={`w-6 h-0.5 bg-[#1840BA] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></div>
+                <div className={`w-6 h-0.5 bg-[#1840BA] transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
               </div>
             </button>
           </div>
@@ -234,10 +255,10 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-black/95 backdrop-blur-[20px] z-50 md:hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)] border-l border-white/10"
+              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50 md:hidden shadow-[0_4px_30px_rgba(0,0,0,0.1)] border-l border-gray-200"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <a 
                   href="/"
                   onClick={() => closeMobileMenu()}
@@ -255,12 +276,13 @@ export default function Navigation() {
                     }}
                   />
                   <span 
-                    className="ml-2 text-white font-semibold tracking-tight"
+                    className="ml-2 text-black font-semibold tracking-tight"
                     style={{
                       fontSize: '11px',
                       fontWeight: 600,
                       letterSpacing: '-0.01em',
-                      lineHeight: '28px'
+                      lineHeight: '28px',
+                      fontFamily: 'system-ui, Inter, sans-serif'
                     }}
                   >
                     Peak Automation Group
@@ -268,10 +290,10 @@ export default function Navigation() {
                 </a>
                 <button
                   onClick={closeMobileMenu}
-                  className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                  className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
                   aria-label="Close menu"
                 >
-                  <X size={24} className="text-white" />
+                  <X size={24} className="text-gray-600" />
                 </button>
               </div>
 
@@ -285,20 +307,22 @@ export default function Navigation() {
                       handleNavClick(item, e)
                       closeMobileMenu()
                     }}
-                    className="flex items-center justify-between w-full rounded-lg hover:bg-white/10 transition-all duration-300 text-left group mobile-nav-item"
+                    className="flex items-center justify-between w-full rounded-lg hover:bg-gray-100 transition-all duration-300 text-left group mobile-nav-item"
+                    style={{ minHeight: '48px' }}
                   >
-                    <span className="text-white font-medium text-base group-hover:text-blue-400 transition-colors duration-300">
+                    <span className="text-[#1A1A1A] font-medium text-base group-hover:text-[#3F92FA] transition-colors duration-300">
                       {item.name}
                     </span>
-                    <ArrowRight size={20} className="text-white/50 group-hover:text-blue-400 group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight size={20} className="text-gray-500 group-hover:text-[#3F92FA] group-hover:translate-x-1 transition-all duration-300" />
                   </a>
                 ))}
                 {user && (
                   <a
                     href="/dashboard"
-                    className="flex items-center justify-between w-full rounded-lg hover:bg-[#4169E1]/10 transition-all duration-300 text-left group mobile-nav-item mt-2"
+                    className="flex items-center justify-between w-full rounded-lg hover:bg-gray-100 transition-all duration-300 text-left group mobile-nav-item mt-2"
+                    style={{ minHeight: '48px' }}
                   >
-                    <span className="text-white font-semibold text-base group-hover:text-[#4169E1] transition-colors duration-300">
+                    <span className="text-[#1A1A1A] font-medium text-base group-hover:text-[#3F92FA] transition-colors duration-300">
                       Dashboard
                     </span>
                   </a>
@@ -306,25 +330,41 @@ export default function Navigation() {
               </div>
 
               {/* Mobile Auth/User */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-white/10">
+              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200">
                 {!user ? (
                   <motion.a 
-                    href="/login"
-                    className="w-full bg-[#4169E1] text-white px-6 py-4 rounded-md font-semibold text-base transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(65,105,225,0.6)] focus:outline-none focus:ring-4 focus:ring-blue-500/20"
-                    style={{ fontWeight: 600, textDecoration: 'none' }}
-                    whileHover={{ scale: 1.02 }}
+                    href="/book-call"
+                    className="w-full block text-center"
+                    style={{ 
+                      background: '#1840BA',
+                      color: 'white',
+                      padding: '12px 24px',
+                      borderRadius: '8px',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      fontSize: '16px',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                      boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+                      animation: 'pulse-glow 2s ease-in-out infinite alternate'
+                    }}
+                    whileHover={{
+                      backgroundColor: '#0F2B70',
+                      transform: 'translateY(-1px)',
+                      boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+                    }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Client Login
+                    Start Here
                   </motion.a>
                 ) : (
                   <div className="relative w-full flex justify-end">
                     <button
                       ref={avatarRef}
                       onClick={() => setDropdownOpen((v) => !v)}
-                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 hover:bg-[#4169E1]/20 transition-colors border border-white/10 focus:outline-none"
+                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors border border-gray-200 focus:outline-none"
                     >
-                      <UserCircle className="text-white" size={28} />
+                      <UserCircle className="text-gray-600" size={28} />
                     </button>
                     <AnimatePresence>
                       {dropdownOpen && (
@@ -333,17 +373,17 @@ export default function Navigation() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.18 }}
-                          className="absolute right-0 mt-2 w-56 bg-black border border-[rgba(255,255,255,0.08)] rounded-lg shadow-lg z-50 overflow-hidden"
+                          className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden"
                         >
-                          <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                          <a href="/dashboard" className="flex items-center gap-2 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">
                             <LayoutDashboard size={18} /> Dashboard
                           </a>
-                          <a href="/account" className="flex items-center gap-2 px-5 py-3 text-white/90 hover:bg-[#4169E1]/10 transition">
+                          <a href="/account" className="flex items-center gap-2 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">
                             <Settings size={18} /> Account Settings
                           </a>
                           <button
                             onClick={handleLogout}
-                            className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-400 hover:bg-red-500/10 transition"
+                            className="flex items-center gap-2 px-5 py-3 w-full text-left text-red-600 hover:bg-red-50 transition"
                           >
                             <LogOut size={18} /> Sign Out
                           </button>

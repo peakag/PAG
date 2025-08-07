@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, ArrowLeft, MessageCircle, Clock, Shield, Users, DollarSign, Zap } from 'lucide-react'
+import { ChevronDown, ArrowLeft, ArrowRight, MessageCircle } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import Head from 'next/head'
+
 
 interface FAQItem {
   question: string
@@ -17,124 +17,107 @@ const faqData: FAQItem[] = [
   // General Questions
   {
     question: "What is Peak Automation Group?",
-    answer: "Peak Automation Group is a specialized automation company that helps gym owners stop losing members and start growing revenue through intelligent member retention systems. We use advanced automation technology to identify at-risk members and implement proactive retention strategies.",
+    answer: "Peak Automation Group specializes in implementing intelligent automation systems for gyms and fitness businesses. We help gym owners save 20+ hours per week and increase revenue through proven AI-powered solutions that handle everything from lead follow-up to member retention.",
     category: "General"
   },
   {
-    question: "How does your system work?",
-    answer: "Our system integrates with your existing gym management software to monitor member behavior patterns. When it detects signs of potential churn (like decreased attendance, missed payments, or lack of engagement), it automatically triggers personalized retention campaigns including check-ins, special offers, and re-engagement strategies.",
+    question: "What automation systems do you offer?",
+    answer: "We implement 10 core automation systems: Smart Lead Follow-Up, Member Retention Radar, Payment Recovery System, Operations Dashboard, Smart Class Optimizer, Equipment Maintenance Tracker, Personalized Member Messaging, Revenue Intelligence, Staff Workflow Automation, and Competitive Analytics.",
     category: "General"
   },
   {
-    question: "What makes you different from other gym software?",
-    answer: "Unlike generic gym management software, we focus specifically on member retention through predictive analytics and automated interventions. Our system doesn't just track data—it actively prevents member loss by identifying at-risk members before they cancel and implementing targeted retention strategies.",
+    question: "How is this different from gym management software?",
+    answer: "We don't build software—we implement and configure existing proven automation tools specifically for gym operations. Think of us as automation architects who take the best AI tools available and make them work seamlessly for your specific fitness business needs.",
     category: "General"
   },
 
   // Implementation & Setup
   {
-    question: "How long does it take to implement your system?",
-    answer: "Most gyms are up and running with our system within 2-3 weeks. This includes software integration, staff training, and initial setup. We handle all the technical integration with your existing systems, so there's minimal disruption to your daily operations.",
+    question: "How long does implementation take?",
+    answer: "Most gyms have their automation systems up and running within 30 days. This includes initial consultation, system setup, staff training, and optimization. We handle all the technical work so there's minimal disruption to your daily operations.",
     category: "Implementation"
   },
   {
-    question: "Do I need to change my existing gym management software?",
-    answer: "No, you don't need to change your existing software. Our system integrates with most popular gym management platforms including MindBody, Zen Planner, ClubReady, and others. We work alongside your current systems to enhance member retention without disrupting your workflow.",
+    question: "Do I need to change my current software?",
+    answer: "No, our automation systems integrate with your existing gym management software including MindBody, Zen Planner, ClubReady, Glofox, and others. We work alongside your current systems to enhance their capabilities.",
     category: "Implementation"
   },
   {
-    question: "What kind of training do you provide?",
-    answer: "We provide comprehensive training for your entire team, including managers and front desk staff. Training covers system operation, interpreting retention alerts, and best practices for member engagement. We also offer ongoing support and quarterly check-ins to ensure you're maximizing the system's potential.",
+    question: "What training do you provide?",
+    answer: "We provide comprehensive training for your entire team, including system operation, best practices, and ongoing optimization strategies. Training includes initial setup sessions, documentation, and quarterly check-ins to ensure maximum value.",
     category: "Implementation"
   },
 
   // Results & ROI
   {
-    question: "How quickly will I see results?",
-    answer: "Most gyms see measurable improvements in member retention within 30-60 days of implementation. Early results typically include reduced cancellation rates and increased member engagement. Full ROI is typically realized within 3-6 months as retention improvements compound.",
+    question: "When will I see results?",
+    answer: "Most gym owners start seeing time savings within the first week as automations begin handling routine tasks. Measurable business improvements typically appear within 30-60 days, with full ROI realized within 60-90 days.",
     category: "Results"
   },
   {
-    question: "What kind of retention improvements can I expect?",
-    answer: "Our clients typically see 20-40% improvements in member retention rates. This translates to significant revenue increases—for example, a gym with 500 members at $50/month could save $30,000-$60,000 annually in prevented cancellations alone.",
+    question: "What kind of results can I expect?",
+    answer: "Our clients typically save 20+ hours per week, see 40% improvements in lead conversion rates, 35% reduction in member churn, and 85% recovery rate on failed payments. These improvements compound over time for significant revenue increases.",
     category: "Results"
   },
   {
     question: "Do you guarantee results?",
-    answer: "Yes, we offer a 90-day performance guarantee. If you don't see measurable improvements in member retention within 90 days of full implementation, we'll work with you to optimize the system or provide additional support at no extra cost.",
+    answer: "Yes, we offer a 90-day performance guarantee. If you don't see measurable improvements in efficiency and business metrics within 90 days, we'll continue working with you at no additional cost until you do.",
     category: "Results"
   },
 
-  // Pricing & Plans
+  // Investment & Pricing
   {
-    question: "How much does your system cost?",
-    answer: "Our pricing is based on your gym's size and specific needs, starting at $297/month for smaller gyms. We offer flexible plans that scale with your business, and all plans include full implementation, training, and ongoing support. Most gyms see ROI within the first 3 months.",
+    question: "How much does automation implementation cost?",
+    answer: "Our automation solutions are priced based on your gym's size and specific needs. Most implementations range from $297-$497 per month and include setup, training, ongoing optimization, and support. The typical ROI is 3-5x within the first year.",
     category: "Pricing"
   },
   {
-    question: "Are there any hidden fees or setup costs?",
-    answer: "No hidden fees. Our pricing is transparent and includes everything you need: software integration, staff training, initial setup, and ongoing support. The only additional cost would be if you request custom integrations or advanced features beyond our standard offering.",
+    question: "Are there setup fees or hidden costs?",
+    answer: "No hidden fees. Our pricing is transparent and includes everything: consultation, implementation, training, ongoing support, and system optimization. The only additional costs would be for custom integrations beyond our standard offerings.",
     category: "Pricing"
   },
   {
-    question: "Can I cancel if it's not working for me?",
-    answer: "Yes, you can cancel at any time with 30 days' notice. However, we're confident you'll see value quickly—most gyms choose to expand their usage rather than cancel. We also offer a 90-day performance guarantee to ensure you're satisfied with the results.",
+    question: "What if the automation doesn't work for my gym?",
+    answer: "You can discontinue service with 30 days' notice. However, we're confident in our results—most clients expand their automation usage rather than reduce it. Our 90-day guarantee ensures you'll see measurable value.",
     category: "Pricing"
   },
 
-  // Technical & Support
+  // Support & Technical
   {
-    question: "What kind of support do you provide?",
-    answer: "We provide comprehensive support including 24/7 system monitoring, dedicated account management, quarterly business reviews, and unlimited email/phone support during business hours. We also offer emergency support for critical issues.",
+    question: "What support do you provide?",
+    answer: "We provide 24/7 system monitoring, dedicated account management, quarterly business reviews, unlimited email support, and emergency assistance for critical issues. Your success is our priority.",
     category: "Support"
   },
   {
-    question: "Is my member data secure?",
-    answer: "Absolutely. We use enterprise-grade security protocols and are fully compliant with data protection regulations. Your member data is encrypted, securely stored, and we never share or sell your information. We're also HIPAA compliant for any health-related data.",
+    question: "Is my business data secure?",
+    answer: "Absolutely. We use enterprise-grade security protocols and are fully compliant with data protection regulations. Your data is encrypted, securely stored, and never shared. We maintain the highest standards of data security.",
     category: "Support"
   },
   {
     question: "What happens if there's a technical issue?",
-    answer: "Our system includes 24/7 monitoring and automatic fail-safes. If any issues arise, our technical team is immediately notified and typically resolves problems within minutes. We also provide backup systems to ensure your retention campaigns continue running smoothly.",
+    answer: "Our systems include 24/7 monitoring and automatic alerts. Issues are typically resolved within minutes, and we provide backup systems to ensure your operations continue smoothly. Our technical team is always available for critical support.",
     category: "Support"
-  },
-
-  // Member Experience
-  {
-    question: "How do members respond to the automated communications?",
-    answer: "Members typically respond very positively because our communications are personalized and genuinely helpful. We focus on providing value rather than just sales pitches—checking in on their fitness goals, offering support, and providing relevant resources. Response rates are typically 3-5x higher than generic marketing emails.",
-    category: "Member Experience"
-  },
-  {
-    question: "Can I customize the messages and timing?",
-    answer: "Yes, you have full control over message content, timing, and frequency. You can use our proven templates or create completely custom messages. You can also set different communication preferences for different member segments or adjust based on your gym's unique culture.",
-    category: "Member Experience"
-  },
-  {
-    question: "Will this feel impersonal to my members?",
-    answer: "Quite the opposite. Our system enables more personal, timely interactions that would be impossible to manage manually. Members receive relevant, helpful communications at the right moments, making them feel more valued and connected to your gym. Many members actually comment on how much more personal the experience feels.",
-    category: "Member Experience"
   },
 
   // Business Impact
   {
-    question: "How will this affect my staff's workload?",
-    answer: "Our system actually reduces staff workload by automating routine retention tasks. Instead of manually tracking at-risk members, your staff can focus on high-value activities like personal training, member relationships, and business growth. The system handles the heavy lifting of member monitoring and initial outreach.",
+    question: "How will automation affect my staff workload?",
+    answer: "Automation significantly reduces staff workload by handling routine tasks automatically. Your team can focus on high-value activities like member relationships, personal training, and business growth while systems handle lead follow-up, payment issues, and member communications.",
     category: "Business Impact"
   },
   {
-    question: "Can this help with new member onboarding?",
-    answer: "Yes, our system includes specialized onboarding sequences that help new members integrate into your gym community. This includes welcome messages, orientation resources, and early engagement strategies that significantly improve new member retention rates.",
+    question: "Will automation work for my type of gym?",
+    answer: "Our automation systems work for all types of fitness facilities: traditional gyms, CrossFit boxes, yoga studios, martial arts schools, boutique fitness, and specialty centers. We customize each implementation to match your unique business model and culture.",
     category: "Business Impact"
   },
   {
-    question: "Will this work for my specific type of gym?",
-    answer: "Our system is designed to work with all types of fitness facilities including traditional gyms, CrossFit boxes, yoga studios, martial arts schools, and specialty fitness centers. We customize the retention strategies and communication style to match your gym's unique culture and member base.",
+    question: "Can automation help with staff management?",
+    answer: "Yes, our Staff Workflow Automation system handles scheduling optimization, task assignment, performance tracking, and communication automation. This reduces administrative overhead and helps your team operate more efficiently.",
     category: "Business Impact"
   }
 ]
 
-const categories = ["All", "General", "Implementation", "Results", "Pricing", "Support", "Member Experience", "Business Impact"]
+const categories = ["All", "General", "Implementation", "Results", "Pricing", "Support", "Business Impact"]
 
 export default function FAQ() {
   const [openItems, setOpenItems] = useState<number[]>([])
@@ -167,84 +150,86 @@ export default function FAQ() {
   }
 
   return (
-    <main className="min-h-screen bg-black">
-      <Head>
-        <title>Frequently Asked Questions - Peak Automation Group</title>
-        <meta name="description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
-        <meta property="og:title" content="Frequently Asked Questions - Peak Automation Group" />
-        <meta property="og:description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://peakautomationgroup.com/faq" />
-        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <meta name="twitter:title" content="Frequently Asked Questions - Peak Automation Group" />
-        <meta name="twitter:description" content="Everything you need to know about Peak Automation Group and how we help gym owners stop losing members and start growing revenue." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqStructuredData)
-          }}
-        />
-      </Head>
+    <main className="min-h-screen bg-white">
       <Navigation />
       
-      {/* FAQ Page Content */}
+      {/* Hero Section */}
       <section 
-        className="bg-black relative overflow-hidden"
-        style={{ padding: '120px 0 100px 0' }}
+        style={{ 
+          background: 'linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%)',
+          padding: '120px 0 80px 0' 
+        }}
       >
-        <div className="container-max relative z-10">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-16">
-              <motion.a
-                href="/"
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
-                whileHover={{ x: -4 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ArrowLeft size={20} />
-                <span>Back to Home</span>
-              </motion.a>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          {/* Back to Home Button */}
+          <motion.a
+            href="/"
+            className="inline-flex items-center gap-2 transition-colors duration-200 mb-8"
+            whileHover={{ x: -4 }}
+            transition={{ duration: 0.2 }}
+            style={{ 
+              textDecoration: 'none', 
+              display: 'inline-block',
+              color: '#1840BA',
+              fontWeight: 500
+            }}
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </motion.a>
+          
+          <div className="text-center">
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              style={{
+                fontSize: '48px',
+                color: '#1A1A1A',
+                fontWeight: 700,
+                maxWidth: '900px',
+                margin: '0 auto 24px auto',
+                lineHeight: '1.1'
+              }}
+            >
+              Frequently Asked Questions
+            </motion.h1>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="h1"
-                style={{
-                  marginBottom: 'clamp(1rem, 3vw, 1.5rem)',
-                  background: 'linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Frequently Asked Questions
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="body-text"
-                style={{
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  maxWidth: '600px',
-                  margin: '0 auto'
-                }}
-              >
-                Everything you need to know about Peak Automation Group and how we help gym owners 
-                stop losing members and start growing revenue.
-              </motion.p>
-            </div>
+            {/* Subheading */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{
+                fontSize: '20px',
+                color: '#4A5568',
+                maxWidth: '700px',
+                margin: '0 auto',
+                lineHeight: '1.6'
+              }}
+            >
+              Everything you need to know about our automation systems and how we help gym owners save time and increase revenue.
+            </motion.p>
+          </div>
+        </div>
+      </section>
 
+      {/* FAQ Content Section */}
+      <section 
+        style={{ 
+          background: '#FFFFFF',
+          padding: '80px 0' 
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             {/* Category Filter */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
               className="mb-12"
             >
               <div className="flex flex-wrap justify-center gap-3">
@@ -255,7 +240,7 @@ export default function FAQ() {
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       selectedCategory === category
                         ? 'bg-blue-600 text-white'
-                        : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -269,31 +254,34 @@ export default function FAQ() {
             {/* FAQ Items */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
               className="space-y-4"
             >
               {filteredFAQs.map((faq, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.05 * index }}
+                  viewport={{ once: true }}
                   style={{
-                    background: 'rgba(255, 255, 255, 0.02)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#FFFFFF',
+                    border: '1px solid #E5E7EB',
                     borderRadius: '12px',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   <button
                     onClick={() => toggleItem(index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
                   >
                     <h3
                       style={{
-                        fontSize: '16px',
-                        color: '#FFFFFF',
+                        fontSize: '18px',
+                        color: '#1A1A1A',
                         fontWeight: 600,
                         lineHeight: '1.5'
                       }}
@@ -304,7 +292,7 @@ export default function FAQ() {
                       animate={{ rotate: openItems.includes(index) ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <ChevronDown size={20} className="text-white/60" />
+                      <ChevronDown size={20} style={{ color: '#4A5568' }} />
                     </motion.div>
                   </button>
                   
@@ -316,7 +304,7 @@ export default function FAQ() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         style={{
-                          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                          borderTop: '1px solid #E5E7EB',
                           padding: '0 24px'
                         }}
                       >
@@ -324,7 +312,7 @@ export default function FAQ() {
                           style={{
                             padding: '24px 0',
                             fontSize: '16px',
-                            color: 'rgba(255, 255, 255, 0.8)',
+                            color: '#4A5568',
                             lineHeight: '1.7'
                           }}
                         >
@@ -336,71 +324,111 @@ export default function FAQ() {
                 </motion.div>
               ))}
             </motion.div>
+          </div>
+        </div>
+      </section>
 
-            {/* CTA Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+      {/* CTA Section */}
+      <section 
+        style={{ 
+          background: '#F8F9FA',
+          padding: '80px 0' 
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          <div className="text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
               style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '16px',
-                padding: 'clamp(2rem, 5vw, 3rem)',
-                marginTop: '64px',
-                textAlign: 'center'
+                fontSize: '36px',
+                color: '#1A1A1A',
+                fontWeight: 700,
+                marginBottom: '16px'
               }}
             >
-              <div
-                style={{
-                  width: '64px',
-                  height: '64px',
-                  background: 'rgba(65, 105, 225, 0.1)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 24px'
-                }}
-              >
-                <MessageCircle size={32} className="text-blue-400" />
-              </div>
-              
-              <h3
-                style={{
-                  fontSize: '24px',
-                  color: '#FFFFFF',
-                  fontWeight: 600,
-                  marginBottom: '16px'
-                }}
-              >
-                Still Have Questions?
-              </h3>
-              
-              <p
-                style={{
-                  fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  lineHeight: '1.6',
-                  marginBottom: '32px',
-                  maxWidth: '500px',
-                  margin: '0 auto 32px'
-                }}
-              >
-                Can't find what you're looking for? Schedule a strategy call with our team 
-                to get personalized answers and see how we can help your gym.
-              </p>
-              
+              Still Have Questions?
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              style={{
+                fontSize: '18px',
+                color: '#4A5568',
+                marginBottom: '32px',
+                maxWidth: '600px',
+                margin: '0 auto 32px auto',
+                lineHeight: '1.6'
+              }}
+            >
+              Can't find what you're looking for? Schedule a strategy call with our team to get personalized answers and see how automation can transform your gym.
+            </motion.p>
+
+            <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <motion.a
                 href="/book-call"
-                className="btn-primary"
-                style={{ textDecoration: 'none' }}
-                whileHover={{ scale: 1.02 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                style={{
+                  background: '#1840BA',
+                  color: 'white',
+                  padding: '16px 32px',
+                  borderRadius: '8px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                  boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+                  animation: 'pulse-glow 2s ease-in-out infinite alternate'
+                }}
+                whileHover={{
+                  backgroundColor: '#0F2B70',
+                  transform: 'translateY(-1px)',
+                  boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+                }}
                 whileTap={{ scale: 0.98 }}
               >
-                Schedule Strategy Call
+                Book a Strategy Call
+                <ArrowRight size={16} />
               </motion.a>
-            </motion.div>
+
+              <motion.a
+                href="/solutions"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  backgroundColor: '#1840BA',
+                  color: '#FFFFFF'
+                }}
+                style={{
+                  background: 'transparent',
+                  color: '#1840BA',
+                  border: '2px solid #1840BA',
+                  padding: '14px 32px',
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                  display: 'inline-block'
+                }}
+              >
+                Learn More
+              </motion.a>
+            </div>
           </div>
         </div>
       </section>

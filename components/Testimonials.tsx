@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, ArrowRight } from 'lucide-react'
 
 const testimonials = [
   {
@@ -50,8 +50,8 @@ export default function Testimonials() {
   return (
     <section 
       id="testimonials" 
-      className="bg-black relative overflow-hidden"
-      style={{ padding: '100px 0' }}
+      className="relative overflow-hidden"
+      style={{ padding: '100px 0', background: 'linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%)' }}
     >
       <div className="container-max relative z-10">
         {/* Section Header */}
@@ -66,10 +66,11 @@ export default function Testimonials() {
               fontSize: '12px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: '#4169E1'
+              color: '#4169E1',
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
             }}
           >
-            TESTIMONIALS
+            SUCCESS STORIES
           </motion.div>
           
           <motion.h2
@@ -77,12 +78,16 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="h2"
             style={{
-              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              color: '#1A1A1A',
+              fontWeight: 600,
+              marginBottom: '16px',
+              lineHeight: '1.2',
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
             }}
           >
-            What Our Clients Say
+            Hear From Our Clients
           </motion.h2>
           
           <motion.p
@@ -90,11 +95,13 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="body-text"
             style={{
-              color: 'rgba(255, 255, 255, 0.5)',
-              maxWidth: '600px',
-              margin: '0 auto'
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
+              color: '#4A5568',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.6',
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
             }}
           >
             Real results from real gym owners who transformed their member retention with PAG.
@@ -111,8 +118,8 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#FFFFFF',
+                border: '1px solid #E5E7EB',
                 borderRadius: '16px',
                 padding: '32px',
                 backdropFilter: 'blur(10px)',
@@ -120,7 +127,7 @@ export default function Testimonials() {
                 overflow: 'hidden'
               }}
               whileHover={{
-                background: 'rgba(255, 255, 255, 0.04)',
+                background: '#F8F9FA',
                 borderColor: 'rgba(65, 105, 225, 0.2)',
                 transform: 'translateY(-4px)',
                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)'
@@ -154,10 +161,11 @@ export default function Testimonials() {
               <p
                 style={{
                   fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: '#4A5568',
                   lineHeight: '1.6',
                   marginBottom: '24px',
-                  fontStyle: 'italic'
+                  fontStyle: 'italic',
+                  fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
                 }}
               >
                 "{testimonial.content}"
@@ -169,9 +177,10 @@ export default function Testimonials() {
                   <h4
                     style={{
                       fontSize: '18px',
-                      color: '#FFFFFF',
+                      color: '#1A1A1A',
                       fontWeight: 600,
-                      marginBottom: '4px'
+                      marginBottom: '4px',
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
                     }}
                   >
                     {testimonial.name}
@@ -179,7 +188,8 @@ export default function Testimonials() {
                   <p
                     style={{
                       fontSize: '14px',
-                      color: 'rgba(255, 255, 255, 0.5)'
+                      color: '#6B7280',
+                      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
                     }}
                   >
                     {testimonial.role}
@@ -188,6 +198,41 @@ export default function Testimonials() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Read More Button */}
+        <div className="text-center mt-16">
+          <motion.a
+            href="/testimonials"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+            style={{
+              background: '#1840BA',
+              color: 'white',
+              padding: '16px 32px',
+              borderRadius: '8px',
+              fontWeight: 600,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.2s ease',
+              cursor: 'pointer',
+              boxShadow: '0 0 20px rgba(24, 64, 186, 0.4), 0 0 40px rgba(24, 64, 186, 0.2), 0 4px 15px rgba(0, 0, 0, 0.1)',
+              animation: 'pulse-glow 2s ease-in-out infinite alternate'
+            }}
+            whileHover={{
+              backgroundColor: '#0F2B70',
+              transform: 'translateY(-1px)',
+              boxShadow: '0 0 30px rgba(24, 64, 186, 0.6), 0 0 60px rgba(24, 64, 186, 0.3), 0 8px 25px rgba(0, 0, 0, 0.15)'
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Read More
+            <ArrowRight size={16} />
+          </motion.a>
         </div>
       </div>
     </section>

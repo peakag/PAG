@@ -7,43 +7,53 @@ import { Plus } from 'lucide-react'
 const faqs = [
   {
     id: 1,
-    question: "How quickly can I see results with Peak Automation?",
-    answer: "Most gyms see measurable improvements within the first 30 days. Our AI begins analyzing your member data immediately and starts sending personalized retention campaigns within the first week. You'll typically see a 15-25% reduction in churn within the first quarter."
+    question: "Will automation work with my existing gym management software?",
+    answer: "Yes. We integrate with all major platforms including MindBody, Glofox, Zen Planner, Club OS, and more. Our systems enhance what you already have rather than replacing it."
   },
   {
     id: 2,
-    question: "What gym management systems do you integrate with?",
-    answer: "We integrate with all major gym management platforms including MindBody, Zen Planner, ClubReady, Wodify, and custom systems via API. Our team handles the entire integration process, ensuring a seamless setup without disrupting your existing operations."
+    question: "How long does implementation really take?",
+    answer: "Most gyms have their first automations running within 7 days. Full implementation typically takes 30 days, with zero downtime to your operations."
   },
   {
     id: 3,
-    question: "How does the AI predict which members are at risk?",
-    answer: "Our AI analyzes hundreds of data points including attendance patterns, payment history, engagement with communications, and behavioral indicators. It uses machine learning algorithms to identify members showing early warning signs of churn, allowing you to intervene before they cancel."
+    question: "Do I need technical skills to use these systems?",
+    answer: "Not at all. We handle all the technical setup. Your team just needs to know how to read a dashboard and click buttons. We provide full training and ongoing support."
   },
   {
     id: 4,
-    question: "Can I customize the automated campaigns?",
-    answer: "Absolutely. While our AI creates personalized content automatically, you have full control over messaging, timing, and campaign strategies. You can edit any automated message, add your brand voice, and set specific triggers for different member segments."
+    question: "What if something breaks or stops working?",
+    answer: "We monitor all systems 24/7 and fix issues before you notice them. You also get dedicated support and we guarantee 99.9% uptime."
   },
   {
     id: 5,
-    question: "What kind of support do you provide?",
-    answer: "We provide comprehensive support including dedicated onboarding, 24/7 technical support, monthly strategy calls, and ongoing optimization. Our team works closely with you to ensure you're getting maximum value from the platform and achieving your retention goals."
+    question: "How do I know which automations my gym needs?",
+    answer: "We start with a free automation audit to identify your biggest time-wasters and revenue leaks. You only implement what makes sense for your specific situation."
   },
   {
     id: 6,
-    question: "Is there a long-term contract or setup fee?",
-    answer: "No setup fees and no long-term contracts. We offer month-to-month billing with a 90-day money-back guarantee. You can cancel anytime with no penalties. We're confident you'll see results quickly, which is why we offer such flexible terms."
+    question: "Can I start with just one automation and add more later?",
+    answer: "Absolutely. Most gyms start with 1-2 core systems like lead follow-up or payment recovery, then expand as they see results."
   },
   {
     id: 7,
-    question: "How secure is my member data?",
-    answer: "We take data security extremely seriously. All data is encrypted in transit and at rest, we're SOC 2 Type II compliant, and we follow strict GDPR guidelines. We never share or sell your data, and you maintain full ownership of all member information."
+    question: "What's the actual ROI on automation?",
+    answer: "Most gyms recover their investment within 60-90 days through time savings and recovered revenue. Use our ROI calculator to see your specific projections."
   },
   {
     id: 8,
-    question: "Can Peak Automation work for small gyms?",
-    answer: "Yes, our platform is designed to scale from small boutique gyms to large chains. The AI becomes more effective with more data, but even gyms with 50-100 members see significant improvements. Our pricing is structured to be accessible for gyms of all sizes."
+    question: "Will automation make my gym feel less personal?",
+    answer: "Actually the opposite. Automation handles repetitive tasks so your staff has MORE time for meaningful member interactions. Members get faster responses and more consistent communication."
+  },
+  {
+    id: 9,
+    question: "How is this different from hiring a VA or more staff?",
+    answer: "Automation works 24/7, never calls in sick, and costs less than one part-time employee. Plus, it scales instantly as you grow without additional cost."
+  },
+  {
+    id: 10,
+    question: "What if I want to change or cancel services?",
+    answer: "No long-term contracts required. You can adjust or pause services anytime with 30 days notice. We earn your business month after month."
   }
 ]
 
@@ -61,38 +71,27 @@ export default function FAQ() {
   return (
     <section 
       id="faq" 
-      className="bg-black relative overflow-hidden"
-      style={{ padding: '100px 0' }}
+      style={{ 
+        background: '#FFFFFF',
+        paddingTop: 'clamp(60px, 8vw, 80px)',
+        paddingBottom: 'clamp(60px, 8vw, 80px)'
+      }}
     >
-      <div className="container-max relative z-10">
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.div
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-6"
             style={{
-              fontSize: '12px',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: '#4169E1',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              color: '#1A1A1A',
+              fontWeight: 600,
+              marginBottom: '16px',
+              lineHeight: '1.2',
               textAlign: 'center'
-            }}
-          >
-            FAQ
-          </motion.div>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="h2"
-            style={{
-              textAlign: 'center',
-              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
             }}
           >
             Frequently Asked Questions
@@ -101,16 +100,18 @@ export default function FAQ() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
             style={{
-              fontSize: '18px',
-              color: 'rgba(255, 255, 255, 0.5)',
-              textAlign: 'center',
-              marginBottom: '64px'
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.25rem)',
+              color: '#4A5568',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.6',
+              textAlign: 'center'
             }}
           >
-            Find answers to common questions about our automation platform
+            Everything you need to know about automating your gym
           </motion.p>
         </div>
 
@@ -127,19 +128,19 @@ export default function FAQ() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 style={{
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                  padding: '24px 0',
+                  borderBottom: '1px solid #E5E7EB',
+                  padding: '20px',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  borderLeft: isOpen ? '2px solid #4169E1' : 'none',
-                  paddingLeft: isOpen ? '16px' : '0'
+                  backgroundColor: 'transparent',
+                  borderRadius: '8px'
                 }}
                 onClick={() => toggleItem(faq.id)}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderLeftColor = isOpen ? '#4169E1' : 'rgba(65, 105, 225, 0.3)'
+                  e.currentTarget.style.backgroundColor = '#F8F9FA'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderLeftColor = isOpen ? '#4169E1' : 'transparent'
+                  e.currentTarget.style.backgroundColor = 'transparent'
                 }}
               >
                 {/* Question */}
@@ -154,8 +155,8 @@ export default function FAQ() {
                   <h3
                     style={{
                       fontSize: '18px',
-                      color: isOpen ? '#FFFFFF' : 'rgba(255, 255, 255, 0.9)',
-                      fontWeight: 500,
+                      color: '#1A1A1A',
+                      fontWeight: 600,
                       lineHeight: '1.4',
                       margin: 0,
                       flex: 1
@@ -166,7 +167,7 @@ export default function FAQ() {
                   <motion.div
                     animate={{ 
                       transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
-                      color: isOpen ? '#4169E1' : 'rgba(255, 255, 255, 0.4)'
+                      color: isOpen ? '#1840BA' : '#6B7280'
                     }}
                     transition={{ duration: 0.3 }}
                     style={{
@@ -194,8 +195,8 @@ export default function FAQ() {
                       <p
                         style={{
                           fontSize: '16px',
-                          lineHeight: '1.7',
-                          color: 'rgba(255, 255, 255, 0.6)',
+                          lineHeight: '1.6',
+                          color: '#4A5568',
                           maxWidth: '90%',
                           margin: 0
                         }}
@@ -217,49 +218,40 @@ export default function FAQ() {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
           className="text-center"
-          style={{ marginTop: '64px' }}
+          style={{ marginTop: '48px' }}
         >
-          <h3
-            style={{
-              fontSize: '32px',
-              color: '#FFFFFF',
-              fontWeight: 600,
-              marginBottom: '16px'
-            }}
-          >
-            Still have questions?
-          </h3>
           <p
             style={{
               fontSize: '18px',
-              color: 'rgba(255, 255, 255, 0.5)',
-              marginBottom: '32px'
+              color: '#1A1A1A',
+              marginBottom: '24px',
+              fontWeight: 500
             }}
           >
-            Our team is here to help you get started
+            Still have questions?
           </p>
           <motion.a
-            href="/support"
+            href="/book-call"
             style={{
-              background: '#4169E1',
-              color: '#FFFFFF',
-              padding: '14px 32px',
+              background: '#1840BA',
+              color: 'white',
+              padding: '16px 32px',
               borderRadius: '8px',
-              fontSize: '16px',
               fontWeight: 600,
-              border: 'none',
-              cursor: 'pointer',
               textDecoration: 'none',
-              display: 'inline-block'
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              transition: 'all 0.2s ease',
+              cursor: 'pointer'
             }}
             whileHover={{
-              boxShadow: '0 8px 30px rgba(65, 105, 225, 0.4)',
-              transform: 'translateY(-2px)'
+              backgroundColor: '#0F2B70',
+              transform: 'translateY(-1px)'
             }}
             whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.3 }}
           >
-            Contact Support
+            Talk to an Automation Expert
           </motion.a>
         </motion.div>
       </div>

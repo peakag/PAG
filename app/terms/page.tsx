@@ -1,925 +1,499 @@
 "use client";
 
+import React from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ArrowLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function TermsOfService() {
+  const getCurrentDate = () => {
+    return 'August 5, 2025';
+  };
+
   return (
-    <main className="min-h-screen bg-black">
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       <Navigation />
       {/* Terms of Service Content */}
       <section 
-        className="bg-black relative overflow-hidden"
-        style={{ padding: '120px 0 100px 0' }}
+        style={{ 
+          background: 'linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%)',
+          padding: '120px 0 80px 0' 
+        }}
       >
-        <div className="container-max relative z-10">
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
           {/* Back to Home Button */}
           <motion.a
             href="/"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
+            className="inline-flex items-center gap-2 transition-colors duration-200 mb-8"
             whileHover={{ x: -4 }}
             transition={{ duration: 0.2 }}
-            style={{ textDecoration: 'none', display: 'inline-block' }}
+            style={{ 
+              textDecoration: 'none', 
+              display: 'inline-block',
+              color: '#1840BA',
+              fontWeight: 500
+            }}
           >
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </motion.a>
-          <div className="max-w-4xl mx-auto">
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             {/* Header */}
             <div className="text-center mb-16">
-              <h1
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
                 style={{
                   fontSize: '48px',
-                  color: '#FFFFFF',
-                  fontWeight: 600,
-                  marginBottom: '16px'
+                  color: '#1A1A1A',
+                  fontWeight: 700,
+                  marginBottom: '16px',
+                  lineHeight: '1.1'
                 }}
               >
                 Terms of Service
-              </h1>
+              </motion.h1>
               
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 style={{
-                  fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.6)',
+                  fontSize: '18px',
+                  color: '#6B7280',
                   marginBottom: '8px'
                 }}
               >
-                <strong>Effective Date:</strong> July 21, 2025
-              </div>
+                <strong>Effective Date:</strong> {getCurrentDate()}
+              </motion.div>
               
-              <div
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 style={{
                   fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.6)'
+                  color: '#6B7280'
                 }}
               >
-                <strong>Last Updated:</strong> July 21, 2025
-              </div>
+                Peak Automation Group LLC
+              </motion.div>
             </div>
 
             {/* Content */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '16px',
+                background: '#FFFFFF',
+                border: '1px solid #E5E7EB',
+                borderRadius: '12px',
                 padding: '48px',
-                backdropFilter: 'blur(10px)'
+                boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
               }}
             >
               <div
                 style={{
                   fontSize: '16px',
-                  color: 'rgba(255, 255, 255, 0.8)',
-                  lineHeight: '1.7'
+                  color: '#4A5568',
+                  lineHeight: '1.6'
                 }}
               >
-                <h2
-                  style={{
-                    fontSize: '32px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '24px',
-                    marginTop: '0'
-                  }}
-                >
+                {/* Section 1 - Acceptance of Terms */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '0'
+                }}>
                   1. Acceptance of Terms
                 </h2>
                 
-                <p style={{ marginBottom: '24px' }}>
-                  By accessing or using Peak Automation Group's AI-powered member retention platform ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access our Service.
+                <p style={{ marginBottom: '32px' }}>
+                  These Terms of Service ("Terms") govern your use of Peak Automation Group LLC's ("Company," "we," "our," or "us") automation services for gym and fitness businesses. By accessing our website or using our services, you agree to be bound by these Terms.
                 </p>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  2. Description of Service
+                {/* Section 2 - Description of Services */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  2. Description of Services
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  Peak Automation Group provides an AI-driven platform that:
+                <p style={{ marginBottom: '12px' }}>
+                  Peak Automation Group LLC provides automation implementation services for fitness businesses, including but not limited to:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Analyzes gym member behavior patterns</li>
-                  <li style={{ marginBottom: '8px' }}>Predicts member churn risk</li>
-                  <li style={{ marginBottom: '8px' }}>Automates member engagement campaigns</li>
-                  <li style={{ marginBottom: '8px' }}>Provides retention analytics and reporting</li>
-                  <li style={{ marginBottom: '8px' }}>Integrates with existing gym management systems</li>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Lead follow-up automation</li>
+                  <li style={{ marginBottom: '8px' }}>Member retention systems</li>
+                  <li style={{ marginBottom: '8px' }}>Payment processing automation</li>
+                  <li style={{ marginBottom: '8px' }}>Operations dashboard setup</li>
+                  <li style={{ marginBottom: '8px' }}>Class scheduling optimization</li>
+                  <li style={{ marginBottom: '8px' }}>Custom automation workflows</li>
                 </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  3. Account Registration
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Eligibility
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  You must be at least 18 years old and authorized to enter binding contracts on behalf of your business.
+                <p style={{ marginBottom: '32px' }}>
+                  We implement and configure third-party tools and do not provide proprietary software.
                 </p>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Account Security
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  You are responsible for:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Maintaining the confidentiality of your account credentials</li>
-                  <li style={{ marginBottom: '8px' }}>All activities that occur under your account</li>
-                  <li style={{ marginBottom: '8px' }}>Notifying us immediately of any unauthorized access</li>
-                  <li style={{ marginBottom: '8px' }}>Ensuring your account information is accurate and current</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  4. Acceptable Use Policy
+                {/* Section 3 - Acceptable Use */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  3. Acceptable Use
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  You agree to:
+                </p>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Provide accurate business information</li>
+                  <li style={{ marginBottom: '8px' }}>Maintain security of your account credentials</li>
+                  <li style={{ marginBottom: '8px' }}>Use services only for lawful business purposes</li>
+                  <li style={{ marginBottom: '8px' }}>Cooperate with implementation requirements</li>
+                  <li style={{ marginBottom: '8px' }}>Maintain necessary third-party accounts and subscriptions</li>
+                </ul>
+
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
                   You agree NOT to:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Use the Service for any illegal or unauthorized purpose</li>
-                  <li style={{ marginBottom: '8px' }}>Violate any laws in your jurisdiction</li>
-                  <li style={{ marginBottom: '8px' }}>Transmit any malicious code or viruses</li>
-                  <li style={{ marginBottom: '8px' }}>Attempt to gain unauthorized access to any portion of the Service</li>
-                  <li style={{ marginBottom: '8px' }}>Interfere with or disrupt the Service or servers</li>
-                  <li style={{ marginBottom: '8px' }}>Use the Service to send spam or unsolicited communications</li>
-                  <li style={{ marginBottom: '8px' }}>Resell or redistribute the Service without written permission</li>
-                  <li style={{ marginBottom: '8px' }}>Use the Service to collect or store sensitive health information</li>
-                  <li style={{ marginBottom: '8px' }}>Violate the privacy rights of gym members</li>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Misrepresent your business or authority</li>
+                  <li style={{ marginBottom: '8px' }}>Use services for illegal activities</li>
+                  <li style={{ marginBottom: '8px' }}>Attempt to reverse-engineer our configurations</li>
+                  <li style={{ marginBottom: '8px' }}>Resell or redistribute our services without permission</li>
+                  <li style={{ marginBottom: '8px' }}>Interfere with service operations</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  5. Data and Privacy
+                {/* Section 4 - Account Responsibilities */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  4. Account Responsibilities
                 </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Your Data
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>You retain all rights to your gym and member data</li>
-                  <li style={{ marginBottom: '8px' }}>You grant us a license to use this data solely to provide the Service</li>
-                  <li style={{ marginBottom: '8px' }}>You are responsible for obtaining necessary consents from gym members</li>
-                  <li style={{ marginBottom: '8px' }}>You must comply with all applicable privacy laws</li>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  You are responsible for:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Maintaining confidentiality of account access</li>
+                  <li style={{ marginBottom: '8px' }}>All activities under your account</li>
+                  <li style={{ marginBottom: '8px' }}>Providing accurate and current information</li>
+                  <li style={{ marginBottom: '8px' }}>Backing up your data</li>
+                  <li style={{ marginBottom: '8px' }}>Maintaining compatible systems and software</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Data Processing
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>We process data according to your instructions</li>
-                  <li style={{ marginBottom: '8px' }}>We implement appropriate security measures</li>
-                  <li style={{ marginBottom: '8px' }}>We will not sell or share your data with third parties</li>
-                  <li style={{ marginBottom: '8px' }}>Our data practices are detailed in our Privacy Policy</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  6. Intellectual Property
+                {/* Section 5 - Payment Terms */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  5. Payment Terms
                 </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Our Property
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  Peak Automation Group owns all rights to:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>The Service and its original content</li>
-                  <li style={{ marginBottom: '8px' }}>Features, functionality, and design</li>
-                  <li style={{ marginBottom: '8px' }}>Trademarks, logos, and brand elements</li>
-                  <li style={{ marginBottom: '8px' }}>Proprietary algorithms and AI models</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Your Property
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  You retain ownership of:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Your gym's data and content</li>
-                  <li style={{ marginBottom: '8px' }}>Your trademarks and branding</li>
-                  <li style={{ marginBottom: '8px' }}>Any content you upload to the Service</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  License Grant
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  You grant us a limited license to use your content as necessary to provide the Service.
-                </p>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  7. Payment Terms
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Billing
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Subscription fees are billed monthly in advance</li>
-                  <li style={{ marginBottom: '8px' }}>All fees are in USD unless otherwise specified</li>
-                  <li style={{ marginBottom: '8px' }}>Prices are subject to change with 30 days notice</li>
-                  <li style={{ marginBottom: '8px' }}>You authorize automatic recurring payments</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  No Refunds
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>All payments are non-refundable</li>
+                
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Services are billed monthly or as agreed</li>
+                  <li style={{ marginBottom: '8px' }}>Payment is due upon receipt of invoice</li>
+                  <li style={{ marginBottom: '8px' }}>Late payments may incur service suspension</li>
                   <li style={{ marginBottom: '8px' }}>No refunds for partial months of service</li>
-                  <li style={{ marginBottom: '8px' }}>You may cancel future billing at any time</li>
+                  <li style={{ marginBottom: '8px' }}>Client responsible for third-party tool subscriptions</li>
+                  <li style={{ marginBottom: '8px' }}>Prices subject to change with 30 days notice</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Late Payments
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Overdue amounts may incur late fees</li>
-                  <li style={{ marginBottom: '8px' }}>We may suspend service for non-payment</li>
-                  <li style={{ marginBottom: '8px' }}>You remain responsible for fees during suspension</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  8. Service Level and Support
+                {/* Section 6 - Intellectual Property Rights */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  6. Intellectual Property Rights
                 </h2>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Availability
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>We strive for 99.9% uptime but do not guarantee uninterrupted service</li>
-                  <li style={{ marginBottom: '8px' }}>Scheduled maintenance will be communicated in advance</li>
-                  <li style={{ marginBottom: '8px' }}>We are not liable for third-party service interruptions</li>
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  Peak Automation Group LLC Property:
+                </p>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Automation workflows and configurations</li>
+                  <li style={{ marginBottom: '8px' }}>Implementation methodologies</li>
+                  <li style={{ marginBottom: '8px' }}>Documentation and training materials</li>
+                  <li style={{ marginBottom: '8px' }}>Company trademarks and branding</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Support
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Support level depends on your subscription plan</li>
-                  <li style={{ marginBottom: '8px' }}>Standard support is provided via email</li>
-                  <li style={{ marginBottom: '8px' }}>Priority and phone support available for higher tiers</li>
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  Client Property:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Your business data</li>
+                  <li style={{ marginBottom: '8px' }}>Your customer information</li>
+                  <li style={{ marginBottom: '8px' }}>Your branding and content</li>
+                  <li style={{ marginBottom: '8px' }}>Your operational data</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  9. Disclaimers and Limitations
+                {/* Section 7 - Confidentiality */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  7. Confidentiality
                 </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  No Warranties
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Both parties agree to maintain confidentiality of:
                 </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Business operations data</li>
+                  <li style={{ marginBottom: '8px' }}>Proprietary methodologies</li>
+                  <li style={{ marginBottom: '8px' }}>Customer information</li>
+                  <li style={{ marginBottom: '8px' }}>Pricing and financial information</li>
+                  <li style={{ marginBottom: '8px' }}>Strategic plans and processes</li>
+                </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  No Guarantee of Results
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  We do not guarantee:
+                {/* Section 8 - Disclaimers and Warranties */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  8. Disclaimers and Warranties
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Services provided "AS IS" without warranties of any kind. We do not guarantee:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Specific retention improvements</li>
-                  <li style={{ marginBottom: '8px' }}>Prevention of all member cancellations</li>
-                  <li style={{ marginBottom: '8px' }}>Accuracy of AI predictions</li>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Specific revenue increases</li>
+                  <li style={{ marginBottom: '8px' }}>Specific member retention rates</li>
+                  <li style={{ marginBottom: '8px' }}>Uninterrupted service availability</li>
                   <li style={{ marginBottom: '8px' }}>Compatibility with all systems</li>
+                  <li style={{ marginBottom: '8px' }}>Specific business outcomes</li>
                 </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Limitation of Liability
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, PEAK AUTOMATION GROUP SHALL NOT BE LIABLE FOR:
+                <p style={{ marginBottom: '32px' }}>
+                  We DO guarantee our best efforts in implementing proven automation systems.
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Any indirect, incidental, special, or consequential damages</li>
-                  <li style={{ marginBottom: '8px' }}>Loss of profits, data, or business opportunities</li>
-                  <li style={{ marginBottom: '8px' }}>Damages exceeding the fees paid in the preceding 12 months</li>
+
+                {/* Section 9 - Limitation of Liability */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  9. Limitation of Liability
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Peak Automation Group LLC's total liability shall not exceed the amount paid for services in the past 3 months. We are not liable for:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Lost profits or revenue</li>
+                  <li style={{ marginBottom: '8px' }}>Data loss or corruption</li>
+                  <li style={{ marginBottom: '8px' }}>Third-party service failures</li>
+                  <li style={{ marginBottom: '8px' }}>Indirect or consequential damages</li>
+                  <li style={{ marginBottom: '8px' }}>Business interruptions</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 10 - Indemnification */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   10. Indemnification
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  You agree to indemnify and hold harmless Peak Automation Group from any claims, damages, or expenses arising from:
+                <p style={{ marginBottom: '12px' }}>
+                  You agree to indemnify Peak Automation Group LLC from claims arising from:
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Your use of the Service</li>
-                  <li style={{ marginBottom: '8px' }}>Your violation of these Terms</li>
-                  <li style={{ marginBottom: '8px' }}>Your violation of any third-party rights</li>
-                  <li style={{ marginBottom: '8px' }}>Your gym members' claims related to your use of the Service</li>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Your use of the services</li>
+                  <li style={{ marginBottom: '8px' }}>Violation of these Terms</li>
+                  <li style={{ marginBottom: '8px' }}>Violation of applicable laws</li>
+                  <li style={{ marginBottom: '8px' }}>Infringement of third-party rights</li>
+                  <li style={{ marginBottom: '8px' }}>Your business operations</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
+                {/* Section 11 - Termination */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
                   11. Termination
                 </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  By You
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>You may cancel your subscription at any time</li>
-                  <li style={{ marginBottom: '8px' }}>Cancellation takes effect at the end of the current billing period</li>
-                  <li style={{ marginBottom: '8px' }}>No refunds for unused time</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  By Us
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  We may terminate or suspend your account immediately for:
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Either party may terminate with 30 days written notice.
                 </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Violation of these Terms</li>
+                
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  Immediate termination may occur for:
+                </p>
+                <ul style={{ marginBottom: '16px', paddingLeft: '24px' }}>
                   <li style={{ marginBottom: '8px' }}>Non-payment</li>
-                  <li style={{ marginBottom: '8px' }}>Illegal or harmful activities</li>
-                  <li style={{ marginBottom: '8px' }}>At our sole discretion with 30 days notice</li>
+                  <li style={{ marginBottom: '8px' }}>Material breach of Terms</li>
+                  <li style={{ marginBottom: '8px' }}>Illegal activities</li>
+                  <li style={{ marginBottom: '8px' }}>Insolvency or bankruptcy</li>
                 </ul>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Effect of Termination
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Your access to the Service will cease</li>
-                  <li style={{ marginBottom: '8px' }}>We may delete your data after 30 days</li>
-                  <li style={{ marginBottom: '8px' }}>Provisions that should survive will remain in effect</li>
+                <p style={{ marginBottom: '12px', fontWeight: 600 }}>
+                  Upon termination:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Access to services ends</li>
+                  <li style={{ marginBottom: '8px' }}>Outstanding payments become due</li>
+                  <li style={{ marginBottom: '8px' }}>Client data returned upon request</li>
+                  <li style={{ marginBottom: '8px' }}>Confidentiality obligations continue</li>
                 </ul>
 
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  12. Modifications
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  To Terms
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>We may modify these Terms at any time</li>
-                  <li style={{ marginBottom: '8px' }}>Material changes will be notified via email</li>
-                  <li style={{ marginBottom: '8px' }}>Continued use constitutes acceptance of changes</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  To Service
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>We may modify or discontinue features</li>
-                  <li style={{ marginBottom: '8px' }}>We will attempt to notify of significant changes</li>
-                  <li style={{ marginBottom: '8px' }}>We are not liable for modifications or discontinuations</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  13. General Provisions
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Governing Law
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  These Terms are governed by the laws of the State of Georgia, United States, without regard to its conflict of law principles. You agree that any legal action or proceeding relating to these Terms or the Service shall be brought exclusively in the state or federal courts located in Fulton County, Georgia.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Dispute Resolution
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>First, parties will attempt good faith resolution through direct communication</li>
-                  <li style={{ marginBottom: '8px' }}>If unresolved within 30 days, binding arbitration in Alpharetta, Georgia</li>
-                  <li style={{ marginBottom: '8px' }}>Arbitration will be conducted under the Commercial Arbitration Rules of the American Arbitration Association</li>
-                  <li style={{ marginBottom: '8px' }}>Each party bears its own attorneys' fees and costs</li>
-                  <li style={{ marginBottom: '8px' }}>Small claims court actions in Fulton County are permitted for qualifying disputes</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Severability
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  If any provision is deemed invalid or unenforceable by a court of competent jurisdiction in Georgia, the remaining provisions shall continue in full force and effect.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Entire Agreement
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  These Terms constitute the entire agreement between you and Peak Automation Group regarding the Service and supersede all prior agreements and understandings.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Assignment
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  You may not assign or transfer these Terms without our prior written consent. We may assign our rights and obligations freely.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Force Majeure
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  Neither party shall be liable for any delay or failure to perform due to causes beyond reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, labor disputes, or governmental actions.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Waiver
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  No waiver of any term shall be deemed a further or continuing waiver of such term or any other term.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Notice
-                </h3>
-                <p style={{ marginBottom: '16px' }}>
-                  Legal notices shall be sent to:
-                </p>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>For Peak Automation Group: legal@peakautomationgroup.com</li>
-                  <li style={{ marginBottom: '8px' }}>For You: The email address associated with your account</li>
-                </ul>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  14. Contact Information
+                {/* Section 12 - Data Handling */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  12. Data Handling
                 </h2>
                 
-                <p style={{ marginBottom: '16px' }}>
-                  For questions about these Terms of Service:
+                <p style={{ marginBottom: '32px' }}>
+                  We process data according to our Privacy Policy. You retain ownership of your data. We maintain the right to use anonymized, aggregated data for service improvement.
                 </p>
+
+                {/* Section 13 - Changes to Terms */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  13. Changes to Terms
+                </h2>
                 
-                <div style={{ marginBottom: '24px' }}>
-                  <p style={{ marginBottom: '8px' }}><strong>Peak Automation Group</strong></p>
+                <p style={{ marginBottom: '32px' }}>
+                  We may modify these Terms with 30 days notice via email or website announcement. Continued use constitutes acceptance of modified Terms.
+                </p>
+
+                {/* Section 14 - Governing Law */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  14. Governing Law
+                </h2>
+                
+                <p style={{ marginBottom: '32px' }}>
+                  These Terms are governed by the laws of Georgia, without regard to conflict of law principles. Any disputes shall be resolved in the courts of Fulton County, Georgia.
+                </p>
+
+                {/* Section 15 - Third-Party Services */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  15. Third-Party Services
+                </h2>
+                
+                <p style={{ marginBottom: '12px' }}>
+                  Our services integrate with third-party platforms. We are not responsible for third-party:
+                </p>
+                <ul style={{ marginBottom: '32px', paddingLeft: '24px' }}>
+                  <li style={{ marginBottom: '8px' }}>Service availability</li>
+                  <li style={{ marginBottom: '8px' }}>Terms and policies</li>
+                  <li style={{ marginBottom: '8px' }}>Data handling practices</li>
+                  <li style={{ marginBottom: '8px' }}>Service changes or discontinuation</li>
+                </ul>
+
+                {/* Section 16 - Entire Agreement */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  16. Entire Agreement
+                </h2>
+                
+                <p style={{ marginBottom: '32px' }}>
+                  These Terms constitute the entire agreement between you and Peak Automation Group LLC regarding our services and supersede all prior agreements.
+                </p>
+
+                {/* Section 17 - Contact Information */}
+                <h2 style={{
+                  fontSize: '20px',
+                  color: '#1A1A1A',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  marginTop: '40px'
+                }}>
+                  17. Contact Information
+                </h2>
+                
+                <div style={{ marginBottom: '32px' }}>
+                  <p style={{ marginBottom: '8px' }}><strong>Peak Automation Group LLC</strong></p>
+                  <p style={{ marginBottom: '8px' }}>3390 Peachtree Road NE, Suite 320</p>
+                  <p style={{ marginBottom: '8px' }}>Atlanta, GA, 30326, USA</p>
                   <p style={{ marginBottom: '8px' }}>Email: legal@peakautomationgroup.com</p>
-                  <p style={{ marginBottom: '8px' }}>Address: 225 Tidwell Dr. Alpharetta, GA 30004</p>
+                  <p style={{ marginBottom: '8px' }}>Website: peakautomationgroup.com</p>
                 </div>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  15. Additional Legal Notices
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  DMCA Compliance
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  Peak Automation Group respects intellectual property rights and will respond to valid DMCA takedown notices sent to legal@peakautomationgroup.com.
+                <p style={{ marginBottom: '32px' }}>
+                  For questions about these Terms, please contact us at the above email.
                 </p>
 
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Georgia-Specific Consumer Rights
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  Georgia residents may have additional rights under Georgia consumer protection laws. Nothing in these Terms limits any rights you may have under applicable Georgia state law.
-                </p>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Export Compliance
-                </h3>
-                <p style={{ marginBottom: '24px' }}>
-                  You agree to comply with all applicable export and re-export control laws and regulations, including the Export Administration Regulations maintained by the U.S. Department of Commerce.
-                </p>
-
-                <h2
-                  style={{
-                    fontSize: '28px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '20px',
-                    marginTop: '40px'
-                  }}
-                >
-                  16. Additional Terms for Specific Features
-                </h2>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  API Access
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Requires separate API agreement</li>
-                  <li style={{ marginBottom: '8px' }}>Subject to rate limits and usage restrictions</li>
-                  <li style={{ marginBottom: '8px' }}>Must not be used to compete with our Service</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  White Label Services
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>Requires separate white label agreement</li>
-                  <li style={{ marginBottom: '8px' }}>Additional fees and terms apply</li>
-                  <li style={{ marginBottom: '8px' }}>Strict branding guidelines must be followed</li>
-                </ul>
-
-                <h3
-                  style={{
-                    fontSize: '20px',
-                    color: '#FFFFFF',
-                    fontWeight: 600,
-                    marginBottom: '16px',
-                    marginTop: '32px'
-                  }}
-                >
-                  Data Export
-                </h3>
-                <ul style={{ marginBottom: '24px', paddingLeft: '24px' }}>
-                  <li style={{ marginBottom: '8px' }}>You may request data export at any time</li>
-                  <li style={{ marginBottom: '8px' }}>Exports provided in standard formats</li>
-                  <li style={{ marginBottom: '8px' }}>Reasonable fees may apply for large exports</li>
-                </ul>
-
-                <hr 
-                  style={{ 
-                    border: 'none', 
-                    borderTop: '1px solid rgba(255, 255, 255, 0.1)', 
-                    margin: '40px 0' 
-                  }} 
-                />
+                <hr style={{ 
+                  border: 'none', 
+                  borderTop: '1px solid #E5E7EB', 
+                  margin: '40px 0' 
+                }} />
 
                 <p style={{ 
                   fontSize: '14px', 
-                  color: 'rgba(255, 255, 255, 0.6)', 
+                  color: '#6B7280', 
                   fontStyle: 'italic',
                   textAlign: 'center'
                 }}>
-                  <strong>By using Peak Automation Group's Service, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. These Terms are entered into in Alpharetta, GA, and you consent to the exclusive jurisdiction of Georgia courts for any disputes arising from these Terms or your use of the Service.</strong>
+                  <strong>By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong>
                 </p>
               </div>
-            </div>
+          </motion.div>
           </div>
         </div>
       </section>
