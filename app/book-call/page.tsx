@@ -6,7 +6,6 @@ import { Calendar, Clock, Phone, Mail, User, Building, ArrowLeft, AlertCircle, C
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { supabase, BookingSubmission } from '@/lib/supabase'
-import Head from 'next/head'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { parseISO, isValid } from 'date-fns'
@@ -129,25 +128,6 @@ export default function BookCall() {
 
   return (
     <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
-      <Head>
-        <title>Book Your Free Strategy Call - Peak Automation Group</title>
-        <meta name="description" content="Get a free 30-minute strategy session to identify your biggest automation opportunities and create a custom roadmap for your gym." />
-        <meta property="og:title" content="Book Your Free Strategy Call - Peak Automation Group" />
-        <meta property="og:description" content="Get a free 30-minute strategy session to identify your biggest automation opportunities and create a custom roadmap for your gym." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://peakautomationgroup.com/book-call" />
-        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <meta name="twitter:title" content="Book Your Free Strategy Call - Peak Automation Group" />
-        <meta name="twitter:description" content="Get a free 30-minute strategy session to identify your biggest automation opportunities and create a custom roadmap for your gym." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(bookCallStructuredData)
-          }}
-        />
-      </Head>
       <Navigation />
       
       {/* Hero Section */}
@@ -763,17 +743,7 @@ export default function BookCall() {
                         onChange={date => handleInputChange('preferredDate', date && isValid(date) ? date.toISOString().split('T')[0] : '')}
                         minDate={new Date()}
                         dateFormat="yyyy-MM-dd"
-                        style={{
-                          width: '100%',
-                          padding: '12px 16px',
-                          background: '#FFFFFF',
-                          border: errors.preferredDate ? '1px solid #EF4444' : '1px solid #E5E7EB',
-                          borderRadius: '8px',
-                          color: '#1A1A1A',
-                          fontSize: '16px',
-                          outline: 'none',
-                          transition: 'border-color 0.2s ease'
-                        }}
+                        className={`w-full p-3 bg-white ${errors.preferredDate ? 'border border-red-500' : 'border border-gray-200'} rounded-lg text-[16px] text-[#1A1A1A] outline-none`}
                         placeholderText="Select a date"
                         required
                         autoComplete="off"

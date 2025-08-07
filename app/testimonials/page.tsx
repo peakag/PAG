@@ -3,7 +3,6 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
-import Head from 'next/head'
 import { ArrowLeft, Quote, ArrowRight } from 'lucide-react'
 
 const testimonials = [
@@ -95,25 +94,6 @@ export default function Testimonials() {
 
   return (
     <main style={{ background: '#F8F9FA', minHeight: '100vh' }}>
-      <Head>
-        <title>Customer Success Stories - Peak Automation Group</title>
-        <meta name="description" content="See how gym owners are transforming their fitness businesses with Peak Automation Group's intelligent automation systems. Real testimonials and results." />
-        <meta property="og:title" content="Customer Success Stories - Peak Automation Group" />
-        <meta property="og:description" content="See how gym owners are transforming their fitness businesses with Peak Automation Group's intelligent automation systems. Real testimonials and results." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://peakautomationgroup.com/testimonials" />
-        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <meta name="twitter:title" content="Customer Success Stories - Peak Automation Group" />
-        <meta name="twitter:description" content="See how gym owners are transforming their fitness businesses with Peak Automation Group's intelligent automation systems. Real testimonials and results." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(testimonialsStructuredData)
-          }}
-        />
-      </Head>
       <Navigation />
       
       {/* Hero Section */}

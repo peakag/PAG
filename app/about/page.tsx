@@ -4,7 +4,6 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
-import Head from 'next/head'
 import Image from 'next/image'
 
 export default function AboutUs() {
@@ -48,25 +47,6 @@ export default function AboutUs() {
 
   return (
     <main className="min-h-screen" style={{ background: '#FFFFFF' }}>
-      <Head>
-        <title>About Us - Peak Automation Group</title>
-        <meta name="description" content="We're on a mission to give gym owners their lives back through intelligent automation systems. Meet the team behind Peak Automation Group." />
-        <meta property="og:title" content="About Us - Peak Automation Group" />
-        <meta property="og:description" content="We're on a mission to give gym owners their lives back through intelligent automation systems. Meet the team behind Peak Automation Group." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://peakautomationgroup.com/about" />
-        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <meta name="twitter:title" content="About Us - Peak Automation Group" />
-        <meta name="twitter:description" content="We're on a mission to give gym owners their lives back through intelligent automation systems. Meet the team behind Peak Automation Group." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(aboutStructuredData)
-          }}
-        />
-      </Head>
       <Navigation />
       
       {/* Hero Section */}

@@ -1,6 +1,4 @@
 'use client'
-
-import Head from 'next/head'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import { motion } from 'framer-motion'
@@ -8,19 +6,6 @@ import { motion } from 'framer-motion'
 export default function Blog() {
   return (
     <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
-      <Head>
-        <title>Blog - Peak Automation Group</title>
-        <meta name="description" content="Insights, tips, and strategies for gym automation, member retention, and business growth from Peak Automation Group." />
-        <meta property="og:title" content="Blog - Peak Automation Group" />
-        <meta property="og:description" content="Insights, tips, and strategies for gym automation, member retention, and business growth from Peak Automation Group." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://peakautomationgroup.com/blog" />
-        <meta property="og:image" content="https://peakautomationgroup.com/og-image.jpg" />
-        <meta name="twitter:title" content="Blog - Peak Automation Group" />
-        <meta name="twitter:description" content="Insights, tips, and strategies for gym automation, member retention, and business growth from Peak Automation Group." />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://peakautomationgroup.com/og-image.jpg" />
-      </Head>
       
       <Navigation />
       
