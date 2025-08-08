@@ -548,10 +548,10 @@ export default function ProblemSolution() {
         @media (max-width: 768px) {
           @keyframes orbit {
             from {
-              transform: translate(-50%, -50%) rotate(0deg) translateX(60px) rotate(0deg);
+              transform: translate(-50%, -50%) rotate(0deg) translateX(85px) rotate(0deg);
             }
             to {
-              transform: translate(-50%, -50%) rotate(360deg) translateX(60px) rotate(-360deg);
+              transform: translate(-50%, -50%) rotate(360deg) translateX(85px) rotate(-360deg);
             }
           }
           @keyframes orbit-reverse {
