@@ -25,6 +25,14 @@ const blogPosts: BlogPost[] = [
     readTime: '8 min read',
     author: 'Peak Automation Team',
     featured: true
+  },
+  {
+    slug: 'member-behavior-patterns',
+    title: 'Why 50% of Gym Members Quit (And the 3 Patterns That Predict It)',
+    summary: 'Our analysis of 50,000+ member behaviors revealed three critical patterns that predict gym cancellations with 89% accuracy. Discover the Anchor Day theory and other warning signs.',
+    date: 'December 12, 2024',
+    readTime: '6 min read',
+    author: 'Peak Automation Team'
   }
 ]
 

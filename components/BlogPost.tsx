@@ -376,3 +376,165 @@ export const DataBox = ({ title, children }: { title: string; children: React.Re
     </div>
   </div>
 )
+
+export const PatternBox = ({ number, title, children }: { number: string; title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#F7F7F7',
+    border: '1px solid #E5E7EB',
+    borderRadius: '12px',
+    padding: '32px',
+    margin: '32px 0',
+    borderLeft: '6px solid #FF6B35'
+  }}>
+    <h4 style={{
+      color: '#D73502',
+      fontSize: '22px',
+      fontWeight: 700,
+      marginBottom: '16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px'
+    }}>
+      <div style={{
+        background: '#FF6B35',
+        color: '#FFFFFF',
+        width: '32px',
+        height: '32px',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '18px',
+        fontWeight: 700
+      }}>
+        {number}
+      </div>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const MemberStory = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#FFF8E1',
+    borderLeft: '4px solid #FFB300',
+    padding: '24px',
+    margin: '32px 0',
+    borderRadius: '0 8px 8px 0',
+    position: 'relative'
+  }}>
+    <div style={{
+      fontSize: '24px',
+      position: 'absolute',
+      top: '24px',
+      right: '24px'
+    }}>
+      👤
+    </div>
+    <h4 style={{
+      color: '#E65100',
+      fontSize: '18px',
+      fontWeight: 600,
+      marginBottom: '16px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7', paddingRight: '40px' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const InterventionBox = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#F0FDF4',
+    borderLeft: '4px solid #10B981',
+    padding: '24px',
+    margin: '32px 0',
+    borderRadius: '0 8px 8px 0'
+  }}>
+    <h4 style={{
+      color: '#059669',
+      fontSize: '18px',
+      fontWeight: 600,
+      marginBottom: '12px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const Timeline = ({ children }: { children: React.ReactNode }) => (
+  <div style={{
+    position: 'relative',
+    paddingLeft: '32px',
+    margin: '32px 0'
+  }}>
+    <div style={{
+      position: 'absolute',
+      left: '8px',
+      top: '0',
+      bottom: '0',
+      width: '2px',
+      background: '#3B82F6'
+    }} />
+    {children}
+  </div>
+)
+
+export const TimelineItem = ({ day, children }: { day: string; children: React.ReactNode }) => (
+  <div style={{
+    position: 'relative',
+    marginBottom: '32px',
+    paddingLeft: '32px'
+  }}>
+    <div style={{
+      position: 'absolute',
+      left: '-8px',
+      top: '8px',
+      width: '12px',
+      height: '12px',
+      borderRadius: '50%',
+      background: '#3B82F6'
+    }} />
+    <div style={{
+      fontWeight: 600,
+      color: '#000000',
+      marginBottom: '8px',
+      fontSize: '16px'
+    }}>
+      {day}
+    </div>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const WarningBox = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#FEF2F2',
+    borderLeft: '4px solid #EF4444',
+    padding: '24px',
+    margin: '32px 0',
+    borderRadius: '0 8px 8px 0'
+  }}>
+    <h4 style={{
+      color: '#DC2626',
+      fontSize: '18px',
+      fontWeight: 600,
+      marginBottom: '12px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
