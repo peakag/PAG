@@ -1,10 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Calendar, Clock, ArrowRight, ArrowLeft } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, ArrowLeft, CheckCircle, AlertCircle } from 'lucide-react'
+import { supabase } from '../../lib/supabase'
 
 interface BlogPost {
   slug: string
@@ -45,6 +47,71 @@ const blogPosts: BlogPost[] = [
 ]
 
 export default function Blog() {
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitMessage, setSubmitMessage] = useState('')
+  
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email.trim()) {
+      setSubmitStatus('error')
+      setSubmitMessage('Please enter a valid email address')
+      return
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      setSubmitStatus('error')
+      setSubmitMessage('Please enter a valid email address')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setSubmitMessage('')
+
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([
+          {
+            email: email.trim().toLowerCase(),
+            subscribed_at: new Date().toISOString(),
+            source: 'blog'
+          }
+        ])
+
+      if (error) {
+        // Handle duplicate email error gracefully
+        if (error.code === '23505') {
+          setSubmitStatus('success')
+          setSubmitMessage('You are already subscribed to our newsletter!')
+        } else {
+          throw error
+        }
+      } else {
+        setSubmitStatus('success')
+        setSubmitMessage('Successfully subscribed! Thank you for joining our newsletter.')
+      }
+      
+      setEmail('')
+    } catch (error) {
+      console.error('Newsletter subscription error:', error)
+      setSubmitStatus('error')
+      setSubmitMessage('Failed to subscribe. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+        setSubmitMessage('')
+      }, 5000)
+    }
+  }
+
   return (
     <main style={{ 
       background: '#FFFFFF', 
@@ -243,7 +310,7 @@ export default function Blog() {
             ))}
           </div>
           
-          {/* Coming Soon Section */}
+          {/* Newsletter Signup Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,45 +329,121 @@ export default function Blog() {
               color: '#000000',
               marginBottom: '16px'
             }}>
-              More Insights Coming Soon
+              Stay Ahead with Weekly Insights
             </h3>
             <p style={{
               fontSize: '16px',
               color: '#6B7280',
               lineHeight: '1.6',
               maxWidth: '500px',
-              margin: '0 auto'
+              margin: '0 auto 32px auto'
             }}>
-              We're continuously analyzing gym industry data and automation strategies. Subscribe to our newsletter to get the latest insights delivered to your inbox.
+              Get the latest gym automation trends, industry insights, and proven strategies delivered to your inbox every week.
             </p>
-            <Link
-              href="/contact"
+            
+            {/* Email Signup Form */}
+            <motion.form
+              onSubmit={handleNewsletterSubmit}
               style={{
-                display: 'inline-flex',
+                display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                gap: '8px',
-                background: '#3B82F6',
-                color: '#FFFFFF',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontSize: '16px',
-                fontWeight: 600,
-                marginTop: '24px',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#2563EB'
-                e.currentTarget.style.transform = 'translateY(-2px)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#3B82F6'
-                e.currentTarget.style.transform = 'translateY(0)'
+                gap: '16px',
+                maxWidth: '400px',
+                margin: '0 auto'
               }}
             >
-              Stay Updated
-              <ArrowRight size={16} />
-            </Link>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                required
+                disabled={isSubmitting}
+                style={{
+                  width: '100%',
+                  padding: '14px 18px',
+                  borderRadius: '8px',
+                  border: submitStatus === 'error' ? '2px solid #EF4444' : '2px solid #E5E7EB',
+                  fontSize: '16px',
+                  outline: 'none',
+                  background: '#FFFFFF',
+                  color: '#000000',
+                  opacity: isSubmitting ? 0.7 : 1,
+                  transition: 'all 0.2s ease',
+                  fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+                }}
+                onFocus={(e) => {
+                  if (submitStatus !== 'error') {
+                    e.target.style.border = '2px solid #3B82F6'
+                  }
+                }}
+                onBlur={(e) => {
+                  if (submitStatus !== 'error') {
+                    e.target.style.border = '2px solid #E5E7EB'
+                  }
+                }}
+              />
+              
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                style={{
+                  width: '100%',
+                  background: isSubmitting ? '#9CA3AF' : '#3B82F6',
+                  color: '#FFFFFF',
+                  padding: '14px 24px',
+                  borderRadius: '8px',
+                  border: 'none',
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  transition: 'all 0.2s ease',
+                  fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+                }}
+                whileHover={!isSubmitting ? {
+                  backgroundColor: '#2563EB',
+                  transform: 'translateY(-2px)'
+                } : {}}
+                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+              >
+                {isSubmitting ? 'Subscribing...' : 'Stay Updated'}
+                {!isSubmitting && <ArrowRight size={16} />}
+              </motion.button>
+              
+              {/* Status Message */}
+              {submitMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '12px 16px',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    background: submitStatus === 'success' ? '#F0FDF4' : '#FEF2F2',
+                    color: submitStatus === 'success' ? '#059669' : '#DC2626',
+                    border: submitStatus === 'success' ? '1px solid #D1FAE5' : '1px solid #FECACA',
+                    width: '100%',
+                    textAlign: 'center'
+                  }}
+                >
+                  {submitStatus === 'success' ? (
+                    <CheckCircle size={16} />
+                  ) : (
+                    <AlertCircle size={16} />
+                  )}
+                  {submitMessage}
+                </motion.div>
+              )}
+            </motion.form>
           </motion.div>
         </div>
       </section>
