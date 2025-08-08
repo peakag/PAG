@@ -707,17 +707,24 @@ export default function Hero() {
               animate={{ opacity: 1, ...(isMobile ? {} : { y: 0 }) }}
               transition={{ duration: prefersReducedMotion ? 0.1 : (isMobile ? 0.3 : 0.6), delay: 0.7 }}
               className="text-center"
-              style={{ marginTop: isMobile ? '40px' : '100px', marginBottom: '24px' }}
+              style={{ 
+                marginTop: isMobile ? '40px' : '100px', 
+                marginBottom: '24px',
+                padding: isMobile ? '0 16px' : '0'
+              }}
             >
               <p
                 style={{
-                  fontSize: '14px',
+                  fontSize: isMobile ? '13px' : '14px',
                   color: '#6B7280',
                   margin: 0,
-                  fontWeight: 400
+                  fontWeight: 400,
+                  lineHeight: isMobile ? '1.4' : '1.5',
+                  maxWidth: isMobile ? '100%' : 'none',
+                  wordBreak: isMobile ? 'break-word' : 'normal'
                 }}
               >
-                Trusted by fitness studios and multi-location gyms nationwide
+                {isMobile ? 'Trusted by fitness studios & gyms nationwide' : 'Trusted by fitness studios and multi-location gyms nationwide'}
               </p>
             </motion.div>
 
