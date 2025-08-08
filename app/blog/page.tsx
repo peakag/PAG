@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Calendar, Clock, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, ArrowLeft } from 'lucide-react'
 
 interface BlogPost {
   slug: string
@@ -62,6 +62,24 @@ export default function Blog() {
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
+          {/* Back to Home Button */}
+          <motion.a
+            href="/"
+            style={{ 
+              textDecoration: 'none', 
+              display: 'inline-block',
+              color: '#3B82F6',
+              fontWeight: 500,
+              marginBottom: '32px'
+            }}
+            whileHover={{ x: -4 }}
+            transition={{ duration: 0.2 }}
+            className="inline-flex items-center gap-2 transition-colors duration-200"
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </motion.a>
+          
           <div style={{ textAlign: 'center' }}>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
