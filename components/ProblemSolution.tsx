@@ -325,7 +325,7 @@ export default function ProblemSolution() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="relative h-64 w-64 mx-auto mb-8"
+                className="relative h-64 w-64 sm:h-72 sm:w-72 mx-auto mb-8"
               >
                 {/* Central Hub */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
@@ -561,6 +561,133 @@ export default function ProblemSolution() {
             to {
               transform: translate(-50%, -50%) rotate(-360deg) translateX(50px) rotate(360deg);
             }
+          }
+          /* Force animations on mobile */
+          .orbit-animation-1 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: 0s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit 20s linear infinite !important;
+            -webkit-animation-delay: 0s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          .orbit-animation-2 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -5s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit 20s linear infinite !important;
+            -webkit-animation-delay: -5s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          .orbit-animation-3 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -10s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit 20s linear infinite !important;
+            -webkit-animation-delay: -10s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          .orbit-animation-4 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -15s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit 20s linear infinite !important;
+            -webkit-animation-delay: -15s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          .orbit-animation-reverse-1 {
+            animation: orbit-reverse 15s linear infinite !important;
+            animation-delay: 0s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit-reverse 15s linear infinite !important;
+            -webkit-animation-delay: 0s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          .orbit-animation-reverse-2 {
+            animation: orbit-reverse 15s linear infinite !important;
+            animation-delay: -7.5s !important;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            -webkit-animation: orbit-reverse 15s linear infinite !important;
+            -webkit-animation-delay: -7.5s !important;
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+          /* Ensure pulse animations work on mobile */
+          .animate-ping {
+            animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+            -webkit-animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+          }
+          
+          /* Mobile-specific optimizations for better visibility */
+          .relative {
+            overflow: visible !important;
+          }
+          
+          /* Ensure orbit containers are properly sized on mobile */
+          .absolute.top-1\\/2.left-1\\/2.w-full.h-full {
+            min-height: 256px !important;
+            min-width: 256px !important;
+          }
+          
+          /* Enhanced mobile performance */
+          .orbit-animation-1 > div,
+          .orbit-animation-2 > div,
+          .orbit-animation-3 > div,
+          .orbit-animation-4 > div,
+          .orbit-animation-reverse-1 > div,
+          .orbit-animation-reverse-2 > div {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
+        }
+        
+        /* Override any motion-reduce preferences on mobile for these specific animations */
+        @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+          .orbit-animation-1,
+          .orbit-animation-2,
+          .orbit-animation-3,
+          .orbit-animation-4,
+          .orbit-animation-reverse-1,
+          .orbit-animation-reverse-2 {
+            animation: none !important;
+          }
+          
+          .orbit-animation-1 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: 0s !important;
+          }
+          .orbit-animation-2 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -5s !important;
+          }
+          .orbit-animation-3 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -10s !important;
+          }
+          .orbit-animation-4 {
+            animation: orbit 20s linear infinite !important;
+            animation-delay: -15s !important;
+          }
+          .orbit-animation-reverse-1 {
+            animation: orbit-reverse 15s linear infinite !important;
+            animation-delay: 0s !important;
+          }
+          .orbit-animation-reverse-2 {
+            animation: orbit-reverse 15s linear infinite !important;
+            animation-delay: -7.5s !important;
           }
         }
         .particle {
