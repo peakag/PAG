@@ -33,6 +33,14 @@ const blogPosts: BlogPost[] = [
     date: 'December 12, 2024',
     readTime: '6 min read',
     author: 'Peak Automation Team'
+  },
+  {
+    slug: 'automation-competitive-advantage',
+    title: 'The Gym Automation Revolution: Why Early Adopters Will Dominate 2025',
+    summary: 'The fitness industry is splitting into two groups: gyms using automation to thrive, and manual operators struggling to survive. The window for competitive advantage is closing fast.',
+    date: 'December 10, 2024',
+    readTime: '10 min read',
+    author: 'Peak Automation Team'
   }
 ]
 

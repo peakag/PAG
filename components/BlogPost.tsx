@@ -538,3 +538,268 @@ export const WarningBox = ({ title, children }: { title: string; children: React
     </div>
   </div>
 )
+
+export const SplitComparison = ({ children }: { children: React.ReactNode }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '32px',
+    margin: '48px 0'
+  }}>
+    {children}
+  </div>
+)
+
+export const ManualGym = ({ children }: { children: React.ReactNode }) => (
+  <div style={{
+    background: '#FEF2F2',
+    border: '2px solid #EF4444',
+    borderRadius: '12px',
+    padding: '32px'
+  }}>
+    <h3 style={{
+      fontSize: '20px',
+      fontWeight: 700,
+      marginBottom: '16px',
+      textAlign: 'center',
+      color: '#DC2626'
+    }}>
+      🗂️ Manual Gyms: The Struggling Majority
+    </h3>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const AutomatedGym = ({ children }: { children: React.ReactNode }) => (
+  <div style={{
+    background: '#F0FDF4',
+    border: '2px solid #10B981',
+    borderRadius: '12px',
+    padding: '32px'
+  }}>
+    <h3 style={{
+      fontSize: '20px',
+      fontWeight: 700,
+      marginBottom: '16px',
+      textAlign: 'center',
+      color: '#059669'
+    }}>
+      🤖 Automated Gyms: The Thriving Minority
+    </h3>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const AutomationBox = ({ icon, title, children }: { icon: string; title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#F0F8FF',
+    borderLeft: '6px solid #3B82F6',
+    borderRadius: '0 8px 8px 0',
+    padding: '32px',
+    margin: '32px 0'
+  }}>
+    <h4 style={{
+      color: '#1565C0',
+      fontSize: '20px',
+      fontWeight: 700,
+      marginBottom: '16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px'
+    }}>
+      <div style={{
+        background: '#3B82F6',
+        color: '#FFFFFF',
+        width: '32px',
+        height: '32px',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '16px'
+      }}>
+        {icon}
+      </div>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const CompetitiveAdvantage = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#FFF8E1',
+    borderLeft: '6px solid #F59E0B',
+    borderRadius: '0 8px 8px 0',
+    padding: '32px',
+    margin: '32px 0'
+  }}>
+    <h4 style={{
+      color: '#D97706',
+      fontSize: '20px',
+      fontWeight: 700,
+      marginBottom: '16px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const CaseStudyBox = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: 'linear-gradient(135deg, #F0FDF4 0%, #F7FEF9 100%)',
+    border: '1px solid #10B981',
+    borderRadius: '12px',
+    padding: '32px',
+    margin: '32px 0'
+  }}>
+    <h4 style={{
+      color: '#059669',
+      fontSize: '20px',
+      fontWeight: 700,
+      marginBottom: '16px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const MetricsGrid = ({ children }: { children: React.ReactNode }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+    gap: '24px',
+    margin: '32px 0'
+  }}>
+    {children}
+  </div>
+)
+
+export const MetricCard = ({ number, label }: { number: string; label: string }) => (
+  <div style={{
+    background: '#FFFFFF',
+    borderRadius: '8px',
+    padding: '24px',
+    textAlign: 'center',
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = 'translateY(-2px)'
+    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)'
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'translateY(0)'
+    e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)'
+  }}>
+    <div style={{
+      fontSize: '32px',
+      fontWeight: 700,
+      color: '#3B82F6',
+      marginBottom: '8px',
+      lineHeight: '1'
+    }}>
+      {number}
+    </div>
+    <div style={{
+      fontSize: '14px',
+      color: '#6B7280',
+      fontWeight: 500
+    }}>
+      {label}
+    </div>
+  </div>
+)
+
+export const UrgencyBox = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: 'linear-gradient(135deg, #FEF2F2 0%, #FCE4EC 100%)',
+    border: '2px solid #EF4444',
+    borderRadius: '12px',
+    padding: '32px',
+    margin: '32px 0',
+    textAlign: 'center'
+  }}>
+    <h4 style={{
+      color: '#DC2626',
+      fontSize: '22px',
+      fontWeight: 700,
+      marginBottom: '16px'
+    }}>
+      {title}
+    </h4>
+    <div style={{ color: '#374151', lineHeight: '1.7' }}>
+      {children}
+    </div>
+  </div>
+)
+
+export const Timeline2025 = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  <div style={{
+    background: '#F7F7F7',
+    borderRadius: '12px',
+    padding: '32px',
+    margin: '48px 0'
+  }}>
+    <h3 style={{
+      textAlign: 'center',
+      marginBottom: '32px',
+      color: '#000000',
+      fontSize: '24px',
+      fontWeight: 700
+    }}>
+      {title}
+    </h3>
+    {children}
+  </div>
+)
+
+export const TimelineQuarterItem = ({ quarter, title, children }: { quarter: string; title: string; children: React.ReactNode }) => (
+  <div style={{
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '16px',
+    marginBottom: '32px',
+    padding: '16px',
+    background: '#FFFFFF',
+    borderRadius: '8px',
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
+  }}>
+    <div style={{
+      background: '#000000',
+      color: '#FFFFFF',
+      padding: '8px 16px',
+      borderRadius: '20px',
+      fontWeight: 700,
+      fontSize: '14px',
+      whiteSpace: 'nowrap'
+    }}>
+      {quarter}
+    </div>
+    <div style={{ flex: 1 }}>
+      <h5 style={{
+        color: '#000000',
+        fontWeight: 600,
+        marginBottom: '8px',
+        fontSize: '16px'
+      }}>
+        {title}
+      </h5>
+      <div style={{ color: '#374151', lineHeight: '1.7' }}>
+        {children}
+      </div>
+    </div>
+  </div>
+)
