@@ -20,7 +20,7 @@ export default function GymChurnCrisis() {
       
       <BlogPost
         title="The $4.2 Billion Problem Hiding in Plain Sight"
-        date="December 15, 2024"
+        date="August 1, 2025"
         readTime="8 min read"
         author="Peak Automation Team"
         summary="After analyzing financial data from 200+ gyms across 15 states, we discovered something shocking: 73% of gym owners can tell you exactly how many members joined last month, but only 12% can tell you how many will cancel next month. Here's what the numbers reveal about the fitness industry's most expensive blind spot."

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Why 50% of Gym Members Quit (And the 3 Patterns That Predict It)',
     description: 'The hidden behavioral patterns that predict gym member cancellations with 89% accuracy',
     type: 'article',
-    publishedTime: '2024-12-12T00:00:00.000Z',
+    publishedTime: '2025-08-04T00:00:00.000Z',
     authors: ['Peak Automation Team'],
     images: [
       {
@@ -54,8 +54,8 @@ export default function MemberBehaviorPatternsLayout({
         url: 'https://peakautomationgroup.com/logo.png'
       }
     },
-    datePublished: '2024-12-12T00:00:00.000Z',
-    dateModified: '2024-12-12T00:00:00.000Z',
+    datePublished: '2025-08-04T00:00:00.000Z',
+    dateModified: '2025-08-04T00:00:00.000Z',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://peakautomationgroup.com/blog/member-behavior-patterns'

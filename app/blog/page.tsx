@@ -21,7 +21,7 @@ const blogPosts: BlogPost[] = [
     slug: 'gym-churn-crisis',
     title: 'The $4.2 Billion Problem Hiding in Plain Sight',
     summary: 'After analyzing financial data from 200+ gyms across 15 states, we discovered something shocking: 73% of gym owners can predict new members, but only 12% can predict cancellations.',
-    date: 'December 15, 2024',
+    date: 'August 1, 2025',
     readTime: '8 min read',
     author: 'Peak Automation Team',
     featured: true
@@ -30,7 +30,7 @@ const blogPosts: BlogPost[] = [
     slug: 'member-behavior-patterns',
     title: 'Why 50% of Gym Members Quit (And the 3 Patterns That Predict It)',
     summary: 'Our analysis of 50,000+ member behaviors revealed three critical patterns that predict gym cancellations with 89% accuracy. Discover the Anchor Day theory and other warning signs.',
-    date: 'December 12, 2024',
+    date: 'August 4, 2025',
     readTime: '6 min read',
     author: 'Peak Automation Team'
   },
@@ -38,7 +38,7 @@ const blogPosts: BlogPost[] = [
     slug: 'automation-competitive-advantage',
     title: 'The Gym Automation Revolution: Why Early Adopters Will Dominate 2025',
     summary: 'The fitness industry is splitting into two groups: gyms using automation to thrive, and manual operators struggling to survive. The window for competitive advantage is closing fast.',
-    date: 'December 10, 2024',
+    date: 'August 8, 2025',
     readTime: '10 min read',
     author: 'Peak Automation Team'
   }

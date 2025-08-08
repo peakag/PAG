@@ -26,7 +26,7 @@ export default function AutomationCompetitiveAdvantage() {
       
       <BlogPost
         title="The Gym Automation Revolution: Why Early Adopters Will Dominate 2025"
-        date="December 10, 2024"
+        date="August 8, 2025"
         readTime="10 min read"
         author="Peak Automation Team"
         summary="The fitness industry is rapidly splitting into two distinct groups: automated gyms that are thriving with predictable growth, and manual operators struggling to survive. The window for competitive advantage through automation is closing fast—and the gap between winners and losers is growing exponentially."

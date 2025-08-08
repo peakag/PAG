@@ -22,7 +22,7 @@ export default function MemberBehaviorPatterns() {
       
       <BlogPost
         title="Why 50% of Gym Members Quit (And the 3 Patterns That Predict It)"
-        date="December 12, 2024"
+        date="August 4, 2025"
         readTime="6 min read"
         author="Peak Automation Team"
         summary="After analyzing behavioral data from 50,000+ gym members across 18 months, we discovered three critical patterns that predict cancellations with 89% accuracy. The 'Anchor Day' theory alone could transform how you think about member retention."

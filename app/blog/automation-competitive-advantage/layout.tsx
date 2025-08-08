@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'The Gym Automation Revolution: Why Early Adopters Will Dominate 2025',
     description: 'The fitness industry is splitting into automated winners and manual losers. The window for competitive advantage is closing.',
     type: 'article',
-    publishedTime: '2024-12-10T00:00:00.000Z',
+    publishedTime: '2025-08-08T00:00:00.000Z',
     authors: ['Peak Automation Team'],
     images: [
       {
@@ -54,8 +54,8 @@ export default function AutomationCompetitiveAdvantageLayout({
         url: 'https://peakautomationgroup.com/logo.png'
       }
     },
-    datePublished: '2024-12-10T00:00:00.000Z',
-    dateModified: '2024-12-10T00:00:00.000Z',
+    datePublished: '2025-08-08T00:00:00.000Z',
+    dateModified: '2025-08-08T00:00:00.000Z',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://peakautomationgroup.com/blog/automation-competitive-advantage'

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'The $4.2 Billion Problem Hiding in Plain Sight',
     description: 'Why most gym owners focus on the wrong metrics and lose $200K+ annually because of it',
     type: 'article',
-    publishedTime: '2024-12-15T00:00:00.000Z',
+    publishedTime: '2025-08-01T00:00:00.000Z',
     authors: ['Peak Automation Team'],
     images: [
       {
@@ -54,8 +54,8 @@ export default function GymChurnCrisisLayout({
         url: 'https://peakautomationgroup.com/logo.png'
       }
     },
-    datePublished: '2024-12-15T00:00:00.000Z',
-    dateModified: '2024-12-15T00:00:00.000Z',
+    datePublished: '2025-08-01T00:00:00.000Z',
+    dateModified: '2025-08-01T00:00:00.000Z',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://peakautomationgroup.com/blog/gym-churn-crisis'
