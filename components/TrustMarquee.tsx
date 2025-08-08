@@ -70,17 +70,48 @@ export default function TrustMarquee() {
         /* Ensure animation works on mobile */
         @media (max-width: 768px) {
           .animate-marquee {
-            animation: marquee 80s linear infinite;
+            animation: marquee 80s linear infinite !important;
             transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
             perspective: 1000px;
-            -webkit-animation: marquee 80s linear infinite;
+            -webkit-animation: marquee 80s linear infinite !important;
+            will-change: transform;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+          }
+          
+          @keyframes marquee {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+            100% {
+              transform: translate3d(-50%, 0, 0);
+            }
+          }
+          
+          @-webkit-keyframes marquee {
+            0% {
+              -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+            }
+            100% {
+              -webkit-transform: translate3d(-50%, 0, 0);
+              transform: translate3d(-50%, 0, 0);
+            }
           }
         }
         
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee {
             animation: none;
+          }
+        }
+        
+        /* Override reduced motion on mobile to ensure carousel works */
+        @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+          .animate-marquee {
+            animation: marquee 80s linear infinite !important;
+            -webkit-animation: marquee 80s linear infinite !important;
           }
         }
         .fade-left {
