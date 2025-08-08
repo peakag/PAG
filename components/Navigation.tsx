@@ -52,7 +52,8 @@ export default function Navigation() {
   const navItems = [
     { name: 'Our Systems', href: '/solutions', isAnchor: false },
     { name: 'Results', href: '/testimonials', isAnchor: false },
-    { name: 'About', href: '/about', isAnchor: false }
+    { name: 'About', href: '/about', isAnchor: false },
+    { name: 'Blog', href: '/blog', isAnchor: false }
   ]
 
   const handleNavClick = (item: any, e: React.MouseEvent) => {
