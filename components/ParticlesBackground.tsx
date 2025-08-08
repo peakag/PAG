@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, useRef } from "react"
 import Particles from "react-particles"
 import { loadSlim } from "tsparticles-slim"
 import type { Container, Engine } from "tsparticles-engine"
@@ -10,35 +10,65 @@ interface ParticlesBackgroundProps {
 }
 
 export default function ParticlesBackground({ className = "" }: ParticlesBackgroundProps) {
-  const [isReady, setIsReady] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const initAttempts = useRef(0)
+  const maxAttempts = 3
 
-  // Initialize particles engine
+  // Initialize particles engine with retry logic
   const particlesInit = useCallback(async (engine: Engine) => {
+    initAttempts.current += 1
+    
     try {
       await loadSlim(engine)
-      setIsReady(true)
+      setIsInitialized(true)
+      console.log('Particles initialized successfully')
     } catch (error) {
-      console.error('Failed to initialize particles:', error)
-      // Retry initialization
-      setTimeout(() => {
-        loadSlim(engine).then(() => setIsReady(true))
-      }, 1000)
+      console.error(`Failed to initialize particles (attempt ${initAttempts.current}):`, error)
+      
+      // Retry initialization up to maxAttempts
+      if (initAttempts.current < maxAttempts) {
+        setTimeout(async () => {
+          try {
+            await loadSlim(engine)
+            setIsInitialized(true)
+            console.log('Particles initialized on retry')
+          } catch (retryError) {
+            console.error('Retry failed:', retryError)
+          }
+        }, 500 * initAttempts.current) // Exponential backoff
+      }
     }
   }, [])
 
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    // Particles loaded callback
+    if (container) {
+      setIsLoaded(true)
+      console.log('Particles loaded successfully')
+    }
   }, [])
 
-  // Ensure component is ready
+  // Force re-initialization on mount
   useEffect(() => {
-    setIsReady(false)
-  }, [])
+    initAttempts.current = 0
+    setIsInitialized(false)
+    setIsLoaded(false)
+
+    // Fallback: Force particles to show after 3 seconds if they haven't loaded
+    const fallbackTimer = setTimeout(() => {
+      if (!isLoaded) {
+        console.log('Particles fallback: forcing visibility')
+        setIsLoaded(true)
+      }
+    }, 3000)
+
+    return () => clearTimeout(fallbackTimer)
+  }, [isLoaded])
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
       <Particles
-        key={`particles-${Date.now()}`}
+        id="tsparticles-hero"
         className={className}
         style={{
           position: 'absolute',
@@ -47,11 +77,14 @@ export default function ParticlesBackground({ className = "" }: ParticlesBackgro
           width: '100%',
           height: '100%',
           pointerEvents: 'auto',
-          zIndex: 0
+          zIndex: 0,
+          opacity: isLoaded ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out'
         }}
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
+        autoPlay: true,
         background: {
           color: {
             value: "transparent",
@@ -59,7 +92,10 @@ export default function ParticlesBackground({ className = "" }: ParticlesBackgro
         },
         fullScreen: {
           enable: false,
+          zIndex: 0,
         },
+        pauseOnBlur: false,
+        pauseOnOutsideViewport: false,
         fpsLimit: 120,
         interactivity: {
           events: {
