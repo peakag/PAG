@@ -179,7 +179,7 @@ export default function Navigation() {
                   }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Start Here
+                  Get Started
                 </motion.a>
               ) : (
                 <div className="relative inline-block">
@@ -355,7 +355,7 @@ export default function Navigation() {
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Start Here
+                    Get Started
                   </motion.a>
                 ) : (
                   <div className="relative w-full flex justify-end">
