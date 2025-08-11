@@ -580,14 +580,15 @@ export default function AboutUs() {
                   border: '3px solid #1840BA'
                 }}>
                   <Image
-                    src="/kevin-PAG.jpg"
+                    src="/kevin-headshot-v2.jpg"
                     alt="Kevin - Co-Founder of Peak Automation Group"
                     width={150}
                     height={150}
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover'
+                      objectFit: 'cover',
+                      objectPosition: 'center center'
                     }}
                     priority
                   />
