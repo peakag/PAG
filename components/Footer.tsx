@@ -20,7 +20,7 @@ const footerLinks = {
     { name: 'Testimonials', href: '/testimonials' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Book a Strategy Call', href: '/book-call' }
+    { name: 'Book a FREE Strategy Call', href: '/book-call' }
   ],
   company: [
     { name: 'About Us', href: '/about' },
