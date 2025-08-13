@@ -696,7 +696,7 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Book a Strategy Call
+                Book a FREE Strategy Call
                 <ArrowRight size={16} />
               </motion.a>
             </motion.div>
