@@ -111,53 +111,7 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section 
-        style={{ 
-          background: '#FFFFFF',
-          padding: '80px 0' 
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              style={{
-                fontSize: '36px',
-                color: '#1A1A1A',
-                fontWeight: 700,
-                marginBottom: '32px',
-                textAlign: 'center'
-              }}
-            >
-              From Gym Floors to Automation Experts
-            </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              style={{
-                fontSize: '18px',
-                lineHeight: '1.7',
-                color: '#4A5568'
-              }}
-            >
-              <p style={{ marginBottom: '24px' }}>
-                We've been in your shoes. After watching countless gym owners burn out from 70-hour weeks spent on admin tasks instead of coaching, we knew there had to be a better way. That's when we discovered the power of AI automation.
-              </p>
-              
-              <p>
-                Today, we're the bridge between cutting-edge automation technology and the fitness industry. We don't build software—we implement proven systems that actually work, configured specifically for how gyms operate.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
       {/* What We Do Section */}
       <section 
