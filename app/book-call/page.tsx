@@ -117,6 +117,16 @@ export default function BookCall() {
         throw new Error(error.message || 'Failed to submit booking request')
       }
 
+      // Track Meta Pixel Lead conversion
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: 'Strategy Call Booking',
+          content_category: 'Consultation',
+          value: 0,
+          currency: 'USD'
+        })
+      }
+
       setIsSubmitted(true)
     } catch (error) {
       console.error('Submission error:', error)

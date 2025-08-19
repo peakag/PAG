@@ -160,6 +160,17 @@ export default function Navigation() {
               {!user ? (
                 <motion.a 
                   href="/book-call"
+                  onClick={() => {
+                    // Track Meta Pixel CTA click
+                    if (typeof window !== 'undefined' && (window as any).fbq) {
+                      (window as any).fbq('track', 'InitiateCheckout', {
+                        content_name: 'Navigation CTA Click',
+                        content_category: 'Strategy Call',
+                        value: 0,
+                        currency: 'USD'
+                      })
+                    }
+                  }}
                   style={{ 
                     background: '#1840BA',
                     color: 'white',
@@ -335,6 +346,17 @@ export default function Navigation() {
                 {!user ? (
                   <motion.a 
                     href="/book-call"
+                    onClick={() => {
+                      // Track Meta Pixel CTA click
+                      if (typeof window !== 'undefined' && (window as any).fbq) {
+                        (window as any).fbq('track', 'InitiateCheckout', {
+                          content_name: 'Mobile Navigation CTA Click',
+                          content_category: 'Strategy Call',
+                          value: 0,
+                          currency: 'USD'
+                        })
+                      }
+                    }}
                     className="w-full block text-center"
                     style={{ 
                       background: '#1840BA',

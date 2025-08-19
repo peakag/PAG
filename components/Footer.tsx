@@ -79,6 +79,16 @@ export default function Footer() {
       } else {
         setSubmitStatus('success')
         setSubmitMessage('Successfully subscribed! Thank you for joining our newsletter.')
+        
+        // Track Meta Pixel Subscribe conversion for new subscriptions
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Subscribe', {
+            content_name: 'Newsletter Subscription',
+            content_category: 'Newsletter',
+            value: 0,
+            currency: 'USD'
+          })
+        }
       }
       
       setEmail('')

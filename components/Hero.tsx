@@ -674,6 +674,17 @@ export default function Hero() {
             >
               <motion.a
                 href="/book-call"
+                onClick={() => {
+                  // Track Meta Pixel CTA click
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'InitiateCheckout', {
+                      content_name: 'Hero CTA Click',
+                      content_category: 'Strategy Call',
+                      value: 0,
+                      currency: 'USD'
+                    })
+                  }
+                }}
                 style={{
                   background: '#1840BA',
                   color: 'white',
