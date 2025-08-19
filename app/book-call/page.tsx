@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Phone, Mail, User, Building, ArrowLeft, AlertCircle, CheckCircle, Search, TrendingUp, Map, Check, X, Star, Users, Shield } from 'lucide-react'
 import Navigation from '@/components/Navigation'
@@ -50,6 +50,13 @@ export default function BookCall() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState('')
+
+  // Track Meta Pixel Lead event when confirmation page is shown
+  useEffect(() => {
+    if (isSubmitted && typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Lead')
+    }
+  }, [isSubmitted])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
